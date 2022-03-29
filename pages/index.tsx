@@ -1,7 +1,11 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { addLineItem } from "../redux/features/cartSlice";
+import { LineItemType } from "../interfaces";
+import { Fragment } from "react";
 
 const Home: NextPage = () => {
   return (
@@ -12,9 +16,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Link href="./auth/adminLogin">admin slogin</Link>
+      <Link href="./auth/AdminLogin">admin login</Link>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

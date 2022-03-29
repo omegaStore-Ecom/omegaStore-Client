@@ -1,11 +1,18 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import Link from "next/link";
 import React from "react";
+import { useLoginAdminMutation } from "../../../../redux/services/admin";
 import At from "../../../assets/svg/at";
 import Eye from "../../../assets/svg/eye";
 import InputError from "../../Error/InputError";
 import { AdminLogin } from "./../../../validation/LoginSchemas";
+import { useAppDispatch } from "./../../../../redux/hooks";
+import { CurrentUser } from "./../../../../interfaces/index";
+import { currentUser } from "../../../../redux/features/authSlice";
+
 const AdminLoginForm = () => {
+  const [adminLogin] = useLoginAdminMutation();
+  const dispatch = useAppDispatch();
   return (
     <Formik
       initialValues={{
@@ -13,8 +20,18 @@ const AdminLoginForm = () => {
         email: "",
       }}
       validationSchema={AdminLogin}
-      onSubmit={(values) => {
-        console.log(values);
+      onSubmit={async (values) => {
+        await adminLogin(values)
+          .unwrap()
+          .then((payload) => {
+            dispatch(
+              currentUser({
+                token: payload.token,
+                role: payload.Admin.role,
+                email: payload.Admin.email,
+              })
+            );
+          });
       }}
     >
       {({ errors, touched }) => (
@@ -31,8 +48,8 @@ const AdminLoginForm = () => {
               />
               <At />
             </div>
-           
-            <InputError input="email"/>
+
+            <InputError input="email" />
           </div>
 
           <div>
@@ -46,7 +63,7 @@ const AdminLoginForm = () => {
               />
               <Eye />
             </div>
-           <InputError input="password"/>
+            <InputError input="password" />
           </div>
 
           <div className="flex items-center justify-between">
