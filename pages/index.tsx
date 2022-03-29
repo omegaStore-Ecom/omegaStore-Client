@@ -1,9 +1,27 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { addLineItem } from "../redux/features/cartSlice";
+import { LineItemType } from "../interfaces";
+
 
 const Home: NextPage = () => {
+  const dispatch = useAppDispatch();
+  const lineItem: LineItemType = {
+    product_id: "2323",
+    productName: "",
+    productDescription: "",
+    productPrice: 0,
+    productImage: "",
+    productCategory: "",
+    productQuantity: 0,
+    productSeller: "",
+    productStatus: "",
+    productBrand: ""
+  };
+  const cartState = useAppSelector((state) => state.cart);
   return (
     <div>
       <Head>
@@ -12,9 +30,22 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Link href="./auth/adminLogin">admin slogin</Link>
-    </div>
-  )
-}
+      <Link href="./auth/AdminLogin">admin login</Link>
 
-export default Home
+      <div className="w-[20em] h-[20em] ring-4">
+        <button onClick={() => dispatch(addLineItem(lineItem))}>
+          dispatch cart
+        </button>
+      </div>
+
+      <div className="w-[20em] h-[20em] ring-red-4">
+        state{" "}
+        {cartState.lineItems.map((el, index) => (
+          <span key={index}>{el.product_id}</span>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Home;
