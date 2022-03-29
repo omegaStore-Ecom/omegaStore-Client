@@ -1,8 +1,9 @@
-import { Field, Form, Formik } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import Link from "next/link";
 import React from "react";
 import At from "../../../assets/svg/at";
 import Eye from "../../../assets/svg/eye";
+import InputError from "../../Error/InputError";
 import { AdminLogin } from "./../../../validation/LoginSchemas";
 const AdminLoginForm = () => {
   return (
@@ -28,9 +29,10 @@ const AdminLoginForm = () => {
                 className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
                 placeholder="Enter email"
               />
-              <Eye />
+              <At />
             </div>
-            
+           
+            <InputError input="email"/>
           </div>
 
           <div>
@@ -42,8 +44,9 @@ const AdminLoginForm = () => {
                 className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
                 placeholder="Enter password"
               />
-              <At />
+              <Eye />
             </div>
+           <InputError input="password"/>
           </div>
 
           <div className="flex items-center justify-between">
