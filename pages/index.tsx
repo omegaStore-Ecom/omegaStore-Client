@@ -5,23 +5,9 @@ import Link from "next/link";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { addLineItem } from "../redux/features/cartSlice";
 import { LineItemType } from "../interfaces";
-
+import { Fragment } from "react";
 
 const Home: NextPage = () => {
-  const dispatch = useAppDispatch();
-  const lineItem: LineItemType = {
-    product_id: "2323",
-    productName: "",
-    productDescription: "",
-    productPrice: 0,
-    productImage: "",
-    productCategory: "",
-    productQuantity: 0,
-    productSeller: "",
-    productStatus: "",
-    productBrand: ""
-  };
-  const cartState = useAppSelector((state) => state.cart);
   return (
     <div>
       <Head>
@@ -31,19 +17,6 @@ const Home: NextPage = () => {
       </Head>
 
       <Link href="./auth/AdminLogin">admin login</Link>
-
-      <div className="w-[20em] h-[20em] ring-4">
-        <button onClick={() => dispatch(addLineItem(lineItem))}>
-          dispatch cart
-        </button>
-      </div>
-
-      <div className="w-[20em] h-[20em] ring-red-4">
-        state{" "}
-        {cartState.lineItems.map((el, index) => (
-          <span key={index}>{el.product_id}</span>
-        ))}
-      </div>
     </div>
   );
 };
