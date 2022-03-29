@@ -1,0 +1,69 @@
+import { Field, Form, Formik } from "formik";
+import Link from "next/link";
+import React from "react";
+import At from "../../../assets/svg/at";
+import Eye from "../../../assets/svg/eye";
+import { AdminLogin } from "./../../../validation/LoginSchemas";
+const AdminLoginForm = () => {
+  return (
+    <Formik
+      initialValues={{
+        password: "",
+        email: "",
+      }}
+      validationSchema={AdminLogin}
+      onSubmit={(values) => {
+        console.log(values);
+      }}
+    >
+      {({ errors, touched }) => (
+        <Form className="max-w-md mx-auto mt-8 mb-0 space-y-4">
+          <div>
+            <label className="sr-only">Email</label>
+
+            <div className="relative">
+              <Field
+                type="email"
+                name="email"
+                className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
+                placeholder="Enter email"
+              />
+              <Eye />
+            </div>
+            
+          </div>
+
+          <div>
+            <label className="sr-only">Password</label>
+            <div className="relative">
+              <Field
+                type="password"
+                name="password"
+                className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
+                placeholder="Enter password"
+              />
+              <At />
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between">
+            <Link href="/">
+              <a className="text-sm font-medium text-indigo-500">
+                Forgot your password?
+              </a>
+            </Link>
+
+            <button
+              type="submit"
+              className="inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-blue-500 rounded-lg"
+            >
+              Sign in
+            </button>
+          </div>
+        </Form>
+      )}
+    </Formik>
+  );
+};
+
+export default AdminLoginForm;
