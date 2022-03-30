@@ -1,6 +1,7 @@
 import React from "react";
 import AdminLoginForm from "../../components/Forms/AdminLoginForm";
-
+import login from "../../../public/team-1.jpeg";
+import Image from "next/image";
 const AdminLoginLayout = () => {
   return (
     <section className="relative flex flex-wrap lg:h-screen lg:items-center">
@@ -12,9 +13,11 @@ const AdminLoginLayout = () => {
       </div>
 
       <div className="relative w-full h-64 sm:h-96 lg:w-1/2 lg:h-full">
-        <img
+        <Image
+          layout="fill"
           className="absolute inset-0 object-cover w-full h-full"
-          src="https://www.hyperui.dev/photos/team-1.jpeg"
+          src={login}
+        
           alt=""
         />
       </div>

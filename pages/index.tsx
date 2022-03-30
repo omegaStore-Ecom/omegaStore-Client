@@ -8,6 +8,25 @@ import { LineItemType } from "../interfaces";
 import { Fragment } from "react";
 
 const Home: NextPage = () => {
+    const count = useAppSelector((state) => state.cart)
+    const dispatch = useAppDispatch()
+
+        const cart: LineItemType = {
+        product_id: "2323",
+        productName: "",
+        productDescription: "",
+        productPrice: 0,
+        productImage: "",
+        productCategory: "",
+        productQuantity: 0,
+        productSeller: "",
+        productStatus: "",
+        productBrand: ""
+
+    }
+    const add = () => {
+        dispatch(addLineItem(cart))
+    }
   return (
     <div>
       <Head>
@@ -17,6 +36,8 @@ const Home: NextPage = () => {
       </Head>
 
       <Link href="./auth/AdminLogin">admin login</Link>
+
+        <button className="px-12 py-4 bg-red-500 text-white font-bold" onClick={() => add()}>add to cart</button>
     </div>
   );
 };
