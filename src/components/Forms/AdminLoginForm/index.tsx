@@ -23,9 +23,8 @@ const AdminLoginForm = () => {
       onSubmit={async (values) => {
         await adminLogin(values)
           .unwrap()
-          .then((payload) => {
-            dispatch(
-              currentUser({
+          .then(async (payload) => {
+           dispatch(currentUser({
                 token: payload.token,
                 role: payload.Admin.role,
                 email: payload.Admin.email,

@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { CurrentUser } from "../../interfaces";
+import {HYDRATE} from "next-redux-wrapper";
 
 const initialState: CurrentUser = {
   token: "",
@@ -17,14 +18,23 @@ const currentUserReducer = (
 };
 
 export const userSlice = createSlice({
-  name: "currentUser",
+  name: "user",
   initialState,
   reducers: {
     currentUser: currentUserReducer,
-    logout() {
+    clearData() {
       return initialState;
+    },
+
+  },
+  extraReducers: {
+    [HYDRATE]: (state, action) => {
+      return {
+        ...state,
+        ...action.payload.user,
+      };
     },
   },
 });
-export const { currentUser } = userSlice.actions;
+export const { currentUser, clearData } = userSlice.actions;
 export default userSlice.reducer;

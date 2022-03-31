@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { LineItemType } from "../../interfaces";
+import {HYDRATE} from "next-redux-wrapper";
 
 
 
@@ -70,6 +71,16 @@ export const cartSlice = createSlice({
     removeLineItem: removeLineItemReducer,
     resetCartState() {
       return initialState;
+    },
+
+  },
+  extraReducers: {
+    [HYDRATE]: (state, action) => {
+      console.log("HYDRATE", action.payload);
+      return {
+        ...state,
+        ...action.payload.cart,
+      };
     },
   },
 
