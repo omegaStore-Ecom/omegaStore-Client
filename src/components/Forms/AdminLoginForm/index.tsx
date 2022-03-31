@@ -22,6 +22,15 @@ const AdminLoginForm = () => {
       validationSchema={AdminLogin}
       onSubmit={async (values) => {
         await adminLogin(values)
+          .unwrap()
+          .then(async (payload) => {
+           dispatch(currentUser({
+                token: payload.token,
+                role: payload.Admin.role,
+                email: payload.Admin.email,
+              })
+            );
+          });
       }}
     >
       {({ errors, touched }) => (

@@ -21,14 +21,19 @@ import {createWrapper} from "next-redux-wrapper";
 const makeStore = wrapMakeStore(() =>
   configureStore({
     reducer: {
-      current: currentUserReducer,
+        user: currentUserReducer,
       cart: cartReducer,
       [adminApi.reducerPath]: adminApi.reducer,
     },
     middleware: (getDefaultMiddleware) => {
       return getDefaultMiddleware({})
         .concat(adminApi.middleware)
-        .prepend(nextReduxCookieMiddleware({ subtrees: ["cart"] }));
+        .prepend(nextReduxCookieMiddleware({  subtrees: [
+
+                "user",
+                "cart"
+
+            ] }));
     },
   })
 );
