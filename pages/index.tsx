@@ -1,7 +1,10 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
+import BodyLayout from './content/BodyLayout';
+import EndLayout from './content/EndLayout';
+import MainLayout from './content/MainLayout';
 
 const Home: NextPage = () => {
   return (
@@ -12,9 +15,11 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-    <Link href="./auth/adminLogin">admin slogin</Link>
+      <MainLayout />
+      <BodyLayout/>
+      <EndLayout/>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
