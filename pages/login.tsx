@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
-
+import { FcGoogle } from 'react-icons/fc';
+import { FaFacebookF } from 'react-icons/fa';
 
 const login: React.FC = () => {
     return (
@@ -29,11 +30,11 @@ const login: React.FC = () => {
               />
             </h1>
             <div className="py-6 space-x-2">
-              <button className="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white">
-                f
+              <button className="w-10 h-10 bg-white text-blue-700 shadow-sm shadow-white items-center justify-center inline-flex rounded-full font-bold text-lg hover:text-xl focus:shadow-md focus:shadow-white focus:p-1">
+                <FaFacebookF />
               </button>
-              <button className="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white">
-                G+
+              <button className="w-10 h-10 bg-white shadow-sm shadow-white items-center justify-center inline-flex rounded-full font-bold text-lg hover:text-xl focus:shadow-md focus:shadow-white focus:p-1">
+                <FcGoogle />
               </button>
             </div>
             <p className="text-gray-100">or use email your account</p>
