@@ -2,15 +2,14 @@ import React from 'react';
 import Image from 'next/image';
 
 
-
-const Register: React.FC = () => {
+const login: React.FC = () => {
     return (
-      <section className="min-h-screen flex items-stretch text-white bg-gray-700">
+      <section className="min-h-screen flex items-stretch text-white bg-gray-500">
         <div className="lg:flex w-1/2 hidden bg-gray-500 bg-no-repeat bg-cover relative items-center">
           <div className="absolute bg-black opacity-60 inset-0 z-0"></div>
           <div className="w-full px-24 z-10">
             <h1 className="text-5xl font-bold text-left tracking-wide">
-              Register
+              Sign In
             </h1>
             <p className="text-3xl my-4">
               Capture your personal memory in unique way, anywhere.
@@ -39,23 +38,6 @@ const Register: React.FC = () => {
             </div>
             <p className="text-gray-100">or use email your account</p>
             <form action="" className="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
-              <div className="pb-2 pt-4">
-                <input
-                  className="block w-full p-4 text-lg rounded-full bg-black"
-                  type="text"
-                  name="firstname"
-                  placeholder="First Name"
-                />
-              </div>
-
-              <div className="pb-2 pt-4">
-                <input
-                  className="block w-full p-4 text-lg rounded-full bg-black"
-                  type="text"
-                  name="lastname"
-                  placeholder="Last Name"
-                />
-              </div>
 
               <div className="pb-2 pt-4">
                 <input
@@ -76,26 +58,11 @@ const Register: React.FC = () => {
                 />
               </div>
 
-              <div className="pb-2 pt-4">
-                <input
-                  className="block w-full p-4 text-lg rounded-full bg-black"
-                  type="number"
-                  name="phone"
-                  placeholder="Phone"
-                />
-              </div>
-
-              <div className="pb-2 pt-4">
-                <input
-                  className="block w-full p-4 text-lg rounded-full bg-black"
-                  type="file"
-                  name="file"
-                  id="password"
-                  placeholder="file"
-                />
+              <div className="text-right text-gray-400 hover:underline hover:text-gray-100">
+                <a href="#">Forgot your password?</a>
               </div>
               <div className="px-4 pb-2 pt-4">
-                <button className="uppercase block w-full p-4 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none">
+                <button className="uppercase block w-full p-4 text-lg rounded-full bg-indigo-600 hover:bg-indigo-700 focus:outline-none">
                   sign in
                 </button>
               </div>
@@ -106,4 +73,4 @@ const Register: React.FC = () => {
     );
 };
 
-export default Register;
+export default login;
