@@ -18,7 +18,7 @@ const HeroSection: React.FC = () => {
                     height={516}
                     className="img w-4/5 -z-10"
                   />
-                  <span className="shadow"></span>
+                  <span className="shadow1"></span>
                 </div>
                 <div className="-ml-32">
                   <Image

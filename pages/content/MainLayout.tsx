@@ -12,7 +12,7 @@ const MainLayout: React.FC = () => {
         <NavBar active={active} setActive={setActive} />
         <HeroSection />
         <Menu active={active} setActive={setActive} />
-        <BottomBar />
+        {/* <BottomBar /> */}
       </div>
     );
 };
