@@ -30,3 +30,4 @@ export interface DeliveryMan {
   phone: string;
   type: string;
 }
+export type DeliveryManResponse = DeliveryMan[]

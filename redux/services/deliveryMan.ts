@@ -1,5 +1,4 @@
-// import { createApi } from "@reduxjs/toolkit/query/react";
-import { DeliveryMan } from "../../interfaces";
+import { DeliveryMan, DeliveryManResponse } from "../../interfaces";
 import { baseQuery } from "../api";
 import { createApi } from "@rtk-incubator/rtk-query/react";
 
@@ -16,7 +15,7 @@ export const deliveryManApi = createApi({
       }),
     }),
 
-    getDeliveryMen: builder.query<DeliveryMan, void>({
+    getDeliveryMen: builder.query<DeliveryManResponse, void>({
       query: () => ({ url: "deliveryMan" }),
     }),
 

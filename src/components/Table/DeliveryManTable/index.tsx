@@ -1,20 +1,23 @@
+import { useGetDeliveryMenQuery } from "../../../../redux/services/deliveryMan";
+
 const DeliveryManTable = () => {
+  const { data } = useGetDeliveryMenQuery();
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-      <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
-        <thead className="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+      <table className="w-full text-left text-sm text-gray-500 ">
+        <thead className="bg-gray-50 text-xs uppercase text-gray-700">
           <tr>
             <th scope="col" className="px-6 py-3">
-              Product name
+              FullName
             </th>
             <th scope="col" className="px-6 py-3">
-              Color
+              Email
             </th>
             <th scope="col" className="px-6 py-3">
-              Category
+              Phone
             </th>
             <th scope="col" className="px-6 py-3">
-              Price
+              Type
             </th>
             <th scope="col" className="px-6 py-3">
               <span className="sr-only">Edit</span>
@@ -22,25 +25,28 @@ const DeliveryManTable = () => {
           </tr>
         </thead>
         <tbody>
-          <tr className="border-b bg-white dark:border-gray-700 dark:bg-gray-800">
-            <th
-              scope="row"
-              className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
-            >
-              Apple MacBook Pro 17
-            </th>
-            <td className="px-6 py-4">Sliver</td>
-            <td className="px-6 py-4">Laptop</td>
-            <td className="px-6 py-4">$2999</td>
-            <td className="px-6 py-4 text-right">
-              <a
-                href="#"
-                className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-              >
-                Edit
-              </a>
-            </td>
-          </tr>
+          {data &&
+            data.map((deliveryMan, index) => (
+              <tr className="border-b bg-white" key={index}>
+                <th
+                  scope="row"
+                  className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 "
+                >
+                  {deliveryMan.firstName} {deliveryMan.lastName}
+                </th>
+                <td className="px-6 py-4">{deliveryMan.email}</td>
+                <td className="px-6 py-4">{deliveryMan.phone}</td>
+                <td className="px-6 py-4">{deliveryMan.type}</td>
+                <td className="space-x-2 px-6 py-4 text-right">
+                  <button className="w-20 rounded border border-indigo-600 bg-indigo-600 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500">
+                    Edit
+                  </button>
+                  <button className=" w-20 rounded border border-red-600 bg-red-600 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-red-600 focus:outline-none focus:ring active:text-red-500">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>

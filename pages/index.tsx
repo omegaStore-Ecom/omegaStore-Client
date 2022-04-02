@@ -5,18 +5,14 @@ import Link from "next/link";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { addLineItem, resetCartState } from "../redux/features/cartSlice";
 import { LineItemType } from "../interfaces";
-import { Fragment } from "react";
 import AdminLoginLayout from "../src/layouts/AdminLoginLayout";
 import { clearData } from "../redux/features/authSlice";
-import { useAddDeliveryManMutation, useGetDeliveryMenQuery } from "../redux/services/deliveryMan";
 
 const Home: NextPage = () => {
   const product = useAppSelector((state) => state.cart);
   const user = useAppSelector((state) => state.currentUser);
  
   const dispatch = useAppDispatch();
-
-  const { data } = useGetDeliveryMenQuery();
 
   const cart: LineItemType = {
     product_id: "2323",
@@ -51,7 +47,7 @@ const Home: NextPage = () => {
       <Link href="./dashboards/ManageDeliveryMan">Manage deliveryMan</Link>
 
       <h1>current user : {user?.email} </h1>
-      { data && JSON.stringify(data)}
+
 
       <button
         className="rounded-md bg-blue-500 px-12 py-3 font-bold text-white"
