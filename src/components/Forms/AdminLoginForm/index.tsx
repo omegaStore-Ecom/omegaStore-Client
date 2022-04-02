@@ -1,10 +1,18 @@
-import { Field, Form, Formik } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import Link from "next/link";
 import React from "react";
+import { useLoginAdminMutation } from "../../../../redux/services/admin";
 import At from "../../../assets/svg/at";
 import Eye from "../../../assets/svg/eye";
+import InputError from "../../Error/InputError";
 import { AdminLogin } from "./../../../validation/LoginSchemas";
+import { useAppDispatch } from "./../../../../redux/hooks";
+import { CurrentUser } from "./../../../../interfaces/index";
+import { currentUser } from "../../../../redux/features/authSlice";
+
 const AdminLoginForm = () => {
+  const [adminLogin] = useLoginAdminMutation();
+  const dispatch = useAppDispatch();
   return (
     <Formik
       initialValues={{
@@ -12,8 +20,17 @@ const AdminLoginForm = () => {
         email: "",
       }}
       validationSchema={AdminLogin}
-      onSubmit={(values) => {
-        console.log(values);
+      onSubmit={async (values) => {
+        await adminLogin(values)
+          .unwrap()
+          .then(async (payload) => {
+           dispatch(currentUser({
+                token: payload.token,
+                role: payload.Admin.role,
+                email: payload.Admin.email,
+              })
+            );
+          });
       }}
     >
       {({ errors, touched }) => (
@@ -28,9 +45,10 @@ const AdminLoginForm = () => {
                 className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
                 placeholder="Enter email"
               />
-              <Eye />
+              <At />
             </div>
-            
+
+            <InputError input="email" />
           </div>
 
           <div>
@@ -42,8 +60,9 @@ const AdminLoginForm = () => {
                 className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
                 placeholder="Enter password"
               />
-              <At />
+              <Eye />
             </div>
+            <InputError input="password" />
           </div>
 
           <div className="flex items-center justify-between">
