@@ -14,7 +14,7 @@ interface NavBarProps {
 const Menu: React.FC<NavBarProps> = ({ active, setActive }) => {
   return (
     <ul
-      className={`menu w-1/4 h-screen flex items-start justify-center flex-col text-slate-300 font-semibold ${
+      className={`menu w-full md:w-1/4 h-screen flex items-center md:items-start justify-center flex-col text-slate-300 font-semibold ${
         active ? 'active' : ''
       }`}
     >

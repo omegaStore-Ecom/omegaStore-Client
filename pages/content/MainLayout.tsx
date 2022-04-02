@@ -10,7 +10,7 @@ const MainLayout: React.FC = () => {
     return (
       <div className={`wrapper ${active ? 'active' : ''}`}>
         <NavBar active={active} setActive={setActive} />
-        <HeroSection />
+        <HeroSection active={active} />
         <Menu active={active} setActive={setActive} />
         {/* <BottomBar /> */}
       </div>
