@@ -5,7 +5,7 @@ import { RiEditBoxFill } from 'react-icons/ri';
 
 
 const Profile: React.FC = () => {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
     return (
       <section className="w-full dark:bg-gray-900">
         <div className="p-16">
