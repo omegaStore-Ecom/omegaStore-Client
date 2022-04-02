@@ -2,15 +2,14 @@ export interface CurrentUser {
   email: string;
   token: string;
   role: string;
-  password?:string
+  password?: string;
 }
-
 
 export interface AdminLogin {
-  email:string
-  password: string
+  email: string;
+  password: string;
 }
-export  interface  LineItemType {
+export interface LineItemType {
   product_id: string;
   productName: string;
   productDescription: string;
@@ -22,3 +21,13 @@ export  interface  LineItemType {
   productStatus: string;
   productBrand: string;
 }
+
+export interface DeliveryMan {
+  id?: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  type: string;
+}
+export type DeliveryManResponse = DeliveryMan[]
