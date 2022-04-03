@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Footer from '../layouts/Home/Footer';
-import NavBar from '../layouts/NavBar';
+import NavBar from '../layouts/Home/NavBar';
 
 const Layout: React.FC = ({ children }) => {
 
