@@ -1,4 +1,5 @@
 import { Field, Form, Formik } from "formik";
+import { Fragment } from "react";
 import { useAddDeliveryManMutation } from "../../../../redux/services/deliveryMan";
 
 const AddDeliveryManForm = () => {
@@ -68,9 +69,11 @@ const AddDeliveryManForm = () => {
         </div>
 
         <div
-          className="grid grid-cols-2 gap-4 text-center sm:grid-cols-3"
+          className="flex flex-col gap-2"
           role="group"
         >
+          <label className="p-3" htmlFor="type">deliveryMan Type</label>
+          <div className="grid grid-cols-2 gap-4 text-center sm:grid-cols-3">
           <div className="relative">
             <Field
               className="sr-only peer"
@@ -100,6 +103,7 @@ const AddDeliveryManForm = () => {
             >
               Express
             </label>
+          </div>
           </div>
         </div>
 
