@@ -1,20 +1,19 @@
+/* eslint-disable react/display-name */
 import React, { useState } from 'react';
-import BottomBar from '../../src/layouts/Home/BottomBar';
 import HeroSection from '../../src/layouts/Home/HeroSection';
 import Menu from '../../src/layouts/Home/Menu';
 import NavBar from '../../src/layouts/Home/NavBar';
 
 
-const MainLayout: React.FC = () => {
+const MainLayout = React.forwardRef<HTMLDivElement | null, unknown>((prop, ref) => {
     const [active, setActive] = useState(false);
     return (
       <div className={`wrapper ${active ? 'active' : ''}`}>
         <NavBar active={active} setActive={setActive} />
         <HeroSection active={active} />
         <Menu active={active} setActive={setActive} />
-        {/* <BottomBar /> */}
       </div>
     );
-};
+});
 
 export default MainLayout;

@@ -1,21 +1,22 @@
 import React from 'react';
 import Image from 'next/image';
 import { ImFire } from 'react-icons/im';
+import { useEffect } from 'react';
 
 
 const Trending: React.FC = () => {
     return (
       <section className="w-fulldark:bg-gray-900">
-        <div className="container px-6 py-8 mx-auto">
-          <div className="lg:flex lg:-mx-2">
-            <div className="mt-6 lg:mt-0 lg:px-2 lg:w-full ">
+        <div className="container mx-auto px-6 py-8">
+          <div className="lg:-mx-2 lg:flex">
+            <div className="mt-6 lg:mt-0 lg:w-full lg:px-2 ">
               <div className="flex items-center justify-between text-sm tracking-widest">
                 <h1 className="flex w-1/2 text-xl font-bold xl:text-4xl">
                   Trending <span className="ml-3 text-blue-500">NFTs</span>{' '}
                   <ImFire className="ml-2 text-orange-600" />
                 </h1>
-                <div className="flex justify-between w-1/2">
-                  <select className="w-full max-w-xs select select-info rounded-2xl">
+                <div className="flex w-1/2 justify-between">
+                  <select className="select select-info w-full max-w-xs rounded-2xl">
                     <option disabled selected>
                       Category
                     </option>
@@ -24,7 +25,7 @@ const Trending: React.FC = () => {
                     <option>Toys</option>
                   </select>
 
-                  <select className="w-full max-w-xs select select-error select-bordered rounded-2xl">
+                  <select className="select select-error select-bordered w-full max-w-xs rounded-2xl">
                     <option disabled selected>
                       Sort By
                     </option>
@@ -35,18 +36,18 @@ const Trending: React.FC = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 gap-8 mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {/* conteeeeeeeeeeeeeeeeeeeeeeeeeeent */}
-                <div className="flex h-96 flex-col justify-between max-w-sm px-6 py-2 mx-auto border border-gray-200 shadow-sm rounded-xl w-80">
+                <div className="mx-auto flex h-96 w-80 max-w-sm flex-col justify-between rounded-xl border border-gray-200 px-6 py-2 shadow-sm">
                   <div className="flex justify-between">
-                    <p className="flex justify-between items-center w-1/4">
+                    <p className="flex w-1/4 items-center justify-between">
                       {' '}
-                      <span className="bg-orange-300 w-6 h-6 rounded-full"></span>{' '}
+                      <span className="h-6 w-6 rounded-full bg-orange-300"></span>{' '}
                       seller
                     </p>
                     <p>collection</p>
                   </div>
-                  <div className="relative w-full h-64 bg-gray-300 bg-center bg-cover shadow-md rounded-lg">
+                  <div className="relative h-64 w-full rounded-lg bg-gray-300 bg-cover bg-center shadow-md">
                     <Image
                       src="/te.webp"
                       alt=""
@@ -58,31 +59,31 @@ const Trending: React.FC = () => {
                   </div>
 
                   <div className="flex flex-col px-3 py-2">
-                    <h2 className="font-bold text-base flex flex-col text-gray-800">
+                    <h2 className="flex flex-col text-base font-bold text-gray-800">
                       Monkey de luffy
                     </h2>
-                    <div className="flex justify-between items-end">
+                    <div className="flex items-end justify-between">
                       <span className="text-sm font-bold text-blue-500">
                         2.39 ETH
                       </span>
 
-                      <button className="px-2 py-1 text-xs text-white transition-colors duration-200 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">
+                      <button className="transform rounded bg-gray-800 px-2 py-1 text-xs text-white transition-colors duration-200 hover:bg-gray-700 focus:bg-gray-700 focus:outline-none dark:hover:bg-gray-600 dark:focus:bg-gray-600">
                         Add to cart
                       </button>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex h-96 flex-col justify-between max-w-sm px-6 py-2 mx-auto border border-gray-200 shadow-sm rounded-xl w-80">
+                <div className="mx-auto flex h-96 w-80 max-w-sm flex-col justify-between rounded-xl border border-gray-200 px-6 py-2 shadow-sm">
                   <div className="flex justify-between">
-                    <p className="flex justify-between items-center w-1/4">
+                    <p className="flex w-1/4 items-center justify-between">
                       {' '}
-                      <span className="bg-orange-300 w-6 h-6 rounded-full"></span>{' '}
+                      <span className="h-6 w-6 rounded-full bg-orange-300"></span>{' '}
                       seller
                     </p>
                     <p>collection</p>
                   </div>
-                  <div className="relative w-full h-64 bg-gray-300 bg-center bg-cover shadow-md rounded-lg">
+                  <div className="relative h-64 w-full rounded-lg bg-gray-300 bg-cover bg-center shadow-md">
                     <Image
                       src="/te.webp"
                       alt=""
@@ -94,31 +95,31 @@ const Trending: React.FC = () => {
                   </div>
 
                   <div className="flex flex-col px-3 py-2">
-                    <h2 className="font-bold text-base flex flex-col text-gray-800">
+                    <h2 className="flex flex-col text-base font-bold text-gray-800">
                       Monkey de luffy
                     </h2>
-                    <div className="flex justify-between items-end">
+                    <div className="flex items-end justify-between">
                       <span className="text-sm font-bold text-blue-500">
                         2.39 ETH
                       </span>
 
-                      <button className="px-2 py-1 text-xs text-white transition-colors duration-200 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">
+                      <button className="transform rounded bg-gray-800 px-2 py-1 text-xs text-white transition-colors duration-200 hover:bg-gray-700 focus:bg-gray-700 focus:outline-none dark:hover:bg-gray-600 dark:focus:bg-gray-600">
                         Add to cart
                       </button>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex h-96 flex-col justify-between max-w-sm px-6 py-2 mx-auto border border-gray-200 shadow-sm rounded-xl w-80">
+                <div className="mx-auto flex h-96 w-80 max-w-sm flex-col justify-between rounded-xl border border-gray-200 px-6 py-2 shadow-sm">
                   <div className="flex justify-between">
-                    <p className="flex justify-between items-center w-1/4">
+                    <p className="flex w-1/4 items-center justify-between">
                       {' '}
-                      <span className="bg-orange-300 w-6 h-6 rounded-full"></span>{' '}
+                      <span className="h-6 w-6 rounded-full bg-orange-300"></span>{' '}
                       seller
                     </p>
                     <p>collection</p>
                   </div>
-                  <div className="relative w-full h-64 bg-gray-300 bg-center bg-cover shadow-md rounded-lg">
+                  <div className="relative h-64 w-full rounded-lg bg-gray-300 bg-cover bg-center shadow-md">
                     <Image
                       src="/te.webp"
                       alt=""
@@ -130,31 +131,31 @@ const Trending: React.FC = () => {
                   </div>
 
                   <div className="flex flex-col px-3 py-2">
-                    <h2 className="font-bold text-base flex flex-col text-gray-800">
+                    <h2 className="flex flex-col text-base font-bold text-gray-800">
                       Monkey de luffy
                     </h2>
-                    <div className="flex justify-between items-end">
+                    <div className="flex items-end justify-between">
                       <span className="text-sm font-bold text-blue-500">
                         2.39 ETH
                       </span>
 
-                      <button className="px-2 py-1 text-xs text-white transition-colors duration-200 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">
+                      <button className="transform rounded bg-gray-800 px-2 py-1 text-xs text-white transition-colors duration-200 hover:bg-gray-700 focus:bg-gray-700 focus:outline-none dark:hover:bg-gray-600 dark:focus:bg-gray-600">
                         Add to cart
                       </button>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex h-96 flex-col justify-between max-w-sm px-6 py-2 mx-auto border border-gray-200 shadow-sm rounded-xl w-80">
+                <div className="mx-auto flex h-96 w-80 max-w-sm flex-col justify-between rounded-xl border border-gray-200 px-6 py-2 shadow-sm">
                   <div className="flex justify-between">
-                    <p className="flex justify-between items-center w-1/4">
+                    <p className="flex w-1/4 items-center justify-between">
                       {' '}
-                      <span className="bg-orange-300 w-6 h-6 rounded-full"></span>{' '}
+                      <span className="h-6 w-6 rounded-full bg-orange-300"></span>{' '}
                       seller
                     </p>
                     <p>collection</p>
                   </div>
-                  <div className="relative w-full h-64 bg-gray-300 bg-center bg-cover shadow-md rounded-lg">
+                  <div className="relative h-64 w-full rounded-lg bg-gray-300 bg-cover bg-center shadow-md">
                     <Image
                       src="/te.webp"
                       alt=""
@@ -166,31 +167,31 @@ const Trending: React.FC = () => {
                   </div>
 
                   <div className="flex flex-col px-3 py-2">
-                    <h2 className="font-bold text-base flex flex-col text-gray-800">
+                    <h2 className="flex flex-col text-base font-bold text-gray-800">
                       Monkey de luffy
                     </h2>
-                    <div className="flex justify-between items-end">
+                    <div className="flex items-end justify-between">
                       <span className="text-sm font-bold text-blue-500">
                         2.39 ETH
                       </span>
 
-                      <button className="px-2 py-1 text-xs text-white transition-colors duration-200 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">
+                      <button className="transform rounded bg-gray-800 px-2 py-1 text-xs text-white transition-colors duration-200 hover:bg-gray-700 focus:bg-gray-700 focus:outline-none dark:hover:bg-gray-600 dark:focus:bg-gray-600">
                         Add to cart
                       </button>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex h-96 flex-col justify-between max-w-sm px-6 py-2 mx-auto border border-gray-200 shadow-sm rounded-xl w-80">
+                <div className="mx-auto flex h-96 w-80 max-w-sm flex-col justify-between rounded-xl border border-gray-200 px-6 py-2 shadow-sm">
                   <div className="flex justify-between">
-                    <p className="flex justify-between items-center w-1/4">
+                    <p className="flex w-1/4 items-center justify-between">
                       {' '}
-                      <span className="bg-orange-300 w-6 h-6 rounded-full"></span>{' '}
+                      <span className="h-6 w-6 rounded-full bg-orange-300"></span>{' '}
                       seller
                     </p>
                     <p>collection</p>
                   </div>
-                  <div className="relative w-full h-64 bg-gray-300 bg-center bg-cover shadow-md rounded-lg">
+                  <div className="relative h-64 w-full rounded-lg bg-gray-300 bg-cover bg-center shadow-md">
                     <Image
                       src="/te.webp"
                       alt=""
@@ -202,15 +203,15 @@ const Trending: React.FC = () => {
                   </div>
 
                   <div className="flex flex-col px-3 py-2">
-                    <h2 className="font-bold text-base flex flex-col text-gray-800">
+                    <h2 className="flex flex-col text-base font-bold text-gray-800">
                       Monkey de luffy
                     </h2>
-                    <div className="flex justify-between items-end">
+                    <div className="flex items-end justify-between">
                       <span className="text-sm font-bold text-blue-500">
                         2.39 ETH
                       </span>
 
-                      <button className="px-2 py-1 text-xs text-white transition-colors duration-200 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">
+                      <button className="transform rounded bg-gray-800 px-2 py-1 text-xs text-white transition-colors duration-200 hover:bg-gray-700 focus:bg-gray-700 focus:outline-none dark:hover:bg-gray-600 dark:focus:bg-gray-600">
                         Add to cart
                       </button>
                     </div>
