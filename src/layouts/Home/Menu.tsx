@@ -14,48 +14,53 @@ interface NavBarProps {
 const Menu: React.FC<NavBarProps> = ({ active, setActive }) => {
   return (
     <ul
-      className={`menu w-1/4 h-screen flex items-start justify-center flex-col text-slate-300 font-semibold ${
+      className={`menu flex h-screen w-full flex-col items-center justify-center font-semibold text-slate-300 md:w-1/4 md:items-start ${
         active ? 'active' : ''
       }`}
     >
       <div>
-        <li className="list flex text-4xl relative transition duration-150 ease-in-out hover:pl-10">
+        <li className="list relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
           <RiHome2Fill className="mr-3" /> <Link href="/">Home</Link>
         </li>
-        <li className="list flex text-4xl relative transition duration-150 ease-in-out hover:pl-10">
-          <AiFillShopping className="mr-3" /> <Link href="/">Products</Link>
+        <li className="list relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
+          <AiFillShopping className="mr-3" />{' '}
+          <Link href="/explore">Products</Link>
         </li>
-        <li className="list flex text-4xl relative transition duration-150 ease-in-out hover:pl-10">
+        <li className="list relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
           <HiCollection className="mr-3" />
-          <Link href="/">Collections</Link>
+          <Link href="/collections">Collections</Link>
         </li>
-        <li className="list flex text-4xl relative transition duration-150 ease-in-out hover:pl-10">
+        <li className="list relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
           <MdLiveHelp className="mr-3" /> <Link href="/contact">Contact</Link>
         </li>
-        <li className="list flex text-4xl relative transition duration-150 ease-in-out hover:pl-10">
-          <MdAccountBox className="mr-3" /> <Link href="/account">Account</Link>
+        <li className="list relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
+          <MdAccountBox className="mr-3" /> <Link href="/profile">Account</Link>
         </li>
       </div>
 
-      <hr className="h-px my-6 w-60 bg-gray-300 text-slate-200" />
+      <hr className="my-6 h-px w-60 bg-gray-300 text-slate-200" />
 
-      <div className="w-64 h-32">
+      <div className="h-32 w-64">
         <div className="flex justify-between">
-          <button className="btn3 bg-gray-800 text-bgray-800">Sign in</button>
-          <button className="btn2 bg-slate-200 text-black">Sign up</button>
+          <Link href="/login" passHref>
+            <button className="btn3 text-bgray-800 bg-gray-800">Sign in</button>
+          </Link>
+          <Link href="/register" passHref>
+            <button className="btn2 bg-slate-200 text-black">Sign up</button>
+          </Link>
         </div>
-        <div className="flex justify-between mt-10">
+        <div className="mt-10 flex justify-between">
           <div className="flex">
             <div className="relative">
               <input
-                className="sr-only peer"
+                className="peer sr-only"
                 type="radio"
                 value="EN"
-                name="type"
+                name="lunguage"
                 id="EN"
               />
               <label
-                className="flex px-1 bg-white border text-base text-gray-800 border-gray-300 rounded-lg cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-gray-800  peer-checked:border-transparent peer-checked:text-slate-200 font-medium mr-3"
+                className="mr-3 flex cursor-pointer rounded-lg border border-gray-300 bg-white px-1 text-base font-medium text-gray-800 hover:bg-gray-50  focus:outline-none peer-checked:border-transparent peer-checked:bg-gray-800 peer-checked:text-slate-200"
                 htmlFor="EN"
               >
                 En
@@ -63,14 +68,14 @@ const Menu: React.FC<NavBarProps> = ({ active, setActive }) => {
             </div>
             <div className="relative">
               <input
-                className="sr-only peer"
+                className="peer sr-only"
                 type="radio"
                 value="FR"
-                name="type"
+                name="lunguage"
                 id="FR"
               />
               <label
-                className="flex px-2 bg-white border text-base text-gray-800 border-gray-300 rounded-lg cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-gray-800  peer-checked:border-transparent peer-checked:text-slate-200 font-medium"
+                className="flex cursor-pointer rounded-lg border border-gray-300 bg-white px-2 text-base font-medium text-gray-800 hover:bg-gray-50 focus:outline-none  peer-checked:border-transparent peer-checked:bg-gray-800 peer-checked:text-slate-200"
                 htmlFor="FR"
               >
                 Fr
@@ -80,14 +85,14 @@ const Menu: React.FC<NavBarProps> = ({ active, setActive }) => {
           <div className="flex">
             <div className="relative">
               <input
-                className="sr-only peer"
+                className="peer sr-only"
                 type="radio"
                 value="USD"
-                name="type"
+                name="devise"
                 id="USD"
               />
               <label
-                className="flex p-1 bg-white text-gray-800 border border-gray-300 rounded-lg cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-gray-800  peer-checked:border-transparent peer-checked:text-slate-200 font-medium mr-3"
+                className="mr-3 flex cursor-pointer rounded-lg border border-gray-300 bg-white p-1 font-medium text-gray-800 hover:bg-gray-50  focus:outline-none peer-checked:border-transparent peer-checked:bg-gray-800 peer-checked:text-slate-200"
                 htmlFor="USD"
               >
                 <IoLogoUsd />
@@ -95,14 +100,14 @@ const Menu: React.FC<NavBarProps> = ({ active, setActive }) => {
             </div>
             <div className="relative">
               <input
-                className="sr-only peer"
+                className="peer sr-only"
                 type="radio"
                 value="ETH"
-                name="type"
+                name="devise"
                 id="ETH"
               />
               <label
-                className="flex p-1 bg-white text-gray-800 border border-gray-300 rounded-lg cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-gray-800  peer-checked:border-transparent peer-checked:text-slate-200 font-medium"
+                className="flex cursor-pointer rounded-lg border border-gray-300 bg-white p-1 font-medium text-gray-800 hover:bg-gray-50 focus:outline-none  peer-checked:border-transparent peer-checked:bg-gray-800 peer-checked:text-slate-200"
                 htmlFor="ETH"
               >
                 <FaEthereum />

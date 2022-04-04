@@ -1,6 +1,7 @@
 .wrapper{
-    min-height: 100vh;
-    background-color: #770218;
+    height: 100vh;
+    /* background-color: #770218, #e21339; */
+    background-color: #6d575f;
     overflow: hidden;
     transform-style: preserve-3d;
     display: flex;
