@@ -203,14 +203,6 @@
     "@react-spring/shared" "~9.4.4"
     "@react-spring/types" "~9.4.4"
 
-"@react-spring/parallax@^9.4.4":
-  version "9.4.4"
-  resolved "https://registry.npmjs.org/@react-spring/parallax/-/parallax-9.4.4.tgz"
-  integrity sha512-Sr9XlrTVOU6pUKEvRfD6gcFGxY5P/9ufNCK7iB6zmMnoocYLYUr/4oBqWauc+DJeHNWtfNJjBINzwvg0x2cN1A==
-  dependencies:
-    "@react-spring/shared" "~9.4.4"
-    "@react-spring/web" "~9.4.4"
-
 "@react-spring/rafz@~9.4.4":
   version "9.4.4"
   resolved "https://registry.npmjs.org/@react-spring/rafz/-/rafz-9.4.4.tgz"

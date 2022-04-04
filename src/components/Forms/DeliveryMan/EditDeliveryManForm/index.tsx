@@ -1,10 +1,10 @@
 import { Field, Form, Formik } from "formik";
-import { UpdateProps } from "./../../../../interfaces/index";
+import { UpdateProps } from "./../../../../../interfaces/index";
 import {
   useGetDeliveryMenByIdQuery,
   useGetDeliveryMenQuery,
   useUpdateDeliveryManMutation,
-} from "../../../../redux/services/deliveryMan";
+} from "../../../../../redux/services/deliveryMan";
 
 const UpdateDeliveryManForm: React.FC<UpdateProps> = ({ setIsOpen, id }) => {
   const { refetch } = useGetDeliveryMenQuery();
