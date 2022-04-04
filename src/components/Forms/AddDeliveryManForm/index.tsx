@@ -1,8 +1,11 @@
 import { Field, Form, Formik } from "formik";
-import { useAddDeliveryManMutation } from "../../../../redux/services/deliveryMan";
+import { Fragment } from "react";
+import { ModalProps } from "../../../../interfaces";
+import { useAddDeliveryManMutation, useGetDeliveryMenQuery } from "../../../../redux/services/deliveryMan";
 
-const AddDeliveryManForm = () => {
+const AddDeliveryManForm: React.FC<ModalProps> = ({setIsOpen}) => {
   const [addDeliveryMan] = useAddDeliveryManMutation()
+  const { refetch } = useGetDeliveryMenQuery();
   return (
     <Formik
       initialValues={{
@@ -13,7 +16,7 @@ const AddDeliveryManForm = () => {
         type: "",
       }}
       onSubmit={(values) => {
-        addDeliveryMan(values)
+        addDeliveryMan(values).unwrap().then(() => setIsOpen(false)).then(() => refetch());
       }}
     >
       <Form className="space-y-4">
@@ -68,9 +71,11 @@ const AddDeliveryManForm = () => {
         </div>
 
         <div
-          className="grid grid-cols-2 gap-4 text-center sm:grid-cols-3"
+          className="flex flex-col gap-2"
           role="group"
         >
+          <label className="p-3" htmlFor="type">deliveryMan Type</label>
+          <div className="grid grid-cols-2 gap-4 text-center sm:grid-cols-3">
           <div className="relative">
             <Field
               className="sr-only peer"
@@ -100,6 +105,7 @@ const AddDeliveryManForm = () => {
             >
               Express
             </label>
+          </div>
           </div>
         </div>
 

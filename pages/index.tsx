@@ -1,5 +1,4 @@
-
-import LandingPage from './content/LandingPage';
+import LandingPage from "./content/LandingPage";
 import type { NextPage } from "next";
 
 

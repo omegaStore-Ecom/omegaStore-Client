@@ -4,8 +4,9 @@ import { AiFillDelete } from 'react-icons/ai';
 import { RiEditBoxFill } from 'react-icons/ri';
 
 
-const Profile: React.FC = () => {
-  const [show, setShow] = useState(true);
+
+const Profile = () => {
+  const [isOpen , setIsOpen] = useState(false)
     return (
       <section className="w-full dark:bg-gray-900">
         <div className="p-16">
