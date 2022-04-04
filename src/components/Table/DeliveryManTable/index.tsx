@@ -1,7 +1,6 @@
 import { useState } from "react";
 // import { ModalProps } from "../../../../interfaces";
 import { useGetDeliveryMenQuery } from "../../../../redux/services/deliveryMan";
-import AddDeliveryManForm from "../../Forms/AddDeliveryManForm";
 import UpdateDeliveryManForm from './../../Forms/EditDeliveryManForm/index';
 import ModalWrapper from './../../../shared/ModalWrapper/index';
 import DeleteDeliveryMan from "../../Forms/DeleteDeliveryMan";

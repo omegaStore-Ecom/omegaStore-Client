@@ -48,6 +48,9 @@ export const deliveryManApi = createApi({
         },
       }
     ),
+    deliveryManList: build.query<DeliveryManResponse, number | void>({
+      query: (page = 1) => `deliveryMan?page=${page}`,
+    }),
   }),
 });
 export const {
@@ -56,5 +59,6 @@ export const {
   useGetDeliveryMenByIdQuery,
   useUpdateDeliveryManMutation,
   useDisableDeliveryManMutation,
-  useDeleteDeliveryManMutation
+  useDeleteDeliveryManMutation,
+  useDeliveryManListQuery,
 } = deliveryManApi;

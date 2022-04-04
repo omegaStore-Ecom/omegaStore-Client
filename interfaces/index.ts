@@ -34,11 +34,11 @@ export interface DeliveryMan {
 export type DeliveryManResponse = DeliveryMan[];
 
 export interface ModalProps {
-  isOpen: boolean;
+  isOpen?: boolean;
   setIsOpen: (arg: boolean) => void;
   component?: any;
   id?: string;
-  title: string;
+  title?: string;
 }
 
 export interface UpdateProps {
