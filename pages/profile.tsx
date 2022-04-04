@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { AiFillDelete } from 'react-icons/ai';
 import { RiEditBoxFill } from 'react-icons/ri';
 
 
-const profile: React.FC = () => {
+const Profile = () => {
+  const [isOpen , setIsOpen] = useState(false)
     return (
       <section className="w-full dark:bg-gray-900">
         <div className="p-16">
@@ -269,4 +270,4 @@ const profile: React.FC = () => {
     );
 };
 
-export default profile;
+export default Profile;

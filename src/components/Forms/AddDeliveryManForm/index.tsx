@@ -1,9 +1,11 @@
 import { Field, Form, Formik } from "formik";
 import { Fragment } from "react";
-import { useAddDeliveryManMutation } from "../../../../redux/services/deliveryMan";
+import { ModalProps } from "../../../../interfaces";
+import { useAddDeliveryManMutation, useGetDeliveryMenQuery } from "../../../../redux/services/deliveryMan";
 
-const AddDeliveryManForm = () => {
+const AddDeliveryManForm: React.FC<ModalProps> = ({setIsOpen}) => {
   const [addDeliveryMan] = useAddDeliveryManMutation()
+  const { refetch } = useGetDeliveryMenQuery();
   return (
     <Formik
       initialValues={{
@@ -14,7 +16,7 @@ const AddDeliveryManForm = () => {
         type: "",
       }}
       onSubmit={(values) => {
-        addDeliveryMan(values)
+        addDeliveryMan(values).unwrap().then(() => setIsOpen(false)).then(() => refetch());
       }}
     >
       <Form className="space-y-4">
