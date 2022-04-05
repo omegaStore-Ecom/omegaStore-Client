@@ -3,7 +3,7 @@ import Image from "next/image";
 import SellerProducts from "../../../components/Sections/SellerProducts";
 import SellerCollection from "../../../components/Sections/SellerCollection";
 import ModalWrapper from "../../../shared/ModalWrapper";
-import AddProductsForm from "../../../components/Forms/Seller/AddProductForm";
+import AddProductsForm from "../../../components/Forms/Products/AddProductForm";
 
 const PackageSection = () => {
   const [show, setShow] = useState(false);
