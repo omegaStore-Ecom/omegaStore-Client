@@ -1,7 +1,7 @@
 import { Field, Form, Formik } from "formik";
 import { Fragment } from "react";
-import { ModalProps } from "../../../../interfaces";
-import { useAddDeliveryManMutation, useGetDeliveryMenQuery } from "../../../../redux/services/deliveryMan";
+import { ModalProps } from "../../../../../interfaces";
+import { useAddDeliveryManMutation, useGetDeliveryMenQuery } from "../../../../../redux/services/deliveryMan";
 
 const AddDeliveryManForm: React.FC<ModalProps> = ({setIsOpen}) => {
   const [addDeliveryMan] = useAddDeliveryManMutation()

@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { ModalProps } from "../../../../interfaces";
-import { UpdateProps } from './../../../../interfaces/index';
+import { ModalProps } from "../../../../../interfaces";
+import { UpdateProps } from './../../../../../interfaces/index';
 import {
 useDeleteDeliveryManMutation,
   useGetDeliveryMenQuery,
-} from "../../../../redux/services/deliveryMan";
+} from "../../../../../redux/services/deliveryMan";
 
 const DeleteDeliveryMan: React.FC<UpdateProps> = ({ id, setIsOpen }) => {
   const { refetch } = useGetDeliveryMenQuery();

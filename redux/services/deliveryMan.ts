@@ -1,7 +1,6 @@
 import { DeliveryMan, DeliveryManResponse } from "../../interfaces";
 import { baseQuery } from "../api";
 import { createApi } from "@rtk-incubator/rtk-query/react";
-import DeleteDeliveryMan from "./../../src/components/Forms/DeleteDeliveryMan/index";
 
 export const deliveryManApi = createApi({
   reducerPath: "deliveryManApi",
