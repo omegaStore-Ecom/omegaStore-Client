@@ -14,7 +14,7 @@ const HeroSection: React.FC<NavBarProps> = ({active}) => {
           active ? 'hidden' : ''
         }`}
       >
-        <div className="main h-full w-full bg-[#a7808d]">
+        <div className="main h-full w-full bg-gradient-to-b from-[#a7808d] via-[#aa8b95] to-[#e0d4d9]">
           <div className="relative h-full min-h-screen w-full">
             <div
               data-aos="fade-down"
