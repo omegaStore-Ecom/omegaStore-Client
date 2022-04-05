@@ -10,17 +10,19 @@ export interface AdminLogin {
   password: string;
 }
 export interface LineItemType {
-  product_id: string;
+  _id?: string;
+  id?: string;
   productName: string;
   productDescription: string;
   productPrice: number;
-  productImage: string;
+  productImage: [];
   productCategory: string;
   productQuantity: number;
-  productSeller: string;
-  productStatus: string;
+  productSeller?: string;
+  productStatus?: string;
   productBrand: string;
 }
+export type ProductResponse = LineItemType[];
 
 export interface DeliveryMan {
   id?: string;
@@ -45,3 +47,4 @@ export interface UpdateProps {
   id?: any;
   setIsOpen: (arg: boolean) => void;
 }
+

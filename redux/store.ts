@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import cartReducer from "./features/cartSlice";
 import currentUserReducer from "./features/authSlice";
 import { adminApi } from "./services/admin";
+import { productApi } from "./services/products"
 import {
   nextReduxCookieMiddleware,
   wrapMakeStore,
@@ -15,12 +16,12 @@ const makeStore = wrapMakeStore(() =>
       cart: cartReducer,
       currentUser: currentUserReducer,
       [adminApi.reducerPath]: adminApi.reducer,
-      [deliveryManApi.reducerPath]: deliveryManApi.reducer,
+      [deliveryManApi.reducerPath]: deliveryManApi.reducer, [productApi.reducerPath] : productApi.reducer
     },
     // redux middleware
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware({})
-        .concat(adminApi.middleware, deliveryManApi.middleware)
+      getDefaultMiddleware({ serializableCheck: false})
+        .concat(adminApi.middleware, deliveryManApi.middleware, productApi.middleware)
         .prepend(nextReduxCookieMiddleware({ subtrees: ["user", "cart"] })),
   })
 );
