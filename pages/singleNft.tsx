@@ -1,5 +1,5 @@
 import React from 'react';
-import NftContent from '../src/layouts/singleNft/nftContent';
+import NftContent from '../src/layouts/singleNft/NftContent';
 
 
 

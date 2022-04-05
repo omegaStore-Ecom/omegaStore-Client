@@ -1,6 +1,7 @@
 import React from 'react';
-import NftImages from './nftImages';
-import NftInfo from './nftInfo';
+import NftImages from './NftImages';
+import NftInfo from './NftInfo';
+
 
 
 const NftContent: React.FC = () => {
