@@ -17,7 +17,7 @@ const addLineItemReducer = (
   action: PayloadAction<LineItemType>
 ) => {
   const index = state.lineItems.findIndex(
-    (lineItem) => lineItem.product_id === action.payload.product_id
+    (lineItem) => lineItem._id === action.payload._id
   );
   // id the index === -1 , id is not in lineItems array
   if (index === -1) {
@@ -34,7 +34,7 @@ const decrementQuantityReducer = (
   action: PayloadAction<LineItemType>
 ) => {
   const index = state.lineItems.findIndex(
-    (lineItem) => lineItem.product_id == action.payload.product_id
+    (lineItem) => lineItem._id == action.payload._id
   );
   // if index === -1, id is not in lineItems array
   if (index >= 0 && state.lineItems[index].productQuantity > 1) {
@@ -51,7 +51,7 @@ const removeLineItemReducer = (
   action: PayloadAction<LineItemType>
 ) => {
   const index = state.lineItems.findIndex(
-    (lineItem) => lineItem.product_id === action.payload.product_id
+    (lineItem) => lineItem._id === action.payload._id
   );
   if (index >= 0) {
     state.lineItems.splice(index, 1);

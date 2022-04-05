@@ -1,6 +1,6 @@
 import { useState } from "react";
 import DeliveryManTable from "../../components/Table/DeliveryManTable";
-import AddDeliveryManForm from "./../../components/Forms/AddDeliveryManForm/index";
+import AddDeliveryManForm from "../../components/Forms/DeliveryMan/AddDeliveryManForm/index";
 import ModalWrapper from "./../../shared/ModalWrapper/index";
 const AddDeliveryManLayout = () => {
   const [isOpen, setIsOpen] = useState(false);
