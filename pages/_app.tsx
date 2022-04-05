@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import "../styles/LandingPage.css"
 import 'aos/dist/aos.css';
+
 import type { AppProps } from "next/app";
 import { wrapper } from "../redux/store";
 

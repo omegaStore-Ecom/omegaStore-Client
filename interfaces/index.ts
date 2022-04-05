@@ -24,10 +24,24 @@ export interface LineItemType {
 
 export interface DeliveryMan {
   id?: string;
+  _id?: string;
   firstName: string;
   lastName: string;
   email: string;
   phone: string;
   type: string;
 }
-export type DeliveryManResponse = DeliveryMan[]
+export type DeliveryManResponse = DeliveryMan[];
+
+export interface ModalProps {
+  isOpen?: boolean;
+  setIsOpen: (arg: boolean) => void;
+  component?: any;
+  id?: string;
+  title?: string;
+}
+
+export interface UpdateProps {
+  id?: any;
+  setIsOpen: (arg: boolean) => void;
+}
