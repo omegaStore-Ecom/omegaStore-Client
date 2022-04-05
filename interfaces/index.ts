@@ -15,7 +15,7 @@ export interface LineItemType {
   productName: string;
   productDescription: string;
   productPrice: number;
-  productImage: [];
+  productImage: any;
   productCategory: string;
   productQuantity: number;
   productSeller?: string;
