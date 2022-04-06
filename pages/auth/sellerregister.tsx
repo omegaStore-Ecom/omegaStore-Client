@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import LeftsideRegister from 'src/layouts/loginLayouts/LeftsideRegister';
 import MenuGlobal from 'src/layouts/navMenu/MenuGlobal';
 import NavGlobal from 'src/layouts/navMenu/NavGlobal';
-import RightsideRegister from '../../src/layouts/loginLayouts/SellerLoginLayouts/RightsideRegister';
+import RightsideRegister from 'src/layouts/loginLayouts/SellerLoginLayouts/RightsideRegister';
 
 
 
-const Register: React.FC = () => {
+const SellerRegister: React.FC = () => {
   const [active, setActive] = useState(false);
     return (
       <section className="flex min-h-screen items-stretch bg-gray-900 text-white">
@@ -18,4 +18,4 @@ const Register: React.FC = () => {
     );
 };
 
-export default Register;
+export default SellerRegister;
