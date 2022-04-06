@@ -7,9 +7,16 @@ export const sellerApi = createApi({
   baseQuery,
 
   endpoints: (build) => ({
-    registerSeller: build.mutation({
+    registerSeller: build.mutation<Seller, Partial<Seller>>({
       query: (credentials: Seller) => ({
         url: "seller/register",
+        method: "POST",
+        body: credentials,
+      }),
+    }),
+    loginSeller: build.mutation({
+      query: (credentials: Seller) => ({
+        url: "seller/login",
         method: "POST",
         body: credentials,
       }),
@@ -41,6 +48,7 @@ export const sellerApi = createApi({
 });
 export const {
   useRegisterSellerMutation,
+  useLoginSellerMutation,
   useGetSellersQuery,
   useGetSellerByIdQuery,
   useUpdateSellerMutation,
