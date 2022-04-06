@@ -3,7 +3,7 @@ import React from 'react';
 
 const Contact: React.FC = () => {
     return (
-      <div className="relative h-auto xl:h-1/2">
+      <div className="relative h-auto xl:h-1/2" id="contact">
         <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 justify-center">
             <section className="mx-auto w-full max-w-2xl rounded-md bg-gradient-to-b from-[#a7808d] via-[#aa8b95] to-[#e0d4d9] px-6 py-4 shadow-md">

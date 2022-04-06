@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CollectionBanner from '../src/layouts/CollectionProfileLayout/CollectionBanner';
 import ConllectionContent from '../src/layouts/CollectionProfileLayout/ConllectionContent';
+import MenuGlobal from '../src/layouts/navMenu/MenuGlobal';
+import NavGlobal from '../src/layouts/navMenu/NavGlobal';
 
 
 
-const collectionProfile: React.FC = () => {
+const CollectionProfile: React.FC = () => {
+    const [active, setActive] = useState(false);
     return (
       <main className="min-h-screen w-full">
-          <CollectionBanner/>
-          <ConllectionContent/>
+        <NavGlobal active={active} setActive={setActive} />
+        <CollectionBanner />
+        <ConllectionContent />
+        <MenuGlobal active={active} setActive={setActive} />
       </main>
     );
 };
 
-export default collectionProfile;
+export default CollectionProfile;

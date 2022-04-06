@@ -54,57 +54,57 @@ const NftInfo: React.FC = () => {
           </div>
         </details>
 
-        <div className="mt-8 h-44 w-full">
-          <div className="mt-8 flex items-center justify-between">
-            <div className="w-1/2">
-              <h4 className="font-semibold">Owner By</h4>
-              <div className="flex h-28 w-full items-center">
-                <div className="h-12 w-12">
-                  <Image
-                    src="/monjey.jpg"
-                    alt=""
-                    width="100%"
-                    height="100%"
-                    layout="raw"
-                    className="h-full w-full rounded-full object-cover"
-                  />
+        <div className="mt-8 h-28 w-4/5">
+            <div className="mt-8 flex items-center justify-between">
+                <div className="w-1/2">
+                <h4 className="font-semibold">Owner By:</h4>
+                <div className="flex h-28 w-full items-center">
+                    <div className="h-12 w-12">
+                    <Image
+                        src="/monjey.jpg"
+                        alt=""
+                        width="100%"
+                        height="100%"
+                        layout="raw"
+                        className="h-full w-full rounded-full object-cover"
+                    />
+                    </div>
+                    <span className="ml-4"> Seller Name</span>
                 </div>
-                <span className="ml-4"> Seller </span>
-              </div>
-            </div>
-
-            <div className="w-1/2">
-              <h4 className="font-semibold">Collection</h4>
-              <div className="flex h-28 w-full items-center">
-                <div className="h-12 w-12">
-                  <Image
-                    src="/monjey.jpg"
-                    alt=""
-                    width="100%"
-                    height="100%"
-                    layout="raw"
-                    className="h-full w-full rounded-full object-cover"
-                  />
                 </div>
-                <span className="ml-4"> collection name </span>
-              </div>
-            </div>
-          </div>
-          <div className="mt-8 flex">
-            <button
-              type="submit"
-              className="ml-3 block rounded bg-green-600 px-5 py-3 text-xs font-medium text-white hover:bg-green-500"
-            >
-              Add to Cart
-            </button>
 
-            <button
-              type="submit"
-              className="ml-3 block rounded bg-green-600 px-5 py-3 text-xs font-medium text-white hover:bg-green-500"
-            >
-              Collect
-            </button>
-          </div>
+                <div className="w-1/2">
+                <h4 className="font-semibold">Collection:</h4>
+                <div className="flex h-28 w-full items-center">
+                    <div className="h-12 w-12">
+                    <Image
+                        src="/monjey.jpg"
+                        alt=""
+                        width="100%"
+                        height="100%"
+                        layout="raw"
+                        className="h-full w-full rounded-full object-cover"
+                    />
+                    </div>
+                    <span className="ml-4"> collection name </span>
+                </div>
+                </div>
+            </div>
+            <div className="mt-8 flex">
+                <button
+                type="submit"
+                className="ml-3 block rounded bg-gray-700 px-5 py-3 text-xs font-medium text-white hover:bg-gray-800"
+                >
+                Add to Cart
+                </button>
+
+                <button
+                type="submit"
+                className="ml-3 block rounded bg-green-600 px-5 py-3 text-xs font-medium text-white hover:bg-green-800"
+                >
+                Collect
+                </button>
+            </div>
         </div>
       </div>
     );

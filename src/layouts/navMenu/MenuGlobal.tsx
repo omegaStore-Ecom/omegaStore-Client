@@ -11,45 +11,47 @@ interface NavBarProps {
   active: boolean;
   setActive: (arg0: boolean) => void;
 }
-const Menu: React.FC<NavBarProps> = ({ active, setActive }) => {
+const MenuGlobal: React.FC<NavBarProps> = ({ active, setActive }) => {
   return (
     <ul
-      className={`menu flex h-screen w-full flex-col items-center justify-center font-semibold text-slate-300 md:w-1/4 md:items-start ${
+      className={`menu2 flex h-screen flex-col justify-center font-semibold text-gray-700 shadow-md md:w-1/4 md:items-start ${
         active ? 'active' : ''
       }`}
     >
-      <div>
-        <li className="list relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
+      <div className="w-96">
+        <li className="listG relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
           <RiHome2Fill className="mr-3" /> <Link href="/">Home</Link>
         </li>
-        <li className="list relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
+        <li className="listG relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
           <AiFillShopping className="mr-3" />{' '}
           <Link href="/explore">Products</Link>
         </li>
-        <li className="list relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
+        <li className="listG relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
           <HiCollection className="mr-3" />
           <Link href="/collections">Collections</Link>
         </li>
-        <li className="list relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
+        <li className="listG relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
           <MdLiveHelp className="mr-3" /> <Link href="#contact">Contact</Link>
         </li>
-        <li className="list relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
+        <li className="listG relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
           <MdAccountBox className="mr-3" /> <Link href="/profile">Account</Link>
         </li>
       </div>
 
-      <hr className="my-6 h-px w-60 bg-gray-300 text-slate-200" />
+      <hr className="my-6 h-px w-96 bg-gray-300 text-gray-600" />
 
-      <div className="h-32 w-64">
-        <div className="flex justify-between">
+      <div className="h-32 w-96">
+        <div className="flex">
           <Link href="/login" passHref>
-            <button className="btn3 text-bgray-800 bg-gray-800">Sign in</button>
+            <button className="btn3 bg-gray-800 text-slate-200">Sign in</button>
           </Link>
           <Link href="/register" passHref>
-            <button className="btn2 bg-slate-200 text-black">Sign up</button>
+            <button className="btn2 ml-32 bg-slate-200 text-black">
+              Sign up
+            </button>
           </Link>
         </div>
-        <div className="mt-10 flex justify-between">
+        <div className="mt-10 flex">
           <div className="flex">
             <div className="relative">
               <input
@@ -82,7 +84,7 @@ const Menu: React.FC<NavBarProps> = ({ active, setActive }) => {
               </label>
             </div>
           </div>
-          <div className="flex">
+          <div className="ml-36 flex">
             <div className="relative">
               <input
                 className="peer sr-only"
@@ -120,4 +122,4 @@ const Menu: React.FC<NavBarProps> = ({ active, setActive }) => {
   );
 };
 
-export default Menu;
+export default MenuGlobal;

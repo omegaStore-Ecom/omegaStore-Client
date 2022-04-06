@@ -53,7 +53,7 @@ const HeroSection: React.FC<NavBarProps> = ({active}) => {
               <p className="shadowDieTwice mb-10 text-2xl font-semibold text-white md:text-3xl">
                 Easier, faster, and all from one place.
               </p>
-              <div className="mt-10 flex justify-between md:w-1/4">
+              <div className="mt-10 flex justify-between md:w-96">
                 <Link href="/register" passHref>
                   <button className="btn">Become a seller</button>
                 </Link>
