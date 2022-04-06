@@ -3,9 +3,6 @@ export interface CurrentUser {
   token: string;
   role: string;
   password?: string;
-  type?:"",
-  generatedIncome?:"",
-  productLimit?:""
 }
 
 export interface AdminLogin {

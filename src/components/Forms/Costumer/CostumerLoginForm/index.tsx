@@ -1,7 +1,12 @@
 import React from 'react';
 import { Field, Form, Formik } from 'formik';
+import { useLoginCustomerMutation } from 'redux/services/customer';
+import {useAppDispatch} from "redux/hooks";
+import {currentUser} from "redux/features/authSlice";
 
 const CostumerLoginForm: React.FC = () => {
+  const [customerLogin] = useLoginCustomerMutation()
+    const dispatch = useAppDispatch()
   return (
     <Formik
       initialValues={{
@@ -9,18 +14,18 @@ const CostumerLoginForm: React.FC = () => {
         email: '',
       }}
       // validationSchema={}
-      onSubmit={async (values) => {
-        //   await adminLogin(values)
-        //     .unwrap()
-        //     .then(async (payload) => {
-        //      dispatch(currentUser({
-        //           token: payload.token,
-        //           role: payload.Admin.role,
-        //           email: payload.Admin.email,
-        //         })
-        //       );
-        //     });
-        console.log(values);
+      onSubmit={async (values : any) => {
+          await customerLogin(values)
+            .unwrap()
+            .then(async (payload) => {
+             dispatch(currentUser({
+                  token: payload.token,
+                  role: payload.Customer.role,
+                  email: payload.Customer.email,
+                })
+              );
+            });
+
       }}
     >
       {({}) => (

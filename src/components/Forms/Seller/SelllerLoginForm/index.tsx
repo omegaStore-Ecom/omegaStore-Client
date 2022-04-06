@@ -1,12 +1,16 @@
 import { Field, Form, Formik } from "formik";
-import {useAppDispatch} from "redux/hooks";
-import {currentUser} from "redux/features/authSlice";
-import {useLoginSellerMutation} from "../../../../../redux/services/seller";
+import {useAppDispatch, useAppSelector} from "redux/hooks";
+import {clearData, currentUser} from "redux/features/authSlice";
+import {useLoginSellerMutation} from "redux/services/seller";
 import {any} from "prop-types";
 
 const SellerLoginForm = () => {
     const dispatch = useAppDispatch();
     const [sellerLogin] = useLoginSellerMutation()
+    const user = useAppSelector((state) => state.currentUser)
+    const logout = () => {
+        dispatch(clearData())
+    }
   return (
     <Formik
       initialValues={{
@@ -31,7 +35,7 @@ const SellerLoginForm = () => {
     >
       {({}) => (
         <Form className="mx-auto w-full px-4 sm:w-2/3 lg:px-0">
-
+            {user && JSON.stringify(user.email +" "+ user.role)}
             <div className="pb-2 pt-4">
               <Field
                 className="block w-full rounded-full bg-black p-4 text-lg"
@@ -57,6 +61,14 @@ const SellerLoginForm = () => {
               <button type="submit" className="block w-full rounded-full bg-indigo-600 p-4 text-lg uppercase hover:bg-indigo-700 focus:outline-none">
                 sign in
               </button>
+                <button
+
+                    onClick={() => logout()}
+                    className="block w-full rounded-full bg-indigo-600 p-4 text-lg uppercase hover:bg-indigo-700 focus:outline-none"
+                >
+                    log out
+                </button
+                >
             </div>
        
         </Form>
