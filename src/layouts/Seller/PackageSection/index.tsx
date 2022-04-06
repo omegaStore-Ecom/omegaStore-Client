@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Image from "next/image";
-import SellerProducts from "../../../components/Sections/SellerProducts";
-import SellerCollection from "../../../components/Sections/SellerCollection";
-import ModalWrapper from "../../../shared/ModalWrapper";
-import AddProductsForm from "../../../components/Forms/Products/AddProductForm";
+import SellerProducts from "src/components/Sections/SellerProducts";
+import SellerCollection from "src/components/Sections/SellerCollection";
+import ModalWrapper from "src/shared/ModalWrapper";
+import AddProductsForm from "src/components/Forms/Products/AddProductForm";
 
 const PackageSection = () => {
   const [show, setShow] = useState(false);

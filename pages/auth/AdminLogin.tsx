@@ -1,5 +1,5 @@
 import React from 'react'
-import AdminLoginLayout from '../../src/layouts/AdminLoginLayout'
+import AdminLoginLayout from 'src/layouts/AdminLoginLayout'
 import {NextPage} from "next";
 
 const AdminLogin: NextPage = () => {

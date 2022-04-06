@@ -35,6 +35,43 @@ export interface DeliveryMan {
 }
 export type DeliveryManResponse = DeliveryMan[];
 
+export interface Seller {
+  id?: string;
+  _id?: string;
+  firstName: string;
+  lastName: string;
+  phone: string;
+  email: string;
+  password: string;
+  role: string;
+  status: string;
+  file: string;
+  type: string;
+  generatedIncome: number;
+  productLimit: number;
+}
+
+export type SellerResponse = Seller[];
+
+export interface Customer {
+  id?: string;
+  _id?: string;
+  firstName: string;
+  lastName: string;
+  phone: string;
+  email: string;
+  password: string;
+  role: string;
+  address_1: string;
+  address_2: string;
+  city: string;
+  state: string;
+  zip: string;
+  country: string;
+}
+
+
+
 export interface ModalProps {
   isOpen?: boolean;
   setIsOpen: (arg: boolean) => void;
@@ -47,4 +84,3 @@ export interface UpdateProps {
   id?: any;
   setIsOpen: (arg: boolean) => void;
 }
-
