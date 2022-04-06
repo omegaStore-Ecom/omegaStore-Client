@@ -14,7 +14,7 @@ const HeroSection: React.FC<NavBarProps> = ({active}) => {
           active ? 'hidden' : ''
         }`}
       >
-        <div className="main h-full w-full bg-[#a7808d]">
+        <div className="main h-full w-full bg-gradient-to-b from-[#a7808d] via-[#aa8b95] to-[#e0d4d9]">
           <div className="relative h-full min-h-screen w-full">
             <div
               data-aos="fade-down"
@@ -53,7 +53,7 @@ const HeroSection: React.FC<NavBarProps> = ({active}) => {
               <p className="shadowDieTwice mb-10 text-2xl font-semibold text-white md:text-3xl">
                 Easier, faster, and all from one place.
               </p>
-              <div className="mt-10 flex justify-between md:w-1/4">
+              <div className="mt-10 flex justify-between md:w-96">
                 <Link href="/register" passHref>
                   <button className="btn">Become a seller</button>
                 </Link>

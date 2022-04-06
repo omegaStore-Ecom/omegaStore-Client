@@ -1,7 +1,7 @@
 .wrapper{
     height: 100vh;
     /* background-color: #770218, #e21339; */
-    background-color: #6d575f;
+    background-color: #79515e;
     overflow: hidden;
     transform-style: preserve-3d;
     display: flex;
@@ -117,6 +117,7 @@
 .menu.active {
     opacity: 1;
     visibility: visible;
+    overflow-y: hidden;
     transform: translateX(0);
 }
 
@@ -143,6 +144,48 @@
     width: 25px;
 }
 
+.menu2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-100px);
+    transition: 0.5s ease-in-out;
+    background-color: rgb(255, 255, 255);
+    padding-left: 2rem;
+    width: 100vw;
+    align-items: center;
+}
+.menu2.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.listG{
+    transition: 0.3s ease-in-out;
+    text-transform: uppercase;
+    margin-bottom: 0.5em;
+}
+
+.listG::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 5px;
+    width: 0;
+    background-color: #333333;
+    transition: 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+.listG:hover::before{
+    width: 30px;
+}
+
 .shadowDieTwice{
     text-shadow: rgb(75, 74, 74) 0px 4px 40px;
 }
@@ -154,22 +197,23 @@
  border: 0;
  background-color: white;
  box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
- letter-spacing: 1.5px;
+ /* letter-spacing: 1px; */
  text-transform: uppercase;
- font-size: 15px;
- font-weight: 500;
+ font-size: 14px;
+ font-weight: 700;
  transition: all .5s ease;
+ color: #333333;
 }
 
 .btn:hover {
- letter-spacing: 3px;
+ padding: 1em 1.5em;
  background-color: #333333;
  color: hsl(0, 0%, 100%);
  box-shadow: #333333 0px 7px 29px 0px;
 }
 
 .btn:active {
- letter-spacing: 3px;
+ /* letter-spacing: 3px; */
  background-color: #333333;
  color: hsl(0, 0%, 100%);
  box-shadow: #333333 0px 0px 0px 0px;
