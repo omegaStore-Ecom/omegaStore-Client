@@ -3,7 +3,7 @@ import { baseQuery } from "../api";
 import { createApi } from "@rtk-incubator/rtk-query/react";
 
 export const sellerApi = createApi({
-  reducerPath: "deliveryManApi",
+  reducerPath: "sellerApi",
   baseQuery,
 
   endpoints: (build) => ({
