@@ -2,10 +2,10 @@ import React from 'react';
 import Image from 'next/image';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebookF } from 'react-icons/fa';
-import SellerRegisterForm from './../../components/Forms/Seller/SellerRegisterForm/index';
+import CostumerLoginForm from 'src/components/Forms/Costumer/CostumerLoginForm';
 
 
-const RightsideRegister: React.FC = () => {
+const RightsideLoginCostumer: React.FC = () => {
     return (
       <div className="z-0 flex w-full items-center justify-center px-0 text-center md:px-16 lg:w-1/2">
         <div className="z-20 w-full py-6">
@@ -27,10 +27,10 @@ const RightsideRegister: React.FC = () => {
             </button>
           </div>
           <p className="text-gray-100">or use email your account</p>
-          <SellerRegisterForm/>
+          <CostumerLoginForm />
         </div>
       </div>
     );
 };
 
-export default RightsideRegister;
+export default RightsideLoginCostumer;

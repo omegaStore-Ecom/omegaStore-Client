@@ -1,6 +1,12 @@
 import { Field, Form, Formik } from "formik";
+import {useAppDispatch} from "redux/hooks";
+import {currentUser} from "redux/features/authSlice";
+import {useLoginSellerMutation} from "../../../../../redux/services/seller";
+import {any} from "prop-types";
 
 const SellerLoginForm = () => {
+    const dispatch = useAppDispatch();
+    const [sellerLogin] = useLoginSellerMutation()
   return (
     <Formik
       initialValues={{
@@ -8,24 +14,23 @@ const SellerLoginForm = () => {
         email: "",
       }}
       // validationSchema={}
-      onSubmit={async (values) => {
-        //   await adminLogin(values)
-        //     .unwrap()
-        //     .then(async (payload) => {
-        //      dispatch(currentUser({
-        //           token: payload.token,
-        //           role: payload.Admin.role,
-        //           email: payload.Admin.email,
-        //         })
-        //       );
-        //     });
-        console.log(values);
+      onSubmit={async (values : any) => {
+          await sellerLogin(values)
+            .unwrap()
+            .then(async (payload) => {
+             dispatch(currentUser({
+                  token: payload.token,
+                  role: payload.Seller.role,
+                  email: payload.Seller.email,
+                })
+              );
+
+            });
+
       }}
     >
       {({}) => (
         <Form className="mx-auto w-full px-4 sm:w-2/3 lg:px-0">
-     
-           
 
             <div className="pb-2 pt-4">
               <Field

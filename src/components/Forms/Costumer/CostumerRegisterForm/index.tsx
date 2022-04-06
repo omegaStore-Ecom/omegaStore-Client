@@ -1,46 +1,31 @@
-import { useRegisterSellerMutation } from "redux/services/seller";
-import { Field, Form, Formik } from "formik";
-//@ts-ignore
-import { FilePond, File, registerPlugin } from "react-filepond";
-import "filepond/dist/filepond.min.css";
-
-import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
-import FilePondPluginImagePreview from "filepond-plugin-image-preview";
-import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
-import { useState } from "react";
-import { currentUser } from "redux/features/authSlice";
-import {useAppDispatch} from "../../../../../redux/hooks";
+import React from 'react';
+import { Field, Form, Formik } from 'formik';
 
 
-// Register the plugins
-registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
-const SellerRegisterForm = () => {
-    const [files, setFiles] = useState<File[]>([]);
-    const dispatch = useAppDispatch();
-    const [sellerRegister] = useRegisterSellerMutation()
+const CostumerRegisterForm: React.FC = () => {
   return (
     <Formik
       initialValues={{
-        firstName: "",
-        lastName: "",
-        phone: "",
-        file: "",
-        password: "",
-        email: "",
+        firstName: '',
+        lastName: '',
+        phone: '',
+        file: '',
+        password: '',
+        email: '',
       }}
       // validationSchema={}
       onSubmit={async (values) => {
-
-        let data: any = new FormData();
-        data.append("firstName", values.firstName);
-        data.append("lastName", values.lastName);
-        data.append("email", values.email);
-        data.append("phone", values.phone);
-        data.append("password", values.password);
-        data.append("file", files[0].file);
-
-        await sellerRegister(data)
-
+        //   await adminLogin(values)
+        //     .unwrap()
+        //     .then(async (payload) => {
+        //      dispatch(currentUser({
+        //           token: payload.token,
+        //           role: payload.Admin.role,
+        //           email: payload.Admin.email,
+        //         })
+        //       );
+        //     });
+        console.log(values);
       }}
     >
       {({}) => (
@@ -92,13 +77,18 @@ const SellerRegisterForm = () => {
           </div>
 
           <div className="pb-2 pt-4">
-            <FilePond
-              files={files}
-              onupdatefiles={setFiles}
-              allowMultiple={true}
-              maxFiles={3}
-              name="productImage"
-              labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
+            <label
+              htmlFor="file"
+              className="block w-full rounded-full bg-black p-4 text-lg text-gray-400"
+            >
+              Import CIN
+            </label>
+            <Field
+              className="hidden w-full rounded-full bg-black p-4 text-lg"
+              type="file"
+              name="file"
+              id="file"
+              placeholder="file"
             />
           </div>
 
@@ -118,4 +108,5 @@ const SellerRegisterForm = () => {
     </Formik>
   );
 };
-export default SellerRegisterForm;
+
+export default CostumerRegisterForm;
