@@ -1,5 +1,5 @@
-import "../styles/globals.css";
-import "../styles/LandingPage.css"
+import "styles/globals.css";
+import "styles/LandingPage.css"
 import 'aos/dist/aos.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';

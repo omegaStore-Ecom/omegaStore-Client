@@ -1,6 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { useState, Fragment } from 'react';
-import { ModalProps } from '../../../interfaces';
+import { ModalProps } from 'interfaces';
 
 
 

@@ -1,14 +1,13 @@
-import { ErrorMessage, Field, Form, Formik } from "formik";
+import { Field, Form, Formik } from "formik";
 import Link from "next/link";
 import React from "react";
-import { useLoginAdminMutation } from "../../../../redux/services/admin";
-import At from "../../../assets/svg/at";
-import Eye from "../../../assets/svg/eye";
-import InputError from "../../Error/InputError";
-import { AdminLogin } from "./../../../validation/LoginSchemas";
-import { useAppDispatch } from "./../../../../redux/hooks";
-import { CurrentUser } from "./../../../../interfaces/index";
-import { currentUser } from "../../../../redux/features/authSlice";
+import { useLoginAdminMutation } from "redux/services/admin";
+import At from "src/assets/svg/at";
+import Eye from "src/assets/svg/eye";
+import InputError from "src/components/Error/InputError";
+import { useAppDispatch } from "redux/hooks";
+import { currentUser } from "redux/features/authSlice";
+import { AdminLoginSchema } from "src/validation/LoginSchemas";
 
 const AdminLoginForm = () => {
   const [adminLogin] = useLoginAdminMutation();
@@ -19,7 +18,7 @@ const AdminLoginForm = () => {
         password: "",
         email: "",
       }}
-      validationSchema={AdminLogin}
+      validationSchema={AdminLoginSchema}
       onSubmit={async (values) => {
         await adminLogin(values)
           .unwrap()
@@ -33,7 +32,7 @@ const AdminLoginForm = () => {
           });
       }}
     >
-      {({ errors, touched }) => (
+      {({}) => (
         <Form className="max-w-md mx-auto mt-8 mb-0 space-y-4">
           <div>
             <label className="sr-only">Email</label>

@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
 import React from 'react';
-import Contact from '../../src/layouts/Home/Contact';
-import Footer from '../../src/layouts/Home/Footer';
+import Contact from 'src/layouts/Home/Contact';
+import Footer from 'src/layouts/Home/Footer';
 
 
 

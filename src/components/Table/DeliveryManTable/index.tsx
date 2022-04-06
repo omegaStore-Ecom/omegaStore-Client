@@ -1,10 +1,10 @@
 import { useState } from "react";
 // import { ModalProps } from "../../../../interfaces";
-import { useGetDeliveryMenQuery } from "../../../../redux/services/deliveryMan";
-import DeleteDeliveryMan from "../../Forms/DeliveryMan/DeleteDeliveryMan";
-import UpdateDeliveryManForm from "../../Forms/DeliveryMan/EditDeliveryManForm";
+import { useGetDeliveryMenQuery } from "redux/services/deliveryMan";
+import DeleteDeliveryMan from "src/components/Forms/DeliveryMan/DeleteDeliveryMan";
+import UpdateDeliveryManForm from "src/components/Forms/DeliveryMan/EditDeliveryManForm";
 
-import ModalWrapper from './../../../shared/ModalWrapper/index';
+import ModalWrapper from 'src/shared/ModalWrapper/index';
 
 
 const DeliveryManTable = () => {

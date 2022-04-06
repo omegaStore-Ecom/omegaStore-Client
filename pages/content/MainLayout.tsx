@@ -1,8 +1,8 @@
 /* eslint-disable react/display-name */
 import React, { useState } from 'react';
-import HeroSection from '../../src/layouts/Home/HeroSection';
-import Menu from '../../src/layouts/Home/Menu';
-import NavBar from '../../src/layouts/Home/NavBar';
+import HeroSection from 'src/layouts/Home/HeroSection';
+import Menu from 'src/layouts/Home/Menu';
+import NavBar from 'src/layouts/Home/NavBar';
 
 
 const MainLayout = React.forwardRef<HTMLDivElement | null, unknown>((prop, ref) => {

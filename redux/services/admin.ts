@@ -6,6 +6,13 @@ export const adminApi = createApi({
   reducerPath: "adminApi",
   baseQuery,
   endpoints: (build) => ({
+    registerAdmin: build.mutation({
+      query: (credentials: AdminLogin) => ({
+        url: "admin/register",
+        method: "POST",
+        body: credentials,
+      }),
+    }),
     loginAdmin: build.mutation({
       query: (credentials: AdminLogin) => ({
         url: "admin/login",
@@ -15,4 +22,4 @@ export const adminApi = createApi({
     }),
   }),
 });
-export const { useLoginAdminMutation } = adminApi;
+export const { useLoginAdminMutation, useRegisterAdminMutation } = adminApi;
