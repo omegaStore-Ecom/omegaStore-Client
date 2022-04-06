@@ -26,7 +26,7 @@ const AddProductsForm: React.FC<ModalProps> = ({ setIsOpen }) => {
         productPrice: 0,
         productCategory: "",
         productBrand: "",
-        productCollection: "3"
+        productCollection: ""
       }}
       onSubmit={async (values) => {
         let data: any = new FormData();
