@@ -1,5 +1,5 @@
 import { Field, Form, Formik } from "formik";
-import { LineItemType, ModalProps } from "../../../../../interfaces";
+import { LineItemType, ModalProps } from "interfaces";
 //@ts-ignore
 import { FilePond, File, registerPlugin } from "react-filepond";
 import "filepond/dist/filepond.min.css";
@@ -8,7 +8,8 @@ import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orien
 import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 import { useState } from "react";
-import { useAddProductMutation } from "../../../../../redux/services/products";
+import { useAddProductMutation } from "redux/services/products";
+
 
 // Register the plugins
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);

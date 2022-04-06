@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-export const AdminLogin = Yup.object().shape({
+export const AdminLoginSchema = Yup.object().shape({
     password: Yup.string()
       .min(2, 'Too Short!')
       .max(50, 'Too Long!')
