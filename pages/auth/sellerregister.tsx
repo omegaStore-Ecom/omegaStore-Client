@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import LeftsideRegister from '../../src/layouts/loginLayouts/LeftsideRegister';
-import RightsideRegister from '../../src/layouts/loginLayouts/RightsideRegister';
-import MenuGlobal from '../../src/layouts/navMenu/MenuGlobal';
-import NavGlobal from '../../src/layouts/navMenu/NavGlobal';
+import LeftsideRegister from 'src/layouts/loginLayouts/LeftsideRegister';
+import MenuGlobal from 'src/layouts/navMenu/MenuGlobal';
+import NavGlobal from 'src/layouts/navMenu/NavGlobal';
+import RightsideRegister from 'src/layouts/loginLayouts/SellerLoginLayouts/RightsideRegister';
 
 
 

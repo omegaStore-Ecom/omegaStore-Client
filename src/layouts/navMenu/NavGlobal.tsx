@@ -9,7 +9,7 @@ interface NavBarProps {
 }
 const NavGlobal: React.FC<NavBarProps> = ({ active, setActive }) => {
   return (
-    <div className="fixed top-0 left-0 z-10 h-10 w-full bg-white pb-4">
+    <div className="fixed top-0 left-0 z-10 h-10 w-full bg-white pb-4 shadow-sm">
       <div className="m-auto flex h-full w-full items-center justify-between px-10">
         <div className="flex h-16 items-start">
           <Image src="/logos.svg" alt="" width={100} height={80} />
