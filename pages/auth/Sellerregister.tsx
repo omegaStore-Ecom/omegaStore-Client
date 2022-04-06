@@ -6,7 +6,7 @@ import NavGlobal from '../../src/layouts/navMenu/NavGlobal';
 
 
 
-const Register: React.FC = () => {
+const SellerRegister: React.FC = () => {
   const [active, setActive] = useState(false);
     return (
       <section className="flex min-h-screen items-stretch bg-gray-900 text-white">
@@ -18,4 +18,4 @@ const Register: React.FC = () => {
     );
 };
 
-export default Register;
+export default SellerRegister;
