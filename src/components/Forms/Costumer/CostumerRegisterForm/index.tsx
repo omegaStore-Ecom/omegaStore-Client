@@ -1,31 +1,27 @@
 import React from 'react';
 import { Field, Form, Formik } from 'formik';
+import {useRegisterCustomerMutation} from "../../../../../redux/services/customer";
 
 
 const CostumerRegisterForm: React.FC = () => {
+    const [customerRegister] = useRegisterCustomerMutation()
   return (
     <Formik
       initialValues={{
         firstName: '',
         lastName: '',
         phone: '',
-        file: '',
         password: '',
         email: '',
       }}
       // validationSchema={}
-      onSubmit={async (values) => {
-        //   await adminLogin(values)
-        //     .unwrap()
-        //     .then(async (payload) => {
-        //      dispatch(currentUser({
-        //           token: payload.token,
-        //           role: payload.Admin.role,
-        //           email: payload.Admin.email,
-        //         })
-        //       );
-        //     });
-        console.log(values);
+      onSubmit={async (values : any) => {
+          await customerRegister(values)
+            .unwrap()
+            .then(async (payload) => {
+
+            });
+
       }}
     >
       {({}) => (
@@ -75,23 +71,6 @@ const CostumerRegisterForm: React.FC = () => {
               placeholder="Phone"
             />
           </div>
-
-          <div className="pb-2 pt-4">
-            <label
-              htmlFor="file"
-              className="block w-full rounded-full bg-black p-4 text-lg text-gray-400"
-            >
-              Import CIN
-            </label>
-            <Field
-              className="hidden w-full rounded-full bg-black p-4 text-lg"
-              type="file"
-              name="file"
-              id="file"
-              placeholder="file"
-            />
-          </div>
-
           <div className="text-right text-gray-400 hover:text-gray-100 hover:underline">
             <a href="#">Forgot your password?</a>
           </div>
