@@ -18,17 +18,23 @@ import {
   import currentUserReducer from "./features/authSlice";
   import { adminApi } from "./services/admin";
   import { sellerApi } from './services/seller';
+import { deliveryManApi } from './services/deliveryMan';
+import { GAdminApi } from './services/generalAdmin';
+import { customerApi } from "./services/customer";
 
   const persistConfig = {
     key: "root",
     storage,
-    blacklist: [adminApi.reducerPath , sellerApi.reducerPath], //add slice to be ignored here
+    blacklist: [adminApi.reducerPath , sellerApi.reducerPath, customerApi.reducerPath ,GAdminApi.reducerPath ,deliveryManApi.reducerPath ], //add slice to be ignored here
   };
   
   const rootReducer = combineReducers({
     currentUser: currentUserReducer,
     [adminApi.reducerPath]: adminApi.reducer,
     [sellerApi.reducerPath]: sellerApi.reducer,
+    [deliveryManApi.reducerPath]: deliveryManApi.reducer,
+    [GAdminApi.reducerPath]: GAdminApi.reducer,
+    [customerApi.reducerPath]: customerApi.reducer,
   });
   
   const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -41,7 +47,7 @@ import {
           serializableCheck: {
             ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
           },
-        }).concat(adminApi.middleware , sellerApi.middleware),
+        }).concat(adminApi.middleware , sellerApi.middleware , customerApi.middleware ,GAdminApi.middleware ,deliveryManApi.middleware),
     });
   }
   
