@@ -1,40 +1,67 @@
-import { configureStore } from "@reduxjs/toolkit";
-import cartReducer from "./features/cartSlice";
-import currentUserReducer from "./features/authSlice";
-import { adminApi } from "./services/admin";
-import { productApi } from "./services/products"
 import {
-  nextReduxCookieMiddleware,
-  wrapMakeStore,
-} from "next-redux-cookie-wrapper";
-import { createWrapper } from "next-redux-wrapper";
-import { deliveryManApi } from "./services/deliveryMan";
-import { customerApi } from "./services/customer";
-import { sellerApi } from "./services/seller";
+    configureStore,
+    ThunkAction,
+    Action,
+    getDefaultMiddleware,
+  } from "@reduxjs/toolkit";
+  import { combineReducers } from "redux";
+  import {
+    persistReducer,
+    FLUSH,
+    REHYDRATE,
+    PAUSE,
+    PERSIST,
+    PURGE,
+    REGISTER,
+  } from "redux-persist";
+  import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+  import currentUserReducer from "./features/authSlice";
+  import { adminApi } from "./services/admin";
+  import { sellerApi } from './services/seller';
+import { deliveryManApi } from './services/deliveryMan';
 import { GAdminApi } from './services/generalAdmin';
+import { customerApi } from "./services/customer";
 
-const makeStore = wrapMakeStore(() =>
-  configureStore({
-    reducer: {
-      cart: cartReducer,
-      currentUser: currentUserReducer,
-      [adminApi.reducerPath]: adminApi.reducer,
-      [deliveryManApi.reducerPath]: deliveryManApi.reducer,
-      [productApi.reducerPath] : productApi.reducer,
-      [sellerApi.reducerPath] : sellerApi.reducer ,
-      [customerApi.reducerPath] : customerApi.reducer ,
-      [GAdminApi.reducerPath] : GAdminApi.reducer ,
-    },
-    // redux middleware
-    middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware({ serializableCheck: false})
-        .concat(adminApi.middleware, deliveryManApi.middleware, productApi.middleware, sellerApi.middleware, customerApi.middleware, GAdminApi.middleware)
-        .prepend(nextReduxCookieMiddleware({ subtrees: ["user", "cart"] })),
-  })
-);
-
-export type AppStore = ReturnType<typeof makeStore>;
-export type RootState = ReturnType<AppStore["getState"]>;
-export type AppDispatch = AppStore["dispatch"];
-
-export const wrapper = createWrapper<AppStore>(makeStore, { debug: false });
+  const persistConfig = {
+    key: "root",
+    storage,
+    blacklist: [adminApi.reducerPath , sellerApi.reducerPath, customerApi.reducerPath ,GAdminApi.reducerPath ,deliveryManApi.reducerPath ], //add slice to be ignored here
+  };
+  
+  const rootReducer = combineReducers({
+    currentUser: currentUserReducer,
+    [adminApi.reducerPath]: adminApi.reducer,
+    [sellerApi.reducerPath]: sellerApi.reducer,
+    [deliveryManApi.reducerPath]: deliveryManApi.reducer,
+    [GAdminApi.reducerPath]: GAdminApi.reducer,
+    [customerApi.reducerPath]: customerApi.reducer,
+  });
+  
+  const persistedReducer = persistReducer(persistConfig, rootReducer);
+  
+  export function makeStore() {
+    return configureStore({
+      reducer: persistedReducer,
+      middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+          serializableCheck: {
+            ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+          },
+        }).concat(adminApi.middleware , sellerApi.middleware , customerApi.middleware ,GAdminApi.middleware ,deliveryManApi.middleware),
+    });
+  }
+  
+  const store = makeStore();
+  
+  export type AppState = ReturnType<typeof store.getState>;
+  
+  export type AppDispatch = typeof store.dispatch;
+  
+  export type AppThunk<ReturnType = void> = ThunkAction<
+    ReturnType,
+    AppState,
+    unknown,
+    Action<string>
+  >;
+  
+  export default store;
