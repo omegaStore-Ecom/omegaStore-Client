@@ -11,8 +11,11 @@ const SellerProducts = () => {
                 Collection Name
               </h1>
               <div className="flex w-1/2 justify-between">
-                <select className="select select-info w-full max-w-xs rounded-2xl">
-                  <option disabled selected>
+                <select
+                  defaultValue={'default'}
+                  className="select select-info w-full max-w-xs rounded-2xl"
+                >
+                  <option value="default" disabled selected>
                     Category
                   </option>
                   <option>Art</option>
@@ -20,8 +23,11 @@ const SellerProducts = () => {
                   <option>Toys</option>
                 </select>
 
-                <select className="select select-error select-bordered w-full max-w-xs rounded-2xl">
-                  <option disabled selected>
+                <select
+                  defaultValue={'default'}
+                  className="select select-error select-bordered w-full max-w-xs rounded-2xl"
+                >
+                  <option value="default" disabled selected>
                     Sort By
                   </option>
                   <option>Price</option>

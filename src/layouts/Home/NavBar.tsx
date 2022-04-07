@@ -15,7 +15,7 @@ const NavBar: React.FC<NavBarProps> = ({ active, setActive }) => {
         <div className="flex h-16 items-start">
           <Link href="/" passHref>
             <Image
-              src="/logos.svg"
+              src="/logo.svg"
               className="cursor-pointer"
               alt=""
               width={100}

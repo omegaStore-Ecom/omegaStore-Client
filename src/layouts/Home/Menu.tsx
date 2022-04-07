@@ -3,9 +3,9 @@ import React, { useEffect } from 'react';
 import { RiHome2Fill, RiEnglishInput } from 'react-icons/ri';
 import { AiFillShopping } from 'react-icons/ai';
 import { HiCollection } from 'react-icons/hi';
-import { MdLiveHelp, MdAccountBox } from 'react-icons/md';
 import { FaEthereum } from 'react-icons/fa';
 import { IoLogoUsd } from 'react-icons/io';
+import { MdAccountBox } from 'react-icons/md';
 
 interface NavBarProps {
   active: boolean;
@@ -31,10 +31,10 @@ const Menu: React.FC<NavBarProps> = ({ active, setActive }) => {
           <Link href="/collections">Collections</Link>
         </li>
         <li className="list relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
-          <MdLiveHelp className="mr-3" /> <Link href="#contact">Contact</Link>
+          <MdAccountBox className="mr-3" /> <Link href="/profile">Account</Link>
         </li>
         <li className="list relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
-          <MdAccountBox className="mr-3" /> <Link href="/profile">Account</Link>
+          <AiFillShopping className="mr-3" /> <Link href="#contact">Cart</Link>
         </li>
       </div>
 
