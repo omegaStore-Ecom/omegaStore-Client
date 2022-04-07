@@ -74,15 +74,15 @@ export const cartSlice = createSlice({
     },
 
   },
-  extraReducers: {
-    [HYDRATE]: (state, action) => {
-      console.log("HYDRATE", action.payload);
-      return {
-        ...state,
-        ...action.payload.cart,
-      };
-    },
-  },
+  // extraReducers: {
+  //   [HYDRATE]: (state, action) => {
+  //     console.log("HYDRATE", action.payload);
+  //     return {
+  //       ...state,
+  //       ...action.payload.cart,
+  //     };
+  //   },
+  // },
 
   // the extraReducers field lets us define additional reducers that are not associated with a specific action
   // use the extraReducers type to declare the contents of 'actions.extraReducers'

@@ -8,8 +8,8 @@ import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orien
 import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 import { useState } from "react";
-import { currentUser } from "redux/features/authSlice";
-import {useAppDispatch} from "../../../../../redux/hooks";
+import {clearData, currentUser} from "redux/features/authSlice";
+import {useAppDispatch, useAppSelector} from "../../../../../redux/hooks";
 
 
 // Register the plugins
@@ -17,6 +17,7 @@ registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 const SellerRegisterForm = () => {
     const [files, setFiles] = useState<File[]>([]);
     const dispatch = useAppDispatch();
+
     const [sellerRegister] = useRegisterSellerMutation()
   return (
     <Formik
@@ -45,7 +46,9 @@ const SellerRegisterForm = () => {
     >
       {({}) => (
         <Form className="mx-auto w-full px-4 sm:w-2/3 lg:px-0">
+
           <div className="pb-2 pt-4">
+
             <Field
               className="block w-full rounded-full bg-black p-4 text-lg"
               type="text"
@@ -109,6 +112,7 @@ const SellerRegisterForm = () => {
             >
               sign in
             </button>
+
           </div>
         </Form>
       )}

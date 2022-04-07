@@ -14,7 +14,7 @@ export const productApi = createApi({
         body,
       }),
     }),
-
+    
     getProduct: build.query<ProductResponse, void>({
       query: () => ({ url: "product" }),
     }),

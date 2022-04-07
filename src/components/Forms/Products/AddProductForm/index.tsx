@@ -20,8 +20,8 @@ const AddProductsForm: React.FC<ModalProps> = ({ setIsOpen }) => {
   return (
     <Formik
       initialValues={{
-        productName: "",
-        productDescription: "",
+        productName: "asd",
+        productDescription: "asd",
         productQuantity: 0,
         productPrice: 0,
         productCategory: "dude",
@@ -33,8 +33,9 @@ const AddProductsForm: React.FC<ModalProps> = ({ setIsOpen }) => {
         data.append("productName", values.productName);
         data.append("productDescription", values.productDescription);
         data.append("productQuantity", values.productQuantity);
-        data.append("productPrice", values.productCategory);
-        data.append("productBrand", values.productBrand);
+        data.append("productPrice", values.productPrice);
+        data.append("productCategory", values.productCategory);
+        data.append("productCollection", values.productCollection);
         files.forEach((file) => {
           data.append("productImage", file.file);
         });

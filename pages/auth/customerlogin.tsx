@@ -4,7 +4,7 @@ import NavGlobal from 'src/layouts/navMenu/NavGlobal';
 import RightsideLoginCostumer from 'src/layouts/loginLayouts/CosutmerLoginLayouts/RightsideLoginCostumer';
 import LeftsideLogin from 'src/layouts/loginLayouts/LeftsideLogin';
 
-const Costumerlogin: React.FC = () => {
+const Customerlogin: React.FC = () => {
   const [active, setActive] = useState(false);
   return (
     <section className="flex min-h-screen items-stretch bg-gray-900 text-white">
@@ -16,4 +16,4 @@ const Costumerlogin: React.FC = () => {
   );
 };
 
-export default Costumerlogin;
+export default Customerlogin;
