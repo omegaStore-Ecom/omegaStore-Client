@@ -6,7 +6,7 @@ import SellerNfts from '../src/components/Sections/SellerProducts/SellerNfts';
 const Explore: React.FC = () => {
   const [active, setActive] = useState(false);
     return (
-      <section className="w-full min-h-screen">
+      <section className="min-h-screen w-full">
         <NavGlobal active={active} setActive={setActive} />
         <div className="container mx-auto mt-20 px-6 py-8">
           <div className="lg:-mx-2 lg:flex">
@@ -16,8 +16,11 @@ const Explore: React.FC = () => {
                   Explore All <span className="ml-3 text-blue-500">NFTs</span>{' '}
                 </h1>
                 <div className="flex w-1/2 justify-between">
-                  <select className="select select-info w-full max-w-xs rounded-2xl">
-                    <option disabled selected>
+                  <select
+                    defaultValue={"default"}
+                    className="select select-info w-full max-w-xs rounded-2xl"
+                  >
+                    <option value="default" disabled selected>
                       Category
                     </option>
                     <option>Art</option>
@@ -25,8 +28,11 @@ const Explore: React.FC = () => {
                     <option>Toys</option>
                   </select>
 
-                  <select className="select select-error select-bordered w-full max-w-xs rounded-2xl">
-                    <option disabled selected>
+                  <select
+                    defaultValue={"default"}
+                    className="select select-error select-bordered w-full max-w-xs rounded-2xl"
+                  >
+                    <option value="default" disabled selected>
                       Sort By
                     </option>
                     <option>Price</option>

@@ -31,10 +31,10 @@ const MenuGlobal: React.FC<NavBarProps> = ({ active, setActive }) => {
           <Link href="/collections">Collections</Link>
         </li>
         <li className="listG relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
-          <MdLiveHelp className="mr-3" /> <Link href="#contact">Contact</Link>
+          <MdAccountBox className="mr-3" /> <Link href="/profile">Account</Link>
         </li>
         <li className="listG relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
-          <MdAccountBox className="mr-3" /> <Link href="/profile">Account</Link>
+          <AiFillShopping className="mr-3" /> <Link href="#contact">Cart</Link>
         </li>
       </div>
 
