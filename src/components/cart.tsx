@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Image from "next/image";
-import NavGlobal from "../src/layouts/navMenu/NavGlobal";
-import MenuGlobal from "../src/layouts/navMenu/MenuGlobal";
+import NavGlobal from "../layouts/navMenu/NavGlobal";
+import MenuGlobal from "../layouts/navMenu/MenuGlobal";
 
 const Cart = () => {
     const [active, setActive] = useState(false);

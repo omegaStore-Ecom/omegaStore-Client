@@ -1,17 +1,14 @@
 import { useState } from "react";
 // import { ModalProps } from "../../../../interfaces";
-import { useGetDeliveryMenQuery } from "redux/services/deliveryMan";
 
 
 import ModalWrapper from 'src/shared/ModalWrapper/index';
-import {useGetSellersQuery} from "../../../../redux/services/seller";
+import {useGetSellersQuery, useUpdateSellerMutation} from "../../../../redux/services/seller";
 
 
-const DeliveryManTable = () => {
-    const { data } = useGetSellersQuery()
-    const [isOpen, setIsOpen] = useState(false);
-    const [OpenDelete, setOpenDelete] = useState(false);
-    const [idUpdate , setIdUpdate] = useState<string | Number>();
+const SellerTable = () => {
+    const { data , refetch } = useGetSellersQuery()
+    const [disableSeller] = useUpdateSellerMutation()
     return (
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table className="w-full text-left text-sm text-gray-500 ">
@@ -27,7 +24,13 @@ const DeliveryManTable = () => {
                         Phone
                     </th>
                     <th scope="col" className="px-6 py-3">
-                        Type
+                        Product limit
+                        </th>
+                    <th scope="col" className="px-6 py-3">
+                        status
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                        tier
                     </th>
                     <th scope="col" className="px-6 py-3">
                         <span className="sr-only">Edit</span>
@@ -36,8 +39,8 @@ const DeliveryManTable = () => {
                 </thead>
                 <tbody>
                 {data &&
-                    data.map((seller, index) => (
-                        <tr className="border-b bg-white" key={index}>
+                    data.map((seller) => (
+                        <tr className="border-b bg-white" key={seller._id}>
                             <th
                                 scope="row"
                                 className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 "
@@ -46,47 +49,28 @@ const DeliveryManTable = () => {
                             </th>
                             <td className="px-6 py-4">{seller.email}</td>
                             <td className="px-6 py-4">{seller.phone}</td>
+                            <td className="px-6 py-4">{seller.productLimit}</td>
+                            <td className="px-6 py-4">{seller.status}</td>
                             <td className="px-6 py-4">{seller.type}</td>
                             <td className="space-x-2 px-6 py-4 text-right">
                                 <button
                                     onClick={() => {
-                                        setIsOpen(!isOpen)
-                                        setIdUpdate(seller._id)
+                                        disableSeller({
+                                            status: 'notActivated',
+                                            id: seller._id
+                                        })
                                     }}
 
                                     className="w-20 rounded border border-indigo-600 bg-indigo-600 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
                                 >
-                                    Edit
-                                </button>
-                                <button
-                                    onClick={() =>{
-                                        setOpenDelete(!OpenDelete)
-                                        setIdUpdate(seller._id)
-                                    }}
-                                    className="w-20 rounded border border-red-600 bg-red-600 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-red-600 focus:outline-none focus:ring active:text-red-500"
-                                >
-                                    Delete
+                                    Activate
                                 </button>
                             </td>
                         </tr>
                     ))}
                 </tbody>
             </table>
-            <ModalWrapper
-                isOpen={isOpen}
-                setIsOpen={setIsOpen}
-                title="Edit delivery Man"
-                // component={<UpdateDeliveryManForm id={idUpdate} setIsOpen={setIsOpen} />}
-            />
-            <ModalWrapper
-                isOpen={OpenDelete}
-                setIsOpen={setOpenDelete}
-                title="delete DeliveryMan"
-                // component={<DeleteDeliveryMan id={idUpdate} setIsOpen={setOpenDelete}/>}
-            />
-
-
         </div>
     );
 };
-export default DeliveryManTable;
+export default SellerTable;
