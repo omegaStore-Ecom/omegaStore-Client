@@ -24,8 +24,9 @@ const AddProductsForm: React.FC<ModalProps> = ({ setIsOpen }) => {
         productDescription: "asd",
         productQuantity: 0,
         productPrice: 0,
-        productCategory: "dd",
-        productCollection: "624b168c35764f0f2c52d6c0"
+        productCategory: "dude",
+        productBrand: "nike",
+        productCollection: ""
       }}
       onSubmit={async (values) => {
         let data: any = new FormData();
@@ -111,7 +112,7 @@ const AddProductsForm: React.FC<ModalProps> = ({ setIsOpen }) => {
                 Collection
               </label>
               <Field
-                as="select"
+                as="input"
                 className="w-full rounded-lg border-gray-200 p-3 text-sm"
                 placeholder="Select Collection"
                 name="Collection"

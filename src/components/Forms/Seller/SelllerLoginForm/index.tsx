@@ -1,7 +1,8 @@
 import { Field, Form, Formik } from "formik";
-import { clearData, currentUser } from "redux/features/authSlice";
-import { useAppDispatch, useAppSelector } from "redux/hooks";
-import { useLoginSellerMutation } from "redux/services/seller";
+import {useAppDispatch} from "redux/hooks";
+import {currentUser} from "redux/features/authSlice";
+import {useLoginSellerMutation} from "redux/services/seller";
+import {any} from "prop-types";
 const SellerLoginForm = () => {
   const dispatch = useAppDispatch();
   const [sellerLogin] = useLoginSellerMutation();

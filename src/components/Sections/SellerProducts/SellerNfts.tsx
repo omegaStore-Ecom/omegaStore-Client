@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { RiEditBoxFill } from "react-icons/ri";
@@ -50,6 +51,7 @@ const SellerNfts: React.FC = () => {
         ))}
     </div>
   );
+
 };
 
 export default SellerNfts;
