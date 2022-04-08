@@ -18,7 +18,7 @@ const SellerNfts: React.FC = () => {
           >
             <div className="relative h-64 w-full rounded-lg bg-gray-300 bg-cover bg-center shadow-md">
               <Image
-                src={`http://localhost:4000/upload/product/${product.productImage}`}
+                src={`http://localhost:4000/upload/product/${product.productImage[0]}`}
                 alt=""
                 width="100%"
                 height="100%"

@@ -1,6 +1,9 @@
+import { useEffect, useState } from "react";
 import SellerNfts from "./SellerNfts";
 
 const SellerProducts = () => {
+
+
   return (
     <section className="w-ful">
       <div className="container mx-auto border-gray-100 px-6 py-8">
@@ -12,7 +15,7 @@ const SellerProducts = () => {
               </h1>
               <div className="flex w-1/2 justify-between">
                 <select
-                  defaultValue={'default'}
+                  defaultValue={"default"}
                   className="select select-info w-full max-w-xs rounded-2xl"
                 >
                   <option value="default" disabled selected>
@@ -24,15 +27,14 @@ const SellerProducts = () => {
                 </select>
 
                 <select
-                  defaultValue={'default'}
                   className="select select-error select-bordered w-full max-w-xs rounded-2xl"
                 >
                   <option value="default" disabled selected>
                     Sort By
                   </option>
-                  <option>Price</option>
-                  <option>Date</option>
-                  <option>Name</option>
+                  <option value="price">Price</option>
+                  <option value="date">Date</option>
+                  <option value="name">Name</option>
                 </select>
               </div>
             </div>
