@@ -7,6 +7,7 @@ import AllNft from "src/components/Sections/AllNft";
 const Explore: React.FC = () => {
   const [active, setActive] = useState(false);
   const [sort, setSort] = useState("default");
+  const [category , setCategory] = useState("defaultC")
   return (
     <section className="min-h-screen w-full">
       <NavGlobal active={active} setActive={setActive} />
@@ -17,15 +18,16 @@ const Explore: React.FC = () => {
               <h1 className="flex w-1/2 text-xl font-bold xl:text-4xl">
                 Explore All <span className="ml-3 text-blue-500">NFTs</span>{" "}
               </h1>
-              <div className="flex w-1/2 justify-between">
+              <div className="flex w-1/2 justify-end gap-4">
                 <select
-                  defaultValue={"default"}
-                  className="select select-info w-full max-w-xs rounded-2xl"
+                  defaultValue={"defaultC"}
+                  onChange={(e) => setCategory(e.target.value)}
+                  className="text-white hover:bg-gray-700 bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-14 py-2.5 text-center items-center"
                 >
-                  <option value="default" disabled selected>
+                  <option value="defaultC" selected>
                     Category
                   </option>
-                  <option>Art</option>
+                  <option value="Art">Art</option>
                   <option>Animals</option>
                   <option>Toys</option>
                 </select>
@@ -33,7 +35,7 @@ const Explore: React.FC = () => {
                 <select
                   defaultValue={"default"}
                   onChange={(e) => setSort(e.target.value)}
-                  className="select select-error select-bordered w-full max-w-xs rounded-2xl"
+                  className="text-white hover:bg-gray-700 bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-14 py-2.5 text-center items-center"
                 >
                   <option value="default" disabled selected>
                     Sort By
@@ -44,7 +46,7 @@ const Explore: React.FC = () => {
                 </select>
               </div>
             </div>
-            <AllNft sortBy={sort} />
+            <AllNft sortBy={sort} category={category}/>
           </div>
         </div>
       </div>
