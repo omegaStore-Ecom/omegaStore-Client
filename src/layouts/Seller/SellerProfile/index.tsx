@@ -4,34 +4,32 @@ import SellerProducts from "src/components/Sections/SellerProducts";
 import SellerCollection from "src/components/Sections/SellerCollection";
 import ModalWrapper from "src/shared/ModalWrapper";
 import AddProductsForm from "src/components/Forms/Products/AddProductForm";
+import {useAppSelector} from "../../../../redux/hooks";
 
-const PackageSection = () => {
+const SellerProfile = () => {
   const [show, setShow] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const seller = useAppSelector((state) => state.currentUser)
   return (
     <>
-      <section className="w-full dark:bg-gray-900">
+      <section className="w-full">
         <div className="p-16">
           <div className="mt-24 bg-white p-8 shadow">
             <div className="grid grid-cols-1 md:grid-cols-3">
-              <div className="order-last mt-20 grid grid-cols-3 text-center md:order-first md:mt-0">
+              <div className="order-last mt-20 grid grid-rows-3 text-start gap-5 md:order-first md:mt-0">
                 <div>
-                  <p className="text-xl text-gray-700">22</p>
-                  <p className="text-gray-400">products</p>
+                  <p className="text-gray-400 font-bold">Products meter</p>
+                  <p className="text-xl text-gray-700 font-bold">{seller.productLimit}/{seller.type == "Starter" ? '10' : seller.type == "Pro" ? '20' : seller.type == "Expert" ? "♾️" : null }</p>
                 </div>
                 <div>
-                  <p className="text-xl text-gray-700">10-12-2021</p>
-                  <p className="text-gray-400">since</p>
-                </div>
-                <div>
-                  <p className="text-xl text-gray-700">89</p>
-                  <p className="text-gray-400">Solded</p>
+                  <p className="text-gray-400 font-bold">joined on</p>
+                  <p className="text-xl text-gray-700 font-bold">10-12-2021</p>
                 </div>
               </div>
               <div className="relative">
-                <div className="absolute inset-x-0 top-0 mx-auto -mt-24 flex h-48 w-48 items-center justify-center rounded-full bg-indigo-100 text-indigo-500 shadow-2xl">
+                <div className="absolute border-[7px] border-white inset-x-0 top-0 mx-auto -mt-24 flex h-36 w-36 items-center justify-center rounded-full bg-indigo-100 text-indigo-500 shadow-md">
                   <Image
-                    src="/monjey.jpg"
+                    src="/ca.webp"
                     alt=""
                     width="100%"
                     height="100%"
@@ -63,11 +61,10 @@ const PackageSection = () => {
             </div>
 
             <div className="mt-20 border-b text-center">
-              <h1 className="text-4xl font-medium text-gray-700">Jones </h1>
-              <p className="mt-3 font-light text-gray-600">Romania</p>
+              <p className="mt-3 font-light text-gray-600">{seller.firstName} {seller.lastName}</p>
 
-              <p className="mt-3 text-gray-500">email@gmail.com</p>
-              <p className="mt-2 text-gray-500">+212 45678903</p>
+              <p className="mt-3 text-gray-500">{seller.email}</p>
+              <p className="mt-2 text-gray-500">{seller.phone}</p>
               <button className="transform rounded bg-gray-800 px-2 py-1 text-xs text-white transition-colors duration-200 hover:bg-gray-700 focus:bg-gray-700 focus:outline-none dark:hover:bg-gray-600 dark:focus:bg-gray-600">
                 Edit profile
               </button>
@@ -103,4 +100,4 @@ const PackageSection = () => {
     </>
   );
 };
-export default PackageSection;
+export default SellerProfile;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NextPage } from "next";
-import PackageSection from "../src/layouts/Seller/PackageSection";
+import SellerProfile from "../src/layouts/Seller/SellerProfile";
 import NavGlobal from "../src/layouts/navMenu/NavGlobal";
 import MenuGlobal from "../src/layouts/navMenu/MenuGlobal";
 
@@ -9,7 +9,7 @@ const Profile: NextPage = () => {
   return (
     <>
       <NavGlobal active={active} setActive={setActive} />
-      <PackageSection />;
+      <SellerProfile />;
       <MenuGlobal active={active} setActive={setActive} />
     </>
   ); 
