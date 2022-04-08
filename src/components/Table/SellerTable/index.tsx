@@ -3,7 +3,7 @@ import { useState } from "react";
 
 
 import ModalWrapper from 'src/shared/ModalWrapper/index';
-import {useGetSellersQuery, useUpdateSellerMutation} from "../../../../redux/services/seller";
+import {useDisableSellerMutation, useGetSellersQuery, useUpdateSellerMutation} from "../../../../redux/services/seller";
 
 
 const SellerTable = () => {
@@ -50,20 +50,21 @@ const SellerTable = () => {
                             <td className="px-6 py-4">{seller.email}</td>
                             <td className="px-6 py-4">{seller.phone}</td>
                             <td className="px-6 py-4">{seller.productLimit}</td>
-                            <td className="px-6 py-4">{seller.status}</td>
+                            <td className="px-6 py-4">{seller.status ? 'Activated' : 'not Activated'}</td>
                             <td className="px-6 py-4">{seller.type}</td>
                             <td className="space-x-2 px-6 py-4 text-right">
                                 <button
                                     onClick={() => {
-                                        disableSeller({
-                                            status: 'notActivated',
-                                            id: seller._id
-                                        })
+                                       disableSeller({
+                                            id: seller._id,
+                                              status : !seller.status
+                                       
+                                        }).unwrap().then(() => refetch())
                                     }}
 
-                                    className="w-20 rounded border border-indigo-600 bg-indigo-600 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
+                                    className={`w-20 rounded border border-indigo-600 ${!seller.status ? 'bg-indigo-600' : 'bg-gray-500'}  py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500`}
                                 >
-                                    Activate
+                                   {!seller.status ? 'verify' : 'disable'}
                                 </button>
                             </td>
                         </tr>

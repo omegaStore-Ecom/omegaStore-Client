@@ -35,7 +35,13 @@ export const sellerApi = createApi({
         body: patch,
       }),
     }),
+    disableSeller: build.mutation<Seller, Partial<Seller>>({
+      query: ({ id }) => ({
+        url: `seller/disable/${id}`,
+        method: "PUT",
 
+      }),
+    }),
     deleteSeller: build.mutation<{ success: boolean; id: number }, number>({
       query(id) {
         return {
@@ -53,4 +59,5 @@ export const {
   useGetSellerByIdQuery,
   useUpdateSellerMutation,
   useDeleteSellerMutation,
+  useDisableSellerMutation
 } = sellerApi;
