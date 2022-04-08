@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { ImFire } from 'react-icons/im';
-import { useEffect } from 'react';
 import { gsap } from 'gsap';
 
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const Trending: React.FC = () => {
+    const [sort, setSort] = useState('default');
+    const [category, setCategory] = useState('defaultC');
+    
   useEffect(() => {
 /*    gsap.from('.nft', {
       opacity: 0,
@@ -22,7 +24,7 @@ const Trending: React.FC = () => {
     });*/
   }, []);
     return (
-      <section className="w-full bg-[#f3fbfe] trending">
+      <section className="trending min-h-screen w-full bg-[#f3fbfe]">
         <div className="container mx-auto px-6 py-8">
           <div className="lg:-mx-2 lg:flex">
             <div className="mt-6 lg:mt-0 lg:w-full lg:px-2 ">
@@ -31,29 +33,31 @@ const Trending: React.FC = () => {
                   Trending <span className="ml-3 text-blue-500">NFTs</span>{' '}
                   <ImFire className="ml-2 text-orange-600" />
                 </h1>
-                <div className="flex w-1/2 justify-between">
+                <div className="flex w-1/2 justify-end gap-4">
                   <select
-                    defaultValue={'default'}
-                    className="select select-info w-full max-w-xs rounded-2xl"
+                    defaultValue={'defaultC'}
+                    onChange={(e) => setCategory(e.target.value)}
+                    className="items-center rounded-lg bg-gray-800 px-14 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
                   >
-                    <option value="default" disabled selected>
+                    <option value="defaultC" selected>
                       Category
                     </option>
-                    <option>Art</option>
+                    <option value="Art">Art</option>
                     <option>Animals</option>
                     <option>Toys</option>
                   </select>
 
                   <select
                     defaultValue={'default'}
-                    className="select select-error select-bordered w-full max-w-xs rounded-2xl"
+                    onChange={(e) => setSort(e.target.value)}
+                    className="items-center rounded-lg bg-gray-800 px-14 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
                   >
                     <option value="default" disabled selected>
                       Sort By
                     </option>
-                    <option>Price</option>
-                    <option>Date</option>
-                    <option>Name</option>
+                    <option value="price">Price</option>
+                    <option value="date">Date</option>
+                    <option value="name">Name</option>
                   </select>
                 </div>
               </div>

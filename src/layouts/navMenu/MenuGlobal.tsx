@@ -3,9 +3,10 @@ import React, { useEffect } from 'react';
 import { RiHome2Fill, RiEnglishInput } from 'react-icons/ri';
 import { AiFillShopping } from 'react-icons/ai';
 import { HiCollection } from 'react-icons/hi';
-import { MdLiveHelp, MdAccountBox } from 'react-icons/md';
+import { MdAccountBox } from 'react-icons/md';
 import { FaEthereum } from 'react-icons/fa';
 import { IoLogoUsd } from 'react-icons/io';
+import { RiShoppingBag2Fill } from 'react-icons/ri';
 
 interface NavBarProps {
   active: boolean;
@@ -23,7 +24,7 @@ const MenuGlobal: React.FC<NavBarProps> = ({ active, setActive }) => {
           <RiHome2Fill className="mr-3" /> <Link href="/">Home</Link>
         </li>
         <li className="listG relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
-          <AiFillShopping className="mr-3" />{' '}
+          <RiShoppingBag2Fill className="mr-3" />{' '}
           <Link href="/explore">Products</Link>
         </li>
         <li className="listG relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
@@ -32,9 +33,6 @@ const MenuGlobal: React.FC<NavBarProps> = ({ active, setActive }) => {
         </li>
         <li className="listG relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
           <MdAccountBox className="mr-3" /> <Link href="/profile">Account</Link>
-        </li>
-        <li className="listG relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
-          <AiFillShopping className="mr-3" /> <Link href="/cart">Cart</Link>
         </li>
       </div>
 

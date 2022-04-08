@@ -11,8 +11,8 @@ const CollectionNfts: React.FC = () => {
               <h1 className="flex w-1/2 text-xl font-bold xl:text-4xl">
                 Collection <span className="ml-3 text-blue-500">NFTs</span>{' '}
               </h1>
-              <div className="flex w-1/2 justify-between">
-                <select className="select select-info w-full max-w-xs rounded-2xl">
+              <div className="flex w-1/2 justify-end gap-4">
+                <select className="text-white hover:bg-gray-700 bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-14 py-2.5 text-center items-center">
                   <option disabled selected>
                     Category
                   </option>
@@ -21,7 +21,7 @@ const CollectionNfts: React.FC = () => {
                   <option>Toys</option>
                 </select>
 
-                <select className="select select-error select-bordered w-full max-w-xs rounded-2xl">
+                <select className="text-white hover:bg-gray-700 bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-14 py-2.5 text-center items-center">
                   <option disabled selected>
                     Sort By
                   </option>

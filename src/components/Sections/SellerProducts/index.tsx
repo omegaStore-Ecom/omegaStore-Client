@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
+import React, { useState } from "react";
 import SellerNfts from "./SellerNfts";
 
 const SellerProducts = () => {
-
+  const [sort, setSort] = useState("default");
+  const [category , setCategory] = useState("defaultC");
 
   return (
-    <section className="w-ful">
+    <section className="w-full">
       <div className="container mx-auto border-gray-100 px-6 py-8">
         <div className="lg:-mx-2 lg:flex">
           <div className="mt-6 lg:mt-0 lg:w-full lg:px-2 ">
@@ -13,21 +14,24 @@ const SellerProducts = () => {
               <h1 className="flex w-1/2 text-xl font-bold xl:text-4xl">
                 Collection Name
               </h1>
-              <div className="flex w-1/2 justify-between">
+              <div className="flex w-1/2 justify-end gap-4">
                 <select
-                  defaultValue={"default"}
-                  className="select select-info w-full max-w-xs rounded-2xl"
+                    defaultValue={"defaultC"}
+                    onChange={(e) => setCategory(e.target.value)}
+                    className="text-white hover:bg-gray-700 bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-14 py-2.5 text-center items-center"
                 >
-                  <option value="default" disabled selected>
+                  <option value="defaultC" selected>
                     Category
                   </option>
-                  <option>Art</option>
+                  <option value="Art">Art</option>
                   <option>Animals</option>
                   <option>Toys</option>
                 </select>
 
                 <select
-                  className="select select-error select-bordered w-full max-w-xs rounded-2xl"
+                    defaultValue={"default"}
+                    onChange={(e) => setSort(e.target.value)}
+                    className="text-white hover:bg-gray-700 bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-14 py-2.5 text-center items-center"
                 >
                   <option value="default" disabled selected>
                     Sort By
