@@ -9,17 +9,17 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Trending: React.FC = () => {
   useEffect(() => {
-    gsap.from('.nft', {
+/*    gsap.from('.nft', {
       opacity: 0,
       y: '100',
       scrollTrigger: {
         trigger: '.trending',
-        /*markers: true,*/
+        /!*markers: true,*!/
         start: 'top 90%',
         end: 'top 60%',
         scrub: true,
       },
-    });
+    });*/
   }, []);
     return (
       <section className="w-full bg-[#f3fbfe] trending">

@@ -10,7 +10,7 @@ const SellerNfts: React.FC = () => {
   const { data } = useGetProductQuery();
   const serverBaseURI = 'http://localhost:4000 {`${serverBaseURI}/product/${product.productImage[0]}`}'
     return (
-      <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="mt-16 py-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {data &&
             data.map((product, index) => (
                 <div key={index} className="nft mx-auto flex h-96 w-80 max-w-sm flex-col justify-between rounded-xl border border-gray-200 px-6 py-2 shadow-sm">

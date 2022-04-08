@@ -7,6 +7,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    z-index: 30;
 }
 
 .gsap{
@@ -325,3 +330,13 @@
     50%{width: 20%;}
     100%{width: 32%;}
 }
+
+/*
+.showScroll::-webkit-scrollbar {
+    display: none;
+}
+
+.showScroll {
+    -ms-overflow-style: none; !* IE and Edge *!
+    scrollbar-width: none; !* Firefox *!
+}*/
