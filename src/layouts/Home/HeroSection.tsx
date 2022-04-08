@@ -10,7 +10,7 @@ const HeroSection: React.FC<NavBarProps> = ({active}) => {
   return (
     <div className="h-4/5 w-full overflow-hidden">
       <div
-        className={`main-container h-full w-full md:block ${
+        className={`main-container h-full w-full md:block  ${
           active ? 'hidden' : ''
         }`}
       >

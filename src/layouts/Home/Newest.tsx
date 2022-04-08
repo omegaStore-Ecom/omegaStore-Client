@@ -6,7 +6,7 @@ import { ImFire } from 'react-icons/im';
 
 const Newest: React.FC = () => {
     return (
-      <section className="w-full dark:bg-gray-900">
+      <section className="w-full bg-[#f3fbfe]">
         <div className="container px-6 py-8 mx-auto">
           <div className="lg:flex lg:-mx-2">
             <div className="mt-6 lg:mt-0 lg:px-2 lg:w-full ">

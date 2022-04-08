@@ -21,19 +21,19 @@ const CollectionInfo: React.FC = () => {
                 <span className="text-blueGray-600 block text-xl font-bold uppercase tracking-wide">
                   22
                 </span>
-                <span className="text-blueGray-400 text-sm">Friends</span>
+                <span className="text-blueGray-400 text-sm">Products</span>
               </div>
               <div className="mr-4 p-3 text-center">
                 <span className="text-blueGray-600 block text-xl font-bold uppercase tracking-wide">
                   10
                 </span>
-                <span className="text-blueGray-400 text-sm">Photos</span>
+                <span className="text-blueGray-400 text-sm">solded</span>
               </div>
               <div className="p-3 text-center lg:mr-4">
                 <span className="text-blueGray-600 block text-xl font-bold uppercase tracking-wide">
                   89
                 </span>
-                <span className="text-blueGray-400 text-sm">Comments</span>
+                <span className="text-blueGray-400 text-sm">followers</span>
               </div>
             </div>
           </div>

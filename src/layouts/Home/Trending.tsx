@@ -2,11 +2,27 @@ import React from 'react';
 import Image from 'next/image';
 import { ImFire } from 'react-icons/im';
 import { useEffect } from 'react';
+import { gsap } from 'gsap';
 
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 const Trending: React.FC = () => {
+  useEffect(() => {
+    gsap.from('.nft', {
+      opacity: 0,
+      y: '100',
+      scrollTrigger: {
+        trigger: '.trending',
+        /*markers: true,*/
+        start: 'top 90%',
+        end: 'top 60%',
+        scrub: true,
+      },
+    });
+  }, []);
     return (
-      <section className="w-fulldark:bg-gray-900">
+      <section className="w-full bg-[#f3fbfe] trending">
         <div className="container mx-auto px-6 py-8">
           <div className="lg:-mx-2 lg:flex">
             <div className="mt-6 lg:mt-0 lg:w-full lg:px-2 ">
@@ -16,8 +32,11 @@ const Trending: React.FC = () => {
                   <ImFire className="ml-2 text-orange-600" />
                 </h1>
                 <div className="flex w-1/2 justify-between">
-                  <select className="select select-info w-full max-w-xs rounded-2xl">
-                    <option disabled selected>
+                  <select
+                    defaultValue={'default'}
+                    className="select select-info w-full max-w-xs rounded-2xl"
+                  >
+                    <option value="default" disabled selected>
                       Category
                     </option>
                     <option>Art</option>
@@ -25,8 +44,11 @@ const Trending: React.FC = () => {
                     <option>Toys</option>
                   </select>
 
-                  <select className="select select-error select-bordered w-full max-w-xs rounded-2xl">
-                    <option disabled selected>
+                  <select
+                    defaultValue={'default'}
+                    className="select select-error select-bordered w-full max-w-xs rounded-2xl"
+                  >
+                    <option value="default" disabled selected>
                       Sort By
                     </option>
                     <option>Price</option>
@@ -38,7 +60,7 @@ const Trending: React.FC = () => {
 
               <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {/* conteeeeeeeeeeeeeeeeeeeeeeeeeeent */}
-                <div className="mx-auto flex h-96 w-80 max-w-sm flex-col justify-between rounded-xl border border-gray-200 px-6 py-2 shadow-sm">
+                <div className="nft mx-auto flex h-96 w-80 max-w-sm flex-col justify-between rounded-xl border border-gray-200 px-6 py-2 shadow-sm">
                   <div className="flex justify-between">
                     <p className="flex w-1/4 items-center justify-between">
                       {' '}
@@ -74,7 +96,7 @@ const Trending: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="mx-auto flex h-96 w-80 max-w-sm flex-col justify-between rounded-xl border border-gray-200 px-6 py-2 shadow-sm">
+                <div className="nft mx-auto flex h-96 w-80 max-w-sm flex-col justify-between rounded-xl border border-gray-200 px-6 py-2 shadow-sm">
                   <div className="flex justify-between">
                     <p className="flex w-1/4 items-center justify-between">
                       {' '}
@@ -110,7 +132,7 @@ const Trending: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="mx-auto flex h-96 w-80 max-w-sm flex-col justify-between rounded-xl border border-gray-200 px-6 py-2 shadow-sm">
+                <div className="nft mx-auto flex h-96 w-80 max-w-sm flex-col justify-between rounded-xl border border-gray-200 px-6 py-2 shadow-sm">
                   <div className="flex justify-between">
                     <p className="flex w-1/4 items-center justify-between">
                       {' '}
@@ -146,7 +168,7 @@ const Trending: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="mx-auto flex h-96 w-80 max-w-sm flex-col justify-between rounded-xl border border-gray-200 px-6 py-2 shadow-sm">
+                <div className="nft mx-auto flex h-96 w-80 max-w-sm flex-col justify-between rounded-xl border border-gray-200 px-6 py-2 shadow-sm">
                   <div className="flex justify-between">
                     <p className="flex w-1/4 items-center justify-between">
                       {' '}
@@ -182,7 +204,7 @@ const Trending: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="mx-auto flex h-96 w-80 max-w-sm flex-col justify-between rounded-xl border border-gray-200 px-6 py-2 shadow-sm">
+                <div className="nft mx-auto flex h-96 w-80 max-w-sm flex-col justify-between rounded-xl border border-gray-200 px-6 py-2 shadow-sm">
                   <div className="flex justify-between">
                     <p className="flex w-1/4 items-center justify-between">
                       {' '}

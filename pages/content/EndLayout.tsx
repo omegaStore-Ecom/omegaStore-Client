@@ -7,7 +7,7 @@ import Footer from 'src/layouts/Home/Footer';
 
 const EndLayout = React.forwardRef<HTMLDivElement | null, unknown>((prop, ref) => {
     return (
-      <div className="w-full h-screen md:min-h-screen relative" ref={ref}>
+      <div className="w-full h-screen md:min-h-screen absolute" ref={ref}>
         <Contact />
         <Footer />
       </div>

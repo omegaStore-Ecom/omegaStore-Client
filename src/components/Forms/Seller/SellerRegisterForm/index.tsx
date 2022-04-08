@@ -105,9 +105,6 @@ const SellerRegisterForm = () => {
             />
           </div>
 
-          <div className="text-right text-gray-400 hover:text-gray-100 hover:underline">
-            <a href="#">Forgot your password?</a>
-          </div>
           <div className="px-4 pb-2 pt-4">
             <button
               type="submit"
