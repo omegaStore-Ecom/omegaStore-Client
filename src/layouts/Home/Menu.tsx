@@ -33,9 +33,6 @@ const Menu: React.FC<NavBarProps> = ({ active, setActive }) => {
         <li className="list relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
           <MdAccountBox className="mr-3" /> <Link href="/profile">Account</Link>
         </li>
-        <li className="list relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
-          <AiFillShopping className="mr-3" /> <Link href="/cart">Cart</Link>
-        </li>
       </div>
 
       <hr className="my-6 h-px w-60 bg-gray-300 text-slate-200" />

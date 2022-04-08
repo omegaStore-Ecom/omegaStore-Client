@@ -59,6 +59,19 @@ const SellerProfile = () => {
                 </button>
               </div>
             </div>
+          </div>
+          <div className="relative">
+            <div className="absolute inset-x-0 top-0 mx-auto -mt-24 flex h-48 w-48 items-center justify-center rounded-full bg-indigo-100 text-indigo-500 shadow-2xl">
+              <Image
+                src="/monjey.jpg"
+                alt=""
+                width="100%"
+                height="100%"
+                layout="fill"
+                className="rounded-full border-2 border-red-600"
+              />
+            </div>
+          </div>
 
             <div className="mt-20 border-b text-center">
               <p className="mt-3 font-light text-gray-600">{seller.firstName} {seller.lastName}</p>
@@ -92,11 +105,43 @@ const SellerProfile = () => {
               </div>
             </div>
 
-            {show ? <SellerProducts /> : <SellerCollection />}
+          <p className="mt-3 text-gray-500">email@gmail.com</p>
+          <p className="mt-2 text-gray-500">+212 45678903</p>
+          <button className="transform rounded bg-gray-800 px-2 py-1 text-xs text-white transition-colors duration-200 hover:bg-gray-700 focus:bg-gray-700 focus:outline-none dark:hover:bg-gray-600 dark:focus:bg-gray-600">
+            Edit profile
+          </button>
+          <div className="mt-6 flex w-full justify-center">
+            <ul className="grid w-1/2 grid-flow-col gap-2 rounded-t-lg bg-[#f3fbfe] p-2 text-center text-gray-700">
+              <li>
+                <a
+                  href="#page1"
+                  onClick={() => setShow(true)}
+                  className="flex cursor-pointer justify-center rounded-lg bg-white py-4 shadow focus:bg-slate-200 active:bg-slate-200 "
+                >
+                  Items
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#page2"
+                  onClick={() => setShow(false)}
+                  className="flex cursor-pointer justify-center rounded-lg bg-white py-4 text-indigo-900 shadow focus:bg-slate-200 active:bg-slate-200"
+                >
+                  Collections
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
-      </section>
-      <ModalWrapper setIsOpen={setIsOpen} isOpen={isOpen} component={<AddProductsForm setIsOpen={setIsOpen} />} title="Add Product" />
+
+        {show ? <SellerProducts /> : <SellerCollection />}
+      </div>
+      <ModalWrapper
+        setIsOpen={setIsOpen}
+        isOpen={isOpen}
+        component={<AddProductsForm setIsOpen={setIsOpen} />}
+        title="Add Product"
+      />
     </>
   );
 };

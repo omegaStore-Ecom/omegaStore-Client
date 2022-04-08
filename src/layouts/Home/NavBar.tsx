@@ -3,6 +3,7 @@ import { TiThMenu,  } from 'react-icons/ti';
 import { IoMdClose } from 'react-icons/io';
 import Image from 'next/image';
 import Link from 'next/link';
+import {GiShoppingBag} from "react-icons/gi";
 
 interface NavBarProps {
   active: boolean;
@@ -24,8 +25,11 @@ const NavBar: React.FC<NavBarProps> = ({ active, setActive }) => {
           </Link>
         </div>
         <div
-          className={`mb-2 flex h-16 w-16 cursor-pointer items-center justify-center text-2xl`}
+          className={`mb-2 flex h-full w-20 justify-evenly items-center cursor-pointer items-center justify-center text-2xl`}
         >
+          <Link href="/cart" passHref>
+            <GiShoppingBag className="mt-5  text-2xl text-white"/>
+          </Link>
           {!active ? (
             <button onClick={() => setActive(!active)}>
               <TiThMenu className="absolute text-white transition duration-150 ease-in-out" />

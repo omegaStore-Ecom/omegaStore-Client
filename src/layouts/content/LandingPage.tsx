@@ -13,71 +13,28 @@ const LandingPage: React.FC = () => {
   const boxBody = useRef(null);
   const boxEnd = useRef(null);
   useEffect(() => {
-/*    gsap.to(boxBody.current, {
+    gsap.to(boxBody.current, {
       duration: 5,
-      /!*y: '100',*!/
-      /!*opacity: 0,*!/
+      // y: '100',
+      // opacity: 0,
       transform: "translateY(-100vh)",
       stagger: 1,
       ease: 'slow(0.7, 0.7, false)',
       scrollTrigger: {
         trigger: ".wrapper",
-        /!*endTrigger:"boxBody.current",*!/
-        /!*markers: true,*!/
+        // endTrigger:"boxBody.current",
+        // markers: true,
         start: 'bottom 100%',
-/!*        end: 'bottom -=100vh',*!/
+        // end: 'bottom -=100vh',
         scrub: true,
-        /!*pin: true,
-        pinSpacing: false,*!/
-          snap: 1 /("wrapper".length-1)
-        /!*toggleClass: '.gsap',*!/
-        // toggleActions: 'restart complete reverse reset',
-        //options: play, pause, resume, reset, restart, complete, reverse,none
-      },
-    });*/
-
-    gsap.to(".wrapper", {
-      duration: 5,
-      /*y: '100',*/
-      /*opacity: 0,*/
-      transform: "translateY(-100vh)",
-      stagger: 1,
-      ease: 'slow(0.7, 0.7, false)',
-      scrollTrigger: {
-        trigger: boxBody.current,
-        /*endTrigger:"boxBody.current",*/
-        /*markers: true,*/
-        start: 'top top',
-        /*end: 'top 10%',*/
-        scrub: true,
-        pin: true,
-          snap: 1 /("wrapper".length-1)
-        /*toggleClass: '.gsap',*/
+        // pin: true,
+        // pinSpacing: false,
+        snap: 1 /("wrapper".length-1),
+        // toggleClass: '.gsap',
         // toggleActions: 'restart complete reverse reset',
         //options: play, pause, resume, reset, restart, complete, reverse,none
       },
     });
-/*    gsap.to(boxBody.current, {
-      /!*opacity: 0,*!/
-    scrollTrigger: {
-      trigger:boxBody.current,
-          markers: true,
-          start: 'top top',
-      scrub: true,
-          pin: true,
-          /!*pinSpacing: false,*!/
-    },
-  });*/
-
-/*    gsap.from(boxBody.current, {
-      duration: 5,
-      opacity: 0,
-      scrollTrigger: {
-        trigger:boxBody.current,
-        markers: true,
-        start: 'top top',
-      },
-    });*/
 
   },[]);
     useEffect(() => {
