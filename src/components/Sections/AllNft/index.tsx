@@ -6,8 +6,9 @@ import { useGetProductQuery } from "redux/services/products";
 import category from "../../../layouts/Home/Category";
 interface Props {
   sortBy: string;
+  category: string
 }
-const AllNft: React.FC<Props> = ({ sortBy }) => {
+const AllNft: React.FC<Props> = ({ sortBy , category}) => {
   const { data } = useGetProductQuery();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -30,20 +31,23 @@ const AllNft: React.FC<Props> = ({ sortBy }) => {
 
   // filter array by given criteria
   const filterType: any = {
-    category: {
+    defaultC: {
       fn: (a: { productCategory: string; }) => a.productCategory === a.productCategory,
     },
+    Art: {
+      fn: (a: { productCategory: string; }) => a.productCategory === "Art",
+    },
   };
-
 
   return (
     // @ts-ignore
     <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {data &&
-        sortBy &&
-          [...data].filter(filterType["category"].fn)
+
+          [...data]
+              .filter(filterType[category].fn)
               .sort(sortTypes[sortBy].fn)
-          .map((product, index) => (
+              .map((product, index) => (
             <div
               key={index}
               className="mx-auto flex h-96 w-80 max-w-sm flex-col justify-between rounded-xl border border-gray-200 px-6 py-4 shadow-sm"
