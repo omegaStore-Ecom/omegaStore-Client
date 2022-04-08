@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import NavGlobal from "../src/layouts/navMenu/NavGlobal";
-import MenuGlobal from "../src/layouts/navMenu/MenuGlobal";
-import CartProduct from "../src/layouts/CartLayout/CartProduct";
+import CartProduct from 'src/layouts/CartLayout/CartProduct';
+import MenuGlobal from 'src/layouts/navMenu/MenuGlobal';
+import NavGlobal from 'src/layouts/navMenu/NavGlobal';
 
 const Cart = () => {
     const [active, setActive] = useState(false);

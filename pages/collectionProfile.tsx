@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import CollectionBanner from '../src/layouts/CollectionProfileLayout/CollectionBanner';
-import ConllectionContent from '../src/layouts/CollectionProfileLayout/ConllectionContent';
+import CollectionBanner from '../src/layouts/Seller/CollectionProfileLayout/CollectionBanner';
+import ConllectionContent from '../src/layouts/Seller/CollectionProfileLayout/ConllectionContent';
 import MenuGlobal from '../src/layouts/navMenu/MenuGlobal';
 import NavGlobal from '../src/layouts/navMenu/NavGlobal';
 
