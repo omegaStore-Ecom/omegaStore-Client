@@ -44,7 +44,7 @@ export interface Seller {
   email: string;
   password: string;
   role: string;
-  status: string;
+  status: boolean;
   file: string;
   type: string;
   generatedIncome: number;
@@ -69,6 +69,7 @@ export interface Customer {
   state: string;
   zip: string;
   country: string;
+
 }
 
 
