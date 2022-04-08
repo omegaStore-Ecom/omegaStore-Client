@@ -34,7 +34,7 @@ const MenuGlobal: React.FC<NavBarProps> = ({ active, setActive }) => {
           <MdAccountBox className="mr-3" /> <Link href="/profile">Account</Link>
         </li>
         <li className="listG relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
-          <AiFillShopping className="mr-3" /> <Link href="#contact">Cart</Link>
+          <AiFillShopping className="mr-3" /> <Link href="/cart">Cart</Link>
         </li>
       </div>
 
@@ -42,10 +42,10 @@ const MenuGlobal: React.FC<NavBarProps> = ({ active, setActive }) => {
 
       <div className="h-32 w-96">
         <div className="flex">
-          <Link href="/login" passHref>
+          <Link href="/auth/customerlogin" passHref>
             <button className="btn3 bg-gray-800 text-slate-200">Sign in</button>
           </Link>
-          <Link href="/register" passHref>
+          <Link href="/auth/customerregister" passHref>
             <button className="btn2 ml-32 bg-slate-200 text-black">
               Sign up
             </button>

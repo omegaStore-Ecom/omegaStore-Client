@@ -54,7 +54,7 @@ const HeroSection: React.FC<NavBarProps> = ({active}) => {
                 Easier, faster, and all from one place.
               </p>
               <div className="mt-10 flex justify-between md:w-96">
-                <Link href="/register" passHref>
+                <Link href="/auth/sellerregister" passHref>
                   <button className="btn">Become a seller</button>
                 </Link>
                 <Link href="/explore" passHref>
