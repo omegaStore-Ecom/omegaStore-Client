@@ -1,8 +1,10 @@
 import AddDeliveryManLayout from "../../src/layouts/AddDeliveryLayout";
-import { NextPage } from 'next';
+import {NextPage} from 'next';
 
 const ManageDeliveryMan: NextPage = () => {
-  return <AddDeliveryManLayout />;
+
+
+    return <AddDeliveryManLayout/>;
 
 };
 export default ManageDeliveryMan;

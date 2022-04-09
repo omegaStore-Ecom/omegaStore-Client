@@ -23,6 +23,13 @@ const SellerLoginForm = () => {
                 token: payload.token,
                 role: payload.Seller.role,
                 email: payload.Seller.email,
+                  firstName: payload.Seller.firstName,
+                  lastName: payload.Seller.lastName,
+                  phone: payload.Seller.phone,
+                  generatedIncome:payload.Seller.generatedIncome,
+                  productLimit:payload.Seller.productLimit,
+                  type:payload.Seller.type,
+                  id:payload.Seller._id
               })
             );
           });

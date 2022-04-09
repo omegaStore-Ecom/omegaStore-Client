@@ -9,7 +9,8 @@ const Cart = () => {
         <>
             <NavGlobal active={active} setActive={setActive}/>
             <div className="w-full h-screen flex justify-center bg-opacity-90 overflow-y-auto">
-                <div className="w-4/5 shadow-xl min-h-3/5 mt-28 lg:px-8 lg:py-14 md:px-6 px-4 md:py-8 bg-white overflow-y-hidden rounded-lg">
+                <div
+                    className="w-4/5 shadow-xl min-h-3/5 mt-28 lg:px-8 lg:py-14 md:px-6 px-4 md:py-8 bg-white overflow-y-hidden rounded-lg">
                     <p className="lg:text-4xl text-3xl font-black leading-10 text-gray-800 dark:text-white pt-3">Cart</p>
                     <CartProduct/>
                 </div>

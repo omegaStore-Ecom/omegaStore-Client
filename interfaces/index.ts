@@ -1,8 +1,15 @@
 export interface CurrentUser {
+  id?:string;
   email: string;
   token: string;
   role: string;
   password?: string;
+  firstName?:string
+  lastName?:string
+  productLimit?:string
+  generatedIncome?:string
+  phone?:string
+  type?:string
 }
 
 export interface AdminLogin {
@@ -77,6 +84,7 @@ export interface Customer {
 export interface ModalProps {
   isOpen?: boolean;
   setIsOpen: (arg: boolean) => void;
+  refetch: () => void;
   component?: any;
   id?: string;
   title?: string;
