@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { CurrentUser } from "../../interfaces";
 import {HYDRATE} from "next-redux-wrapper";
+import {stat} from "fs";
 
 const initialState: CurrentUser = {
   token: "",
@@ -11,7 +12,8 @@ const initialState: CurrentUser = {
   productLimit:"",
   generatedIncome:"",
   phone:"",
-  type:""
+  type:"",
+  id: ""
 };
 
 const currentUserReducer = (
@@ -27,6 +29,7 @@ const currentUserReducer = (
   state.generatedIncome = action.payload.generatedIncome;
   state.phone = action.payload.phone;
   state.type = action.payload.type;
+  state.id = action.payload.id
 };
 
 export const userSlice = createSlice({

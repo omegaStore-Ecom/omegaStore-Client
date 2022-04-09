@@ -3,7 +3,6 @@ import { NextPage } from "next";
 import SellerProfile from "../src/layouts/Seller/SellerProfile";
 import NavGlobal from "../src/layouts/navMenu/NavGlobal";
 import MenuGlobal from "../src/layouts/navMenu/MenuGlobal";
-import NavGlobal from "../src/layouts/navMenu/NavGlobal";
 
 const Profile: NextPage = () => {
   const [active, setActive] = useState(false);

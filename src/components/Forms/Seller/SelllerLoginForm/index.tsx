@@ -28,7 +28,8 @@ const SellerLoginForm = () => {
                   phone: payload.Seller.phone,
                   generatedIncome:payload.Seller.generatedIncome,
                   productLimit:payload.Seller.productLimit,
-                  type:payload.Seller.type
+                  type:payload.Seller.type,
+                  id:payload.Seller._id
               })
             );
           });

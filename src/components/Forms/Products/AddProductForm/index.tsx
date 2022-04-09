@@ -8,15 +8,15 @@ import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orien
 import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 import { useState } from "react";
-import { useAddProductMutation } from "redux/services/products";
+import {useAddProductMutation, useGetProductQuery} from "redux/services/products";
 
 
 // Register the plugins
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
-const AddProductsForm: React.FC<ModalProps> = ({ setIsOpen }) => {
+const AddProductsForm: React.FC<ModalProps> = ({ setIsOpen , refetch }) => {
   const [addProduct] = useAddProductMutation();
   const [files, setFiles] = useState<File[]>([]);
-
+const { refetch:prefetch } = useGetProductQuery()
   return (
     <Formik
       initialValues={{
@@ -43,7 +43,11 @@ const AddProductsForm: React.FC<ModalProps> = ({ setIsOpen }) => {
 
         addProduct(data)
           .unwrap()
-          .then((res) => console.log(res))
+          .then(() => {
+              setIsOpen(false)
+              refetch()
+              prefetch()
+          })
           .catch((err) => console.error(err));
         // console.log(files)
       }}
