@@ -26,7 +26,6 @@ const dispatch = useAppDispatch()
                 <p className="text-xs leading-3 text-gray-600  pt-2">SellerId: {product.productSeller}</p>
                 <p className="text-xs leading-3 text-gray-600  py-4">Collection: {product.productCollection}</p>
                 <p className="w-96 text-xs leading-3 text-gray-600 dark:text-white">Category: {product.productCategory}</p>
-
             </div>
             <div className="flex w-72 items-center">
                 <div className="flex h-full w-full flex-col items-center">

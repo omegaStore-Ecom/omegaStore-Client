@@ -84,7 +84,7 @@ export interface Customer {
 export interface ModalProps {
   isOpen?: boolean;
   setIsOpen: (arg: boolean) => void;
-  refetch: () => void;
+  refetch?: (arg: any) => void;
   component?: any;
   id?: string;
   title?: string;

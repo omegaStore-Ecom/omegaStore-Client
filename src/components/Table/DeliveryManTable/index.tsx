@@ -12,6 +12,8 @@ const DeliveryManTable = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [OpenDelete, setOpenDelete] = useState(false);
   const [idUpdate , setIdUpdate] = useState<string | Number>();
+  // @ts-ignore
+  // @ts-ignore
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
       <table className="w-full text-left text-sm text-gray-500 ">
@@ -77,13 +79,13 @@ const DeliveryManTable = () => {
         setIsOpen={setIsOpen}
         title="Edit delivery Man"
         component={<UpdateDeliveryManForm id={idUpdate} setIsOpen={setIsOpen} />}
-      />
+       />
       <ModalWrapper
         isOpen={OpenDelete}
         setIsOpen={setOpenDelete}
         title="delete DeliveryMan"
         component={<DeleteDeliveryMan id={idUpdate} setIsOpen={setOpenDelete}/>}
-      />
+       />
    
       
     </div>
