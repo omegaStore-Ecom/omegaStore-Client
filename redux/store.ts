@@ -16,6 +16,7 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
 import currentUserReducer from "./features/authSlice";
+import cartReducer from './features/cartSlice'
 import {adminApi} from "./services/admin";
 import {sellerApi} from "./services/seller";
 import {deliveryManApi} from "./services/deliveryMan";
@@ -38,6 +39,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
     currentUser: currentUserReducer,
+    cart: cartReducer,
     [adminApi.reducerPath]: adminApi.reducer,
     [sellerApi.reducerPath]: sellerApi.reducer,
     [deliveryManApi.reducerPath]: deliveryManApi.reducer,

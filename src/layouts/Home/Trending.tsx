@@ -95,7 +95,9 @@ const Trending: React.FC = () => {
                         2.39 ETH
                       </span>
                     </div>
+
                     <button className="cartBtn mt-3 flex items-center justify-center rounded-lg border border-slate-200 py-1">
+
                       <BsFillBagPlusFill />
                       <span className="ml-2 text-xs">Add to Cart</span>
                     </button>
@@ -131,7 +133,9 @@ const Trending: React.FC = () => {
                         2.39 ETH
                       </span>
                     </div>
+
                     <button className="cartBtn mt-6 flex items-center justify-center rounded-lg border border-slate-200 py-1">
+
                       <BsFillBagPlusFill />
                       <span className="ml-2 text-xs">Add to Cart</span>
                     </button>
