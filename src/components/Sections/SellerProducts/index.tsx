@@ -16,9 +16,9 @@ const SellerProducts = () => {
               </h1>
               <div className="flex w-1/2 justify-end gap-4">
                 <select
-                    defaultValue={"defaultC"}
-                    onChange={(e) => setCategory(e.target.value)}
-                    className="text-white hover:bg-gray-700 bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-14 py-2.5 text-center items-center"
+                  defaultValue={'defaultC'}
+                  onChange={(e) => setCategory(e.target.value)}
+                  className="items-center rounded-lg bg-gray-800 px-4 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300 md:px-14 md:py-2.5"
                 >
                   <option value="defaultC" selected>
                     Category
@@ -29,9 +29,9 @@ const SellerProducts = () => {
                 </select>
 
                 <select
-                    defaultValue={"default"}
-                    onChange={(e) => setSort(e.target.value)}
-                    className="text-white hover:bg-gray-700 bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-14 py-2.5 text-center items-center"
+                  defaultValue={'default'}
+                  onChange={(e) => setSort(e.target.value)}
+                  className="items-center rounded-lg bg-gray-800 px-4 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300 md:px-14 md:py-2.5"
                 >
                   <option value="default" disabled selected>
                     Sort By

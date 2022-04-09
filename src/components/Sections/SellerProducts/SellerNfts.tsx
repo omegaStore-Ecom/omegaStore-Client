@@ -14,9 +14,17 @@ const SellerNfts: React.FC = () => {
         data.map((product, index) => (
           <div
             key={index}
-            className="mx-auto flex h-96 w-80 max-w-sm flex-col justify-between rounded-xl border border-gray-200 px-6 py-4 shadow-sm"
+            className="mx-auto flex h-80 w-64 max-w-sm flex-col justify-between rounded-xl border border-gray-200 px-6 py-4 shadow-sm"
           >
-            <div className="relative h-64 w-full rounded-lg bg-gray-300 bg-cover bg-center shadow-md">
+            <div className="flex justify-between">
+              <p className="flex w-1/2 items-center">
+                {' '}
+                <span className="mr-2 h-4 w-4 rounded-full bg-orange-300"></span>{' '}
+                seller
+              </p>
+              <p className="w-1/2 text-right">collection</p>
+            </div>
+            <div className="relative h-48 w-full rounded-lg bg-gray-300 bg-cover bg-center shadow-md">
               <Image
                 src={`http://localhost:4000/upload/product/${product.productImage[0]}`}
                 alt=""
@@ -27,23 +35,24 @@ const SellerNfts: React.FC = () => {
               />
             </div>
 
-            <div className="flex flex-col px-3 py-2">
-              <h2 className="flex flex-col text-base font-bold text-gray-800">
-                {product.productName}
-              </h2>
+            <div className="flex flex-col">
               <div className="flex items-center justify-between">
+                <h2 className="flex flex-col text-base font-bold text-gray-800">
+                  {product.productName}
+                </h2>
                 <span className="text-sm font-bold text-blue-500">
-                  {product.productPrice}
+                  {product.productPrice} ETH
                 </span>
+              </div>
 
-                <div>
-                  <button className="mr-1 transform rounded-full border border-slate-100 px-2 py-1 text-3xl text-red-600 shadow-sm transition-colors duration-200 focus:text-red-800 focus:outline-none">
-                    <AiFillDelete />
-                  </button>
-                  <button className="transform rounded-full border border-slate-100 px-2 py-1 text-3xl text-green-600 shadow-sm transition-colors duration-200 focus:text-green-800 focus:outline-none">
-                    <RiEditBoxFill />
-                  </button>
-                </div>
+              <div className="flex w-full mt-3">
+                <button className="cartBtn flex w-1/2 cursor-pointer justify-center rounded-l-2xl p-1 rounded-r-sm border border-gray-300">
+                  <AiFillDelete />
+                  <span className="text-xs ml-1">Delete</span>
+                </button>
+                <button className="cartBtn flex w-1/2 cursor-pointer justify-center rounded-r-2xl p-1 rounded-l-sm border border-gray-300 px-1">
+                  <RiEditBoxFill /> <span className="text-xs ml-1">Edit</span>
+                </button>
               </div>
             </div>
           </div>
