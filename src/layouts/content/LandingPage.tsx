@@ -29,7 +29,7 @@ const LandingPage: React.FC = () => {
         scrub: true,
         // pin: true,
         // pinSpacing: false,
-        snap: 1 /("wrapper".length-1),
+        snap: 1 /("wrapper".length-2),
         // toggleClass: '.gsap',
         // toggleActions: 'restart complete reverse reset',
         //options: play, pause, resume, reset, restart, complete, reverse,none

@@ -1,12 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
 
 interface NavBarProps {
   active: boolean;
 }
 
 const HeroSection: React.FC<NavBarProps> = ({active}) => {
+
+      useEffect(() => {
+        gsap.to('.effect', {
+          duration: 1,
+          // opacity: 0,
+          // filter: 'blur(5px)',
+          filter: 'brightness(0.2)',
+          
+          backgroundColor: 'rgba(0,0,0,0.2)',
+          // stagger: 1,
+          ease: 'power4.out',
+          scrollTrigger: {
+            trigger: 'effect',
+            /*endTrigger:"boxBody.current",*/
+            markers: true,
+            start: 'bottom 92%',
+            end: 'bottom 80%',
+            scrub: true,
+            /*pin: boxMain.current,*/
+            toggleClass: '.hero',
+            toggleActions: 'restart complete reverse reset',
+            //options: play, pause, resume, reset, restart, complete, reverse,none
+          },
+        });
+      }, []);
   return (
     <div className="h-4/5 w-full overflow-hidden">
       <div
@@ -14,7 +43,7 @@ const HeroSection: React.FC<NavBarProps> = ({active}) => {
           active ? 'hidden' : ''
         }`}
       >
-        <div className="main h-full w-full bg-gradient-to-b from-[#a7808d] via-[#aa8b95] to-[#e0d4d9]">
+        <div className="main effect h-full w-full bg-gradient-to-b from-[#ff5043] via-[#f87066] to-[#f8c2c2d6]">
           <div className="relative h-full min-h-screen w-full">
             <div
               data-aos="fade-down"
