@@ -50,7 +50,7 @@ const AllNft: React.FC<Props> = ({ sortBy , category}) => {
               .map((product, index) => (
             <div
               key={index}
-              className="mx-auto flex h-96 w-80 max-w-sm flex-col justify-between rounded-xl border border-gray-200 px-6 py-4 shadow-sm"
+              className="mx-auto flex h-80 w-64 max-w-sm flex-col justify-between rounded-xl border border-gray-200 px-6 py-4 shadow-sm"
             >
               <div className="relative h-64 w-full rounded-lg bg-gray-300 bg-cover bg-center shadow-md">
                 <Image

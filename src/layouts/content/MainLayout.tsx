@@ -11,26 +11,28 @@ gsap.registerPlugin(ScrollTrigger);
 const MainLayout = React.forwardRef<HTMLDivElement | null, unknown>((prop, ref) => {
     const [active, setActive] = useState(false);
 
-    useEffect(() => {
-        gsap.to(".wrapper", {
-            duration: 3,
-            opacity: 0,
-            stagger: 1,
-            ease: 'power4.out',
-            scrollTrigger: {
-                trigger: "wrapper",
-                /*endTrigger:"boxBody.current",*/
-                /*markers: true,*/
-                start: 'bottom 92%',
-                end: 'bottom 50%',
-                scrub: 4,
-                /*pin: boxMain.current,*/
-                toggleClass: ".hero",
-                toggleActions: 'restart complete reverse reset',
-                //options: play, pause, resume, reset, restart, complete, reverse,none
-            },
-        });
-    },[]);
+    // useEffect(() => {
+    //     gsap.to(".wrapper", {
+    //         duration: 3,
+    //         // opacity: 0,
+    //         filter: "blur(5px)",
+    //         backgroundColor: "rgba(0,0,0,0.2)",
+    //         stagger: 1,
+    //         ease: 'power4.out',
+    //         scrollTrigger: {
+    //             trigger: "wrapper",
+    //             /*endTrigger:"boxBody.current",*/
+    //             /*markers: true,*/
+    //             start: 'bottom 92%',
+    //             end: 'bottom 50%',
+    //             scrub: 4,
+    //             /*pin: boxMain.current,*/
+    //             toggleClass: ".hero",
+    //             toggleActions: 'restart complete reverse reset',
+    //             //options: play, pause, resume, reset, restart, complete, reverse,none
+    //         },
+    //     });
+    // },[]);
     return (
       <div className={`wrapper ${active ? 'active' : ''}`}>
         <NavBar active={active} setActive={setActive} />
