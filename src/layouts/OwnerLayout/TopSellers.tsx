@@ -35,9 +35,9 @@ const TopSellers: React.FC = () => {
                   <div className="flex flex-col text-2xl font-bold">
                     <h1 className="name break-words">Dexter</h1>
                   </div>
-                  <div className="cursor-pointer rounded-l-2xl rounded-r-sm border border-gray-300 p-1 px-4 shadow-md hover:bg-gray-700 hover:text-white">
+                  <button className="cursor-pointer rounded-l-2xl rounded-r-sm border border-gray-300 p-1 px-4 shadow-md hover:bg-gray-700 hover:text-white">
                     View
-                  </div>
+                  </button>
                 </div>
               </div>
             </div>
