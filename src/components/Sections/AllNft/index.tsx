@@ -5,12 +5,15 @@ import Image from "next/image";
 import { useGetProductQuery } from "redux/services/products";
 import category from "../../../layouts/Home/Category";
 import { BsFillBagPlusFill } from 'react-icons/bs';
+import {useAppDispatch} from "../../../../redux/hooks";
+import {addLineItem} from "../../../../redux/features/cartSlice";
 interface Props {
   sortBy: string;
   category: string
 }
 const AllNft: React.FC<Props> = ({ sortBy , category}) => {
   const { data } = useGetProductQuery();
+  const dispatch = useAppDispatch()
   const [isOpen, setIsOpen] = useState(false);
 
   // sort array by given criteria
@@ -55,7 +58,7 @@ const AllNft: React.FC<Props> = ({ sortBy , category}) => {
               <div className="flex justify-between">
                 <p className="flex w-1/2 items-center">
                   {' '}
-                  <span className="mr-2 h-4 w-4 rounded-full bg-orange-300"></span>{' '}
+                  <span className="mr-2 h-4 w-4 rounded-full bg-orange-300"/>{' '}
                   seller
                 </p>
                 <p className="w-1/2 text-right">collection</p>
@@ -80,7 +83,7 @@ const AllNft: React.FC<Props> = ({ sortBy , category}) => {
                     {product.productPrice} ETH
                   </span>
                 </div>
-                <button className="cartBtn mt-3 flex items-center justify-center rounded-lg border border-slate-200 py-1">
+                <button onClick={() => dispatch(addLineItem(product))} className="cartBtn mt-3 flex items-center justify-center rounded-lg border border-slate-200 py-1">
                   <BsFillBagPlusFill />
                   <span className="ml-2 text-xs">Add to Cart</span>
                 </button>
