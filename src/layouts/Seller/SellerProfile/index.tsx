@@ -17,7 +17,7 @@ const SellerProfile = () => {
     <>
       <section className="w-full">
         <div className="p-16">
-          <div className="mt-24 bg-white p-8 shadow">
+          <div className="mt-24 bg-white p-8 shadow rounded-lg">
             <div className="grid grid-cols-1 md:grid-cols-3 items-start">
               <div className="order-last mt-20 grid grid-rows-3 text-start gap-5 md:order-first md:mt-0">
                 <div>
@@ -42,37 +42,41 @@ const SellerProfile = () => {
                 </div>
 
                 <div className="mt-20  text-center">
-                  <p className="mt-3 font-light text-gray-600">{seller.firstName} {seller.lastName}</p>
+                  <p className="mt-3 font-light text-gray-600">👤  {seller.firstName} {seller.lastName}</p>
 
-                  <p className="mt-3 text-gray-500">{seller.email}</p>
-                  <p className="mt-2 text-gray-500">{seller.phone}</p>
-                  <button className="transform rounded bg-gray-800 px-2 py-1 text-xs text-white transition-colors duration-200 hover:bg-gray-700 focus:bg-gray-700 focus:outline-none dark:hover:bg-gray-600 dark:focus:bg-gray-600">
-                    Edit profile
-                  </button>
+                  <p className="mt-3 text-gray-500">✉️ {seller.email}</p>
+                  <p className="mt-2 text-gray-500">📞 {seller.phone}</p>
+
 
                 </div>
 
               </div>
 
-              <div className=" grid space-x-8 md:mt-0 md:justify-end gap-4">
+              <div className="grid justify-end gap-4 w-full text-lg">
+
                 <button
                   onClick={() => setIsOpen(!isOpen)}
-                  className="transform rounded bg-blue-600 py-2 px-4 font-medium uppercase text-white shadow transition hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-lg"
+                  className="inline-block px-6 py-3 border-2 border-gray-800 text-gray-800 font-semibold text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out "
                 >
                   Add product
                 </button>
-                <button className="flex transform items-center rounded bg-slate-500 py-2 px-4 font-medium uppercase text-white shadow transition hover:-translate-y-0.5 hover:bg-slate-700 hover:shadow-lg">
-                  <Image
-                    src="/metamask.svg"
-                    alt=""
-                    width="30%"
-                    height="30%"
-                    layout="raw"
-                    className="mr-2"
-                  />{" "}
-                  <span>Metamask</span>
+                <button className=" px-6 py-3 border-2 border-gray-800 text-gray-800 font-semibold text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out ">
+                  {/*<Image*/}
+                  {/*  src="/metamask.svg"*/}
+                  {/*  alt=""*/}
+                  {/*  width="30%"*/}
+                  {/*  height="30%"*/}
+                  {/*  layout="raw"*/}
+                  {/*  className="mr-2"*/}
+                  {/*/>{" "}*/}
+                  <span>🦊 Metamask</span>
                 </button>
-
+                <button
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="inline-block px-6 py-3 border-2 border-gray-800 text-gray-800 font-semibold text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out "
+                >
+                  Edit Profile
+                </button>
               </div>
 
             </div>
