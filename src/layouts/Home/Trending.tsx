@@ -2,29 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { ImFire } from 'react-icons/im';
 import { BsFillBagPlusFill } from 'react-icons/bs';
-import { gsap } from 'gsap';
-
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { FaCartPlus } from 'react-icons/fa';
-gsap.registerPlugin(ScrollTrigger);
+import { useGetProductQuery } from '../../../redux/services/products';
 
 const Trending: React.FC = () => {
+  const { data } = useGetProductQuery();
     const [sort, setSort] = useState('default');
     const [category, setCategory] = useState('defaultC');
-    
-  useEffect(() => {
-/*    gsap.from('.nft', {
-      opacity: 0,
-      y: '100',
-      scrollTrigger: {
-        trigger: '.trending',
-        /!*markers: true,*!/
-        start: 'top 90%',
-        end: 'top 60%',
-        scrub: true,
-      },
-    });*/
-  }, []);
     return (
       <section className="trending min-h-screen w-full bg-[#f3fbfe]">
         <div className="container mx-auto px-6 py-8">
@@ -65,190 +48,47 @@ const Trending: React.FC = () => {
               </div>
 
               <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                {/* conteeeeeeeeeeeeeeeeeeeeeeeeeeent */}
-                <div className="nft mx-auto flex h-80 w-64 max-w-sm flex-col justify-between rounded-xl border border-slate-200 px-6 py-2 shadow-sm">
-                  <div className="flex justify-between">
-                    <p className="flex w-1/2 items-center">
-                      {' '}
-                      <span className="mr-2 h-4 w-4 rounded-full bg-orange-300"></span>{' '}
-                      seller
-                    </p>
-                    <p className="w-1/2 text-right">collection</p>
-                  </div>
-                  <div className="relative h-48 w-full rounded-lg bg-gray-300 bg-cover bg-center shadow-md">
-                    <Image
-                      src="/te.webp"
-                      alt=""
-                      width="100%"
-                      height="100%"
-                      layout="fill"
-                      className="rounded-lg"
-                    />
-                  </div>
+                {data &&
+                  [...data].slice(0,8).map((product, index) => (
+                    <div
+                      key={index}
+                      className="nft mx-auto flex h-80 w-64 max-w-sm flex-col justify-between rounded-xl border border-slate-200 px-6 py-2 shadow-sm"
+                    >
+                      <div className="flex justify-between">
+                        <p className="flex w-1/2 items-center">
+                          {' '}
+                          <span className="mr-2 h-4 w-4 rounded-full bg-orange-300"></span>{' '}
+                          seller
+                        </p>
+                        <p className="w-1/2 text-right">collection</p>
+                      </div>
+                      <div className="relative h-48 w-full rounded-lg bg-gray-300 bg-cover bg-center shadow-md">
+                        <Image
+                          src={`http://localhost:4000/upload/product/${product.productImage[0]}`}
+                          alt=""
+                          width="100%"
+                          height="100%"
+                          layout="fill"
+                          className="rounded-lg"
+                        />
+                      </div>
 
-                  <div className="flex flex-col">
-                    <div className="flex items-end justify-between">
-                      <h2 className="flex flex-col justify-between text-sm font-bold text-gray-800">
-                        Monkey de luffy
-                      </h2>
-                      <span className="text-sm font-bold text-blue-500">
-                        2.39 ETH
-                      </span>
+                      <div className="flex flex-col">
+                        <div className="flex items-end justify-between">
+                          <h2 className="flex flex-col justify-between text-sm font-bold text-gray-800">
+                            {product.productName}
+                          </h2>
+                          <span className="text-sm font-bold text-blue-500">
+                            {product.productPrice} ETH
+                          </span>
+                        </div>
+                        <button className="cartBtn mt-3 flex items-center justify-center rounded-lg border border-slate-200 py-1">
+                          <BsFillBagPlusFill />
+                          <span className="ml-2 text-xs">Add to Cart</span>
+                        </button>
+                      </div>
                     </div>
-
-                    <button className="cartBtn mt-3 flex items-center justify-center rounded-lg border border-slate-200 py-1">
-
-                      <BsFillBagPlusFill />
-                      <span className="ml-2 text-xs">Add to Cart</span>
-                    </button>
-                  </div>
-                </div>
-
-                <div className="nft mx-auto flex h-80 w-64 max-w-sm flex-col justify-between rounded-xl border border-slate-200 px-6 py-2 shadow-sm">
-                  <div className="flex justify-between">
-                    <p className="flex w-1/2 items-center">
-                      {' '}
-                      <span className="mr-2 h-4 w-4 rounded-full bg-orange-300"></span>{' '}
-                      seller
-                    </p>
-                    <p className="w-1/2 text-right">collection</p>
-                  </div>
-                  <div className="relative h-48 w-full rounded-lg bg-gray-300 bg-cover bg-center shadow-md">
-                    <Image
-                      src="/te.webp"
-                      alt=""
-                      width="100%"
-                      height="100%"
-                      layout="fill"
-                      className="rounded-lg"
-                    />
-                  </div>
-
-                  <div className="flex flex-col">
-                    <div className="flex items-end justify-between">
-                      <h2 className="flex flex-col justify-between text-sm font-bold text-gray-800">
-                        Monkey de luffy
-                      </h2>
-                      <span className="text-sm font-bold text-blue-500">
-                        2.39 ETH
-                      </span>
-                    </div>
-
-                    <button className="cartBtn mt-6 flex items-center justify-center rounded-lg border border-slate-200 py-1">
-
-                      <BsFillBagPlusFill />
-                      <span className="ml-2 text-xs">Add to Cart</span>
-                    </button>
-                  </div>
-                </div>
-
-                <div className="nft mx-auto flex h-80 w-64 max-w-sm flex-col justify-between rounded-xl border border-slate-200 px-6 py-2 shadow-sm">
-                  <div className="flex justify-between">
-                    <p className="flex w-1/2 items-center">
-                      {' '}
-                      <span className="mr-2 h-4 w-4 rounded-full bg-orange-300"></span>{' '}
-                      seller
-                    </p>
-                    <p className="w-1/2 text-right">collection</p>
-                  </div>
-                  <div className="relative h-48 w-full rounded-lg bg-gray-300 bg-cover bg-center shadow-md">
-                    <Image
-                      src="/te.webp"
-                      alt=""
-                      width="100%"
-                      height="100%"
-                      layout="fill"
-                      className="rounded-lg"
-                    />
-                  </div>
-
-                  <div className="flex flex-col">
-                    <div className="flex items-end justify-between">
-                      <h2 className="flex flex-col justify-between text-sm font-bold text-gray-800">
-                        Monkey de luffy
-                      </h2>
-                      <span className="text-sm font-bold text-blue-500">
-                        2.39 ETH
-                      </span>
-                    </div>
-                    <button className="cartBtn mt-3 flex items-center justify-center rounded-lg border border-slate-200 py-1">
-                      <BsFillBagPlusFill />
-                      <span className="ml-2 text-xs">Add to Cart</span>
-                    </button>
-                  </div>
-                </div>
-
-                <div className="nft mx-auto flex h-80 w-64 max-w-sm flex-col justify-between rounded-xl border border-slate-200 px-6 py-2 shadow-sm">
-                  <div className="flex justify-between">
-                    <p className="flex w-1/2 items-center">
-                      {' '}
-                      <span className="mr-2 h-4 w-4 rounded-full bg-orange-300"></span>{' '}
-                      seller
-                    </p>
-                    <p className="w-1/2 text-right">collection</p>
-                  </div>
-                  <div className="relative h-48 w-full rounded-lg bg-gray-300 bg-cover bg-center shadow-md">
-                    <Image
-                      src="/te.webp"
-                      alt=""
-                      width="100%"
-                      height="100%"
-                      layout="fill"
-                      className="rounded-lg"
-                    />
-                  </div>
-
-                  <div className="flex flex-col">
-                    <div className="flex items-end justify-between">
-                      <h2 className="flex flex-col justify-between text-sm font-bold text-gray-800">
-                        Monkey de luffy
-                      </h2>
-                      <span className="text-sm font-bold text-blue-500">
-                        2.39 ETH
-                      </span>
-                    </div>
-                    <button className="cartBtn mt-3 flex items-center justify-center rounded-lg border border-slate-200 py-1">
-                      <BsFillBagPlusFill />
-                      <span className="ml-2 text-xs">Add to Cart</span>
-                    </button>
-                  </div>
-                </div>
-
-                <div className="nft mx-auto flex h-80 w-64 max-w-sm flex-col justify-between rounded-xl border border-slate-200 px-6 py-2 shadow-sm">
-                  <div className="flex justify-between">
-                    <p className="flex w-1/2 items-center">
-                      {' '}
-                      <span className="mr-2 h-4 w-4 rounded-full bg-orange-300"></span>{' '}
-                      seller
-                    </p>
-                    <p className="w-1/2 text-right">collection</p>
-                  </div>
-                  <div className="relative h-48 w-full rounded-lg bg-gray-300 bg-cover bg-center shadow-md">
-                    <Image
-                      src="/te.webp"
-                      alt=""
-                      width="100%"
-                      height="100%"
-                      layout="fill"
-                      className="rounded-lg"
-                    />
-                  </div>
-
-                  <div className="flex flex-col">
-                    <div className="flex items-end justify-between">
-                      <h2 className="flex flex-col justify-between text-sm font-bold text-gray-800">
-                        Monkey de luffy
-                      </h2>
-                      <span className="text-sm font-bold text-blue-500">
-                        2.39 ETH
-                      </span>
-                    </div>
-                    <button className="cartBtn mt-3 flex items-center justify-center rounded-lg border border-slate-200 py-1">
-                      <BsFillBagPlusFill />
-                      <span className="ml-2 text-xs">Add to Cart</span>
-                    </button>
-                  </div>
-                </div>
+                  ))}
               </div>
             </div>
           </div>

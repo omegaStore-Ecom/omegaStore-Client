@@ -18,9 +18,11 @@ export const productApi = createApi({
     getProduct: build.query<ProductResponse, void>({
       query: () => ({ url: "product" }),
     }),
+
     getProductById: build.query<LineItemType, string>({
       query: (id) => ({ url: `product/${id}` }),
     }),
+    
     updateProduct: build.mutation<LineItemType, Partial<LineItemType>>({
       query: ({ id, ...patch }) => ({
         url: `product/${id}`,

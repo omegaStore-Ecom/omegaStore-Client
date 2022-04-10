@@ -23,29 +23,31 @@ import {deliveryManApi} from "./services/deliveryMan";
 import {GAdminApi} from "./services/generalAdmin";
 import {customerApi} from "./services/customer";
 import {productApi} from "./services/products";
+import { collectionApi } from "./services/collection";
 
 const persistConfig = {
-    key: "root",
-    storage,
-    blacklist: [
-        adminApi.reducerPath,
-        sellerApi.reducerPath,
-        customerApi.reducerPath,
-        GAdminApi.reducerPath,
-        deliveryManApi.reducerPath,
-        productApi.reducerPath,
-    ], //add slice to be ignored here
+  key: 'root',
+  storage,
+  blacklist: [
+    adminApi.reducerPath,
+    sellerApi.reducerPath,
+    customerApi.reducerPath,
+    GAdminApi.reducerPath,
+    deliveryManApi.reducerPath,
+    productApi.reducerPath,
+    collectionApi.reducerPath,
+  ], //add slice to be ignored here
 };
 
 const rootReducer = combineReducers({
-    currentUser: currentUserReducer,
-    cart: cartReducer,
-    [adminApi.reducerPath]: adminApi.reducer,
-    [sellerApi.reducerPath]: sellerApi.reducer,
-    [deliveryManApi.reducerPath]: deliveryManApi.reducer,
-    [GAdminApi.reducerPath]: GAdminApi.reducer,
-    [customerApi.reducerPath]: customerApi.reducer,
-    [productApi.reducerPath]: productApi.reducer,
+  currentUser: currentUserReducer,
+  [adminApi.reducerPath]: adminApi.reducer,
+  [sellerApi.reducerPath]: sellerApi.reducer,
+  [deliveryManApi.reducerPath]: deliveryManApi.reducer,
+  [GAdminApi.reducerPath]: GAdminApi.reducer,
+  [customerApi.reducerPath]: customerApi.reducer,
+  [productApi.reducerPath]: productApi.reducer,
+  [collectionApi.reducerPath]: collectionApi.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -62,7 +64,8 @@ export function makeStore() {
                 customerApi.middleware,
                 GAdminApi.middleware,
                 deliveryManApi.middleware,
-                productApi.middleware
+                productApi.middleware,
+                collectionApi.middleware
             ),
     });
 }

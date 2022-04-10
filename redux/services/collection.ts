@@ -1,21 +1,21 @@
-import { DeliveryMan, DeliveryManResponse } from "../../interfaces";
-import { baseQuery } from "../api";
-import { createApi } from "@rtk-incubator/rtk-query/react";
+import { CollectionItem, CollectionResponse } from '../../interfaces';
+import { baseQuery } from '../api';
+import { createApi } from '@rtk-incubator/rtk-query/react';
 
 export const collectionApi = createApi({
-  reducerPath: "collectionApi",
+  reducerPath: 'collectionApi',
   baseQuery,
 
   endpoints: (build) => ({
-    getCollection: build.query({
-      query: () => ({ url: "deliveryMan" }),
+    getCollection: build.query<CollectionResponse, void>({
+      query: () => ({ url: 'collection' }),
     }),
 
-    deleteCollection: build.mutation<{ success: boolean; id: number }, number>({
+    deleteCollection: build.mutation<CollectionItem, Partial<CollectionItem>>({
       query(id) {
         return {
           url: `collection/${id}`,
-          method: "DELETE",
+          method: 'DELETE',
         };
       },
     }),

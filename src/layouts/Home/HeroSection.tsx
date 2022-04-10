@@ -25,7 +25,7 @@ const HeroSection: React.FC<NavBarProps> = ({active}) => {
           scrollTrigger: {
             trigger: 'effect',
             /*endTrigger:"boxBody.current",*/
-            markers: true,
+            // markers: true,
             start: 'bottom 92%',
             end: 'bottom 80%',
             scrub: true,
