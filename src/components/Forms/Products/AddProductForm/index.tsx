@@ -45,6 +45,7 @@ const { refetch:prefetch } = useGetProductQuery()
           .unwrap()
           .then(() => {
               setIsOpen(false)
+              // @ts-ignore
               refetch()
               prefetch()
           })
