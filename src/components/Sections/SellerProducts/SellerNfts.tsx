@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { RiEditBoxFill } from "react-icons/ri";
 import Image from "next/image";
-import { useGetProductQuery } from "redux/services/products";
+import {useDeleteProductMutation, useGetProductQuery} from "redux/services/products";
 
 const SellerNfts: React.FC = () => {
-  const { data } = useGetProductQuery();
+  const { data , refetch } = useGetProductQuery();
+  const [deleteProduct] = useDeleteProductMutation()
   const [isOpen , setIsOpen] = useState(false)
   
   return (
@@ -19,14 +20,14 @@ const SellerNfts: React.FC = () => {
             <div className="flex justify-between">
               <p className="flex w-1/2 items-center">
                 {' '}
-                <span className="mr-2 h-4 w-4 rounded-full bg-orange-300"></span>{' '}
+                <span className="mr-2 h-4 w-4 rounded-full bg-orange-300"/>{' '}
                 seller
               </p>
               <p className="w-1/2 text-right">collection</p>
             </div>
             <div className="relative h-48 w-full rounded-lg bg-gray-300 bg-cover bg-center shadow-md">
               <Image
-                src={`http://localhost:4000/upload/product/${product.productImage[0]}`}
+                src={"https://firebasestorage.googleapis.com/v0/b/omegastore-427b9.appspot.com/o/file%2FScreenshot%202022-01-21%20112635.png?alt=media&token=e4966001-3710-465d-a8b1-03cfd3888dbe"}
                 alt=""
                 width="100%"
                 height="100%"
@@ -46,14 +47,20 @@ const SellerNfts: React.FC = () => {
               </div>
 
               <div className="flex w-full mt-3">
-                <button className="cartBtn flex w-1/2 cursor-pointer justify-center rounded-l-2xl p-1 rounded-r-sm border border-gray-300">
+                <button onClick={() => {
+                  // @ts-ignore
+                  deleteProduct(product._id)
+                  refetch()
+                } } className="cartBtn flex w-1/2 cursor-pointer justify-center rounded-l-2xl p-1 rounded-r-sm border border-gray-300">
                   <AiFillDelete />
                   <span className="text-xs ml-1">Delete</span>
                 </button>
                 <button className="cartBtn flex w-1/2 cursor-pointer justify-center rounded-r-2xl p-1 rounded-l-sm border border-gray-300 px-1">
                   <RiEditBoxFill /> <span className="text-xs ml-1">Edit</span>
                 </button>
+
               </div>
+
             </div>
           </div>
         ))}

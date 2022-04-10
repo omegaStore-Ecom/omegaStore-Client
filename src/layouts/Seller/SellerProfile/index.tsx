@@ -68,14 +68,6 @@ const SellerProfile = () => {
                   Add product
                 </button>
                 <button className="cartBtn rounded-full border border-gray-800 px-6 py-3 text-xs font-semibold uppercase leading-tight text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 ">
-                  {/*<Image*/}
-                  {/*  src="/metamask.svg"*/}
-                  {/*  alt=""*/}
-                  {/*  width="30%"*/}
-                  {/*  height="30%"*/}
-                  {/*  layout="raw"*/}
-                  {/*  className="mr-2"*/}
-                  {/*/>{" "}*/}
                   <span>🦊 Metamask</span>
                 </button>
                 <button
