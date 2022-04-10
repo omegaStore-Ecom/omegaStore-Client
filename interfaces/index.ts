@@ -28,6 +28,7 @@ export interface LineItemType {
   productSeller?: string;
   productStatus?: string;
   productBrand: string;
+  productCreatedAt: string;
 }
 export type ProductResponse = LineItemType[];
 
@@ -94,3 +95,14 @@ export interface UpdateProps {
   id?: any;
   setIsOpen: (arg: boolean) => void;
 }
+
+export interface CollectionItem {
+  _id?: string;
+  id?: string;
+  collectionName: string;
+  collectionDescription: string;
+  collectionStatus: string;
+  collectionImage: any;
+  collectionOwner: any;
+}
+export type CollectionResponse = CollectionItem[];

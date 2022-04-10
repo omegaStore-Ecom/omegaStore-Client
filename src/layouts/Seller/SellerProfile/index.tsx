@@ -17,20 +17,29 @@ const SellerProfile = () => {
     <>
       <section className="w-full">
         <div className="p-16">
-          <div className="mt-24 bg-white p-8 shadow rounded-lg">
-            <div className="grid grid-cols-1 md:grid-cols-3 items-start">
-              <div className="order-last mt-20 grid grid-rows-3 text-start gap-5 md:order-first md:mt-0">
+          <div className="mt-24 rounded-lg bg-white p-8 shadow">
+            <div className="grid grid-cols-1 items-start md:grid-cols-3">
+              <div className="text-start order-last mt-20 grid grid-rows-3 gap-5 md:order-first md:mt-0">
                 <div>
-                  <p className="text-gray-400 font-bold">Products meter</p>
-                  <p className="text-xl text-gray-700 font-bold">{data?.productLimit}/{seller.type == "Starter" ? '10' : seller.type == "Pro" ? '20' : seller.type == "Expert" ? "♾️" : null }</p>
+                  <p className="font-bold text-gray-400">Products meter</p>
+                  <p className="text-xl font-bold text-gray-700">
+                    {data?.productLimit}/
+                    {seller.type == 'Starter'
+                      ? '10'
+                      : seller.type == 'Pro'
+                      ? '20'
+                      : seller.type == 'Expert'
+                      ? '♾️'
+                      : null}
+                  </p>
                 </div>
                 <div>
-                  <p className="text-gray-400 font-bold">joined on</p>
-                  <p className="text-xl text-gray-700 font-bold">10-12-2021</p>
+                  <p className="font-bold text-gray-400">joined on</p>
+                  <p className="text-xl font-bold text-gray-700">10-12-2021</p>
                 </div>
               </div>
               <div className="relative">
-                <div className="absolute border-[7px] border-white inset-x-0 top-0 mx-auto -mt-24 flex h-36 w-36 items-center justify-center rounded-full bg-indigo-100 text-indigo-500 shadow-md">
+                <div className="absolute inset-x-0 top-0 mx-auto -mt-24 flex h-36 w-36 items-center justify-center rounded-full border-[7px] border-white bg-indigo-100 text-indigo-500 shadow-md">
                   <Image
                     src="/ca.webp"
                     alt=""
@@ -42,25 +51,23 @@ const SellerProfile = () => {
                 </div>
 
                 <div className="mt-20  text-center">
-                  <p className="mt-3 font-light text-gray-600">👤  {seller.firstName} {seller.lastName}</p>
+                  <p className="mt-3 font-light text-gray-600">
+                    👤 {seller.firstName} {seller.lastName}
+                  </p>
 
                   <p className="mt-3 text-gray-500">✉️ {seller.email}</p>
                   <p className="mt-2 text-gray-500">📞 {seller.phone}</p>
-
-
                 </div>
-
               </div>
 
-              <div className="grid justify-end gap-4 w-full text-lg">
-
+              <div className="grid w-full justify-end gap-4 text-lg">
                 <button
                   onClick={() => setIsOpen(!isOpen)}
-                  className="inline-block px-6 py-3 border-2 border-gray-800 text-gray-800 font-semibold text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out "
+                  className="cartBtn inline-block rounded-full border border-gray-800 px-6 py-3 text-xs font-semibold uppercase leading-tight text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 "
                 >
                   Add product
                 </button>
-                <button className=" px-6 py-3 border-2 border-gray-800 text-gray-800 font-semibold text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out ">
+                <button className="cartBtn rounded-full border border-gray-800 px-6 py-3 text-xs font-semibold uppercase leading-tight text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 ">
                   {/*<Image*/}
                   {/*  src="/metamask.svg"*/}
                   {/*  alt=""*/}
@@ -72,18 +79,14 @@ const SellerProfile = () => {
                   <span>🦊 Metamask</span>
                 </button>
                 <button
-                    onClick={() => setIsOpen(!isOpen)}
-                    className="inline-block px-6 py-3 border-2 border-gray-800 text-gray-800 font-semibold text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out "
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="cartBtn inline-block rounded-full border border-gray-800 px-6 py-3 text-xs font-semibold uppercase leading-tight text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 "
                 >
                   Edit Profile
                 </button>
               </div>
-
             </div>
-
           </div>
-
-
 
           <div className="mt-6 flex w-full justify-center">
             <ul className="grid w-1/2 grid-flow-col gap-2 rounded-t-lg bg-[#f3fbfe] p-2 text-center text-gray-700">

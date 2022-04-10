@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { AiFillDelete } from "react-icons/ai";
-import { RiEditBoxFill } from "react-icons/ri";
 import Image from "next/image";
 import { useGetProductQuery } from "redux/services/products";
 import category from "../../../layouts/Home/Category";
