@@ -4,7 +4,8 @@ const nextConfig = {
   experimental: { images: { layoutRaw: true } },
   images: {
     domains: [
-      'firebasestorage.googleapis.com'
+      'firebasestorage.googleapis.com',
+        'localhost',
     ]
   }
 };
