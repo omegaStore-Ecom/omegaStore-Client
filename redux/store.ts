@@ -41,6 +41,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   currentUser: currentUserReducer,
+  cart: cartReducer,
   [adminApi.reducerPath]: adminApi.reducer,
   [sellerApi.reducerPath]: sellerApi.reducer,
   [deliveryManApi.reducerPath]: deliveryManApi.reducer,
