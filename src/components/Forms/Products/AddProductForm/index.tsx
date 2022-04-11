@@ -28,7 +28,7 @@ const AddProductsForm: React.FC<ModalProps> = ({setIsOpen, refetch}) => {
                 productQuantity: 0,
                 productPrice: 0,
                 productCategory: "no collection",
-                productBrand: "",
+                productBrand: "nft",
                 productCollection: "",
                 productImage: ""
             }}
@@ -104,18 +104,18 @@ const AddProductsForm: React.FC<ModalProps> = ({setIsOpen, refetch}) => {
                         {/*        placeholder="Select Category"*/}
                         {/*        name="productCategory"*/}
                         {/*    />*/}
+                        {/*/!*</div>*!/*/}
+                        {/*<div>*/}
+                        {/*    <label className="" htmlFor="Category">*/}
+                        {/*        Brand*/}
+                        {/*    </label>*/}
+                        {/*    <Field*/}
+                        {/*        as="select"*/}
+                        {/*        className="w-full rounded-lg border-gray-200 p-3 text-sm"*/}
+                        {/*        placeholder="Select Brand"*/}
+                        {/*        name="productBrand"*/}
+                        {/*    />*/}
                         {/*</div>*/}
-                        <div>
-                            <label className="" htmlFor="Category">
-                                Brand
-                            </label>
-                            <Field
-                                as="select"
-                                className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                                placeholder="Select Brand"
-                                name="productBrand"
-                            />
-                        </div>
                     </div>
                     <div>
                         <label className="" htmlFor="Category">
