@@ -18,6 +18,7 @@ registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 const AddProductsForm: React.FC<ModalProps> = ({setIsOpen, refetch}) => {
     const [addProduct] = useAddProductMutation();
     const [files, setFiles] = useState<File[]>([]);
+    const [progress, setProgress] = useState<number>(0);
     const {refetch: prefetch} = useGetProductQuery()
     return (
         <Formik
@@ -59,6 +60,7 @@ const AddProductsForm: React.FC<ModalProps> = ({setIsOpen, refetch}) => {
 
                 uploadTask.on("state_changed", (snapshot) => {
                     const prog = Math.round(snapshot.bytesTransferred / snapshot.totalBytes * 100)
+                    setProgress(prog)
                 }, (err) => console.log(err), () => {
                     getDownloadURL(uploadTask.snapshot.ref).then((url) => {
                         values.productImage = url
@@ -79,6 +81,7 @@ const AddProductsForm: React.FC<ModalProps> = ({setIsOpen, refetch}) => {
         >
             {({errors, touched, values, setFieldValue}) => (
                 <Form className="space-y-4">
+                    {progress}
                     <div>
                         <label className="" htmlFor="firstName">
                             ProductName
@@ -166,8 +169,8 @@ const AddProductsForm: React.FC<ModalProps> = ({setIsOpen, refetch}) => {
                         <FilePond
                             files={files}
                             onupdatefiles={setFiles}
-                            allowMultiple={true}
-                            maxFiles={3}
+                            // allowMultiple={true}
+                            // maxFiles={3}
                             name="productImage"
                             labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
                         />
@@ -175,9 +178,10 @@ const AddProductsForm: React.FC<ModalProps> = ({setIsOpen, refetch}) => {
                     <div className="pt-6">
                         <button
                             type="submit"
-                            className="inline-flex w-full items-center justify-center rounded-lg bg-blue-500 px-5 py-3 text-white sm:w-auto"
+                            disabled={progress > 0}
+                            className={`inline-flex w-full items-center justify-center rounded-lg bg-blue-500 px-5 py-3 text-white sm:w-auto ${progress > 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
                         >
-                            <span className="font-medium">Add Product</span>
+                            <span className="font-medium">{progress == 0 ? 'Add Product' : 'Submitting ...' }</span>
                         </button>
                     </div>
                 </Form>
