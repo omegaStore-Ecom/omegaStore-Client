@@ -57,7 +57,7 @@ const Trending: React.FC = () => {
                       <div className="flex justify-between">
                         <p className="flex w-1/2 items-center">
                           {' '}
-                          <span className="mr-2 h-4 w-4 rounded-full bg-orange-300"></span>{' '}
+                          <span className="mr-2 h-4 w-4 rounded-full bg-orange-300"/>{' '}
                           seller
                         </p>
                         <p className="w-1/2 text-right">collection</p>
