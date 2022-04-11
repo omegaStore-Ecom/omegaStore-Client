@@ -1,4 +1,5 @@
-const ManageCustomer = () => {
+import { NextPage } from "next"
+const ManageCustomer: NextPage = () => {
     return (
         <div>
             ManageCustomer
