@@ -67,7 +67,7 @@ const AllNft: React.FC<Props> = ({ sortBy , category}) => {
               </div>
               <div className="relative h-48 w-full rounded-lg bg-gray-300 bg-cover bg-center shadow-md">
                 <Image
-                  src={`http://localhost:4000/upload/product/${product.productImage[0]}`}
+                  src={product.productImage}
                   alt=""
                   width="100%"
                   height="100%"
