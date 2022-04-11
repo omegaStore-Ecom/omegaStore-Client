@@ -7,12 +7,14 @@ import { MdAccountBox } from 'react-icons/md';
 import { FaEthereum } from 'react-icons/fa';
 import { IoLogoUsd } from 'react-icons/io';
 import { RiShoppingBag2Fill } from 'react-icons/ri';
+import {useAppSelector} from "../../../redux/hooks";
 
 interface NavBarProps {
   active: boolean;
   setActive: (arg0: boolean) => void;
 }
 const MenuGlobal: React.FC<NavBarProps> = ({ active, setActive }) => {
+  const user = useAppSelector(state => state.currentUser.role);
   return (
     <ul
       className={`menu2 flex h-screen flex-col justify-center font-semibold text-gray-700 shadow-md md:w-1/4 md:items-start ${
@@ -31,9 +33,17 @@ const MenuGlobal: React.FC<NavBarProps> = ({ active, setActive }) => {
           <HiCollection className="mr-3" />
           <Link href="/collections">Collections</Link>
         </li>
-        <li className="listG relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
-          <MdAccountBox className="mr-3" /> <Link href="/profile">Account</Link>
-        </li>
+        {user === 'seller' ?
+            <li className="list relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
+              <MdAccountBox className="mr-3" /> <Link href="/profile">Account</Link>
+            </li>
+            : user === 'customer' ?
+                <li className="list relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
+                  <MdAccountBox className="mr-3" /> <Link href="/profilecustomer">Account</Link>
+                </li>
+                :
+                null
+        }
       </div>
 
       <hr className="my-6 h-px w-96 bg-gray-300 text-gray-600" />
