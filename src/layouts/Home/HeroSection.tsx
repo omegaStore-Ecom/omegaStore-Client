@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import {useAppSelector} from "../../../redux/hooks";
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -12,6 +13,7 @@ interface NavBarProps {
 
 const HeroSection: React.FC<NavBarProps> = ({active}) => {
 
+  const user = useAppSelector(state => state.currentUser.role);
       useEffect(() => {
         gsap.to('.effect', {
           duration: 1,

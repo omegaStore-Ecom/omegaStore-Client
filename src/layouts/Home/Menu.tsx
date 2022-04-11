@@ -6,12 +6,14 @@ import { HiCollection } from 'react-icons/hi';
 import { FaEthereum } from 'react-icons/fa';
 import { IoLogoUsd } from 'react-icons/io';
 import { MdAccountBox } from 'react-icons/md';
+import {useAppSelector} from "../../../redux/hooks";
 
 interface NavBarProps {
   active: boolean;
   setActive: (arg0: boolean) => void;
 }
 const Menu: React.FC<NavBarProps> = ({ active, setActive }) => {
+  const user = useAppSelector(state => state.currentUser.role);
   return (
     <ul
       className={`menu flex h-screen w-full flex-col items-center justify-center font-semibold text-slate-300 md:w-1/4 md:items-start ${
@@ -30,9 +32,18 @@ const Menu: React.FC<NavBarProps> = ({ active, setActive }) => {
           <HiCollection className="mr-3" />
           <Link href="/collections">Collections</Link>
         </li>
+
+        {user === 'seller' ?
         <li className="list relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
           <MdAccountBox className="mr-3" /> <Link href="/profile">Account</Link>
         </li>
+        : user === 'customer' ?
+        <li className="list relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
+          <MdAccountBox className="mr-3" /> <Link href="/profilecustomer">Account</Link>
+        </li>
+          :
+          null
+        }
       </div>
 
       <hr className="my-6 h-px w-60 bg-gray-300 text-slate-200" />

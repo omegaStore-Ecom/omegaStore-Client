@@ -7,12 +7,14 @@ import { MdAccountBox } from 'react-icons/md';
 import { FaEthereum } from 'react-icons/fa';
 import { IoLogoUsd } from 'react-icons/io';
 import { RiShoppingBag2Fill } from 'react-icons/ri';
+import {useAppSelector} from "../../../redux/hooks";
 
 interface NavBarProps {
   active: boolean;
   setActive: (arg0: boolean) => void;
 }
 const MenuGlobal: React.FC<NavBarProps> = ({ active, setActive }) => {
+  const user = useAppSelector(state => state.currentUser);
   return (
     <ul
       className={`menu2 flex h-screen flex-col justify-center font-semibold text-gray-700 shadow-md md:w-1/4 md:items-start ${
@@ -31,23 +33,34 @@ const MenuGlobal: React.FC<NavBarProps> = ({ active, setActive }) => {
           <HiCollection className="mr-3" />
           <Link href="/collections">Collections</Link>
         </li>
-        <li className="listG relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
-          <MdAccountBox className="mr-3" /> <Link href="/profile">Account</Link>
-        </li>
+        {user?.role === 'seller' ?
+            <li className="list relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
+              <MdAccountBox className="mr-3" /> <Link href="/profile">Account</Link>
+            </li>
+            : user?.role === 'customer' ?
+                <li className="list relative flex text-4xl transition duration-150 ease-in-out hover:pl-10">
+                  <MdAccountBox className="mr-3" /> <Link href="/profilecustomer">Account</Link>
+                </li>
+                :
+                null
+        }
       </div>
 
       <hr className="my-6 h-px w-96 bg-gray-300 text-gray-600" />
 
       <div className="h-32 w-96">
         <div className="flex">
-          <Link href="/auth/customerlogin" passHref>
+          {user &&
+              <>
+            <Link href="/auth/sellerlogin" passHref>
             <button className="btn3 bg-gray-800 text-slate-200">Sign in</button>
-          </Link>
-          <Link href="/auth/customerregister" passHref>
+            </Link><Link href="/auth/customerregister" passHref>
             <button className="btn2 ml-32 bg-slate-200 text-black">
-              Sign up
+            Sign up
             </button>
-          </Link>
+            </Link></>
+
+          }
         </div>
         <div className="mt-10 flex">
           <div className="flex">
