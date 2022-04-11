@@ -37,7 +37,7 @@ const SellerLoginForm = () => {
     >
       {({}) => (
         <Form className="mx-auto w-full px-4 sm:w-2/3 lg:px-0">
-          {user && JSON.stringify(user.email + " " + user.role)}
+{/*          {user && JSON.stringify(user.email + " " + user.role)}*/}
           <div className="pb-2 pt-4">
             <Field
               className="block w-full rounded-full bg-black p-4 text-lg"

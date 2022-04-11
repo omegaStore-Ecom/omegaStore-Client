@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebookF } from 'react-icons/fa';
 import CostumerLoginForm from 'src/components/Forms/Costumer/CostumerLoginForm';
+import Link from "next/link";
 
 
 const RightsideLoginCostumer: React.FC = () => {
@@ -19,6 +20,10 @@ const RightsideLoginCostumer: React.FC = () => {
             />
           </h1>
           <div className="space-x-2 py-6">
+              <Link href="/auth/customerregister" passHref>
+                  <span className="text-sm text-blue-400 cursor-pointer">Dont have an account ? click to Sign Up</span>
+              </Link>
+              <p className="text-lg text-gray-100 mt-4 mb-2 font-bold">Login</p>
             <button className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-lg font-bold text-blue-700 shadow-sm shadow-white hover:text-xl focus:p-1 focus:shadow-md focus:shadow-white">
               <FaFacebookF />
             </button>
@@ -26,7 +31,6 @@ const RightsideLoginCostumer: React.FC = () => {
               <FcGoogle />
             </button>
           </div>
-          <p className="text-gray-100">or use email your account</p>
           <CostumerLoginForm />
         </div>
       </div>
