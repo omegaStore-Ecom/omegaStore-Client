@@ -15,7 +15,12 @@ export interface CurrentUser {
 export interface AdminLogin {
   email: string;
   password: string;
+  firstName?: string;
+  lastName?: string;
+  _id?: string;
 }
+
+export type AdminLoginResponse = AdminLogin[];
 export interface LineItemType {
   _id?: string;
   id?: string;

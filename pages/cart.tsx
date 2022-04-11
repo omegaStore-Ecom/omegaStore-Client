@@ -18,7 +18,7 @@ const Cart = () => {
                         cartItems && cartItems.map((product) => (
                             <Fragment key={product.id}>
                                 <CartProduct product={product}/>
-                            </Fragment>
+                            </Fragment>  
                         ))
                     }
                 </div>

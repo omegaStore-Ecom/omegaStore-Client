@@ -1,5 +1,5 @@
 import React from "react";
-import AdminLoginForm from "src/components/Forms/AdminLoginForm";
+import AdminLoginForm from "src/components/Forms/admin/AdminLoginForm";
 import login from "public/team-1.jpeg";
 import Image from "next/image";
 const AdminLoginLayout = () => {
