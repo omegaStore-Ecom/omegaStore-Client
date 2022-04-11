@@ -23,40 +23,18 @@ const AddProductsForm: React.FC<ModalProps> = ({setIsOpen, refetch}) => {
     return (
         <Formik
             initialValues={{
-                productName: "asd",
-                productDescription: "asd",
+                productName: "",
+                productDescription: "",
                 productQuantity: 0,
                 productPrice: 0,
-                productCategory: "dude",
-                productBrand: "nike",
-                productCollection: "fsdfsd",
+                productCategory: "no collection",
+                productBrand: "",
+                productCollection: "",
                 productImage: ""
             }}
             onSubmit={async (values) => {
-                // let data: any = new FormData();
-                // data.append("productName", values.productName);
-                // data.append("productDescription", values.productDescription);
-                // data.append("productQuantity", values.productQuantity);
-                // data.append("productPrice", values.productPrice);
-                // data.append("productCategory", values.productCategory);
-                // data.append("productCollection", values.productCollection);
-                // files.forEach((file) => {
-                //   data.append("productImage", file.file);
-                // });
-                // // data.append("productImage", values.productImage);
-                //
-                // addProduct(data)
-                //   .unwrap()
-                //   .then(() => {
-                //       setIsOpen(false)
-                //       // @ts-ignore
-                //       refetch()
-                //       prefetch()
-                //   })
-                //   .catch((err) => console.error(err));
                 const storageRef = ref(storage, `/file/${files[0].file.name}`)
                 const uploadTask = uploadBytesResumable(storageRef, files[0].file)
-
 
                 uploadTask.on("state_changed", (snapshot) => {
                     const prog = Math.round(snapshot.bytesTransferred / snapshot.totalBytes * 100)
@@ -105,28 +83,28 @@ const AddProductsForm: React.FC<ModalProps> = ({setIsOpen, refetch}) => {
                                 type="number"
                             />
                         </div>
-                        <div>
-                            <label className="" htmlFor="phone">
-                                Quantity
-                            </label>
-                            <Field
-                                className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                                placeholder="Product Quantity"
-                                name="productQuantity"
-                                type="number"
-                            />
-                        </div>
-                        <div>
-                            <label className="" htmlFor="Category">
-                                Category
-                            </label>
-                            <Field
-                                as="select"
-                                className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                                placeholder="Select Category"
-                                name="productCategory"
-                            />
-                        </div>
+                        {/*<div>*/}
+                        {/*    <label className="" htmlFor="phone">*/}
+                        {/*        Quantity*/}
+                        {/*    </label>*/}
+                        {/*    <Field*/}
+                        {/*        className="w-full rounded-lg border-gray-200 p-3 text-sm"*/}
+                        {/*        placeholder="Product Quantity"*/}
+                        {/*        name="productQuantity"*/}
+                        {/*        type="number"*/}
+                        {/*    />*/}
+                        {/*</div>*/}
+                        {/*<div>*/}
+                        {/*    <label className="" htmlFor="Category">*/}
+                        {/*        Category*/}
+                        {/*    </label>*/}
+                        {/*    <Field*/}
+                        {/*        as="select"*/}
+                        {/*        className="w-full rounded-lg border-gray-200 p-3 text-sm"*/}
+                        {/*        placeholder="Select Category"*/}
+                        {/*        name="productCategory"*/}
+                        {/*    />*/}
+                        {/*</div>*/}
                         <div>
                             <label className="" htmlFor="Category">
                                 Brand

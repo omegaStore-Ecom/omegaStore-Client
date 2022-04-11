@@ -1,10 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // experimental: { images: { layoutRaw: true } },
+  experimental: { images: { layoutRaw: true } },
   images: {
     domains: [
-      'firebasestorage.googleapis.com'
+      'firebasestorage.googleapis.com',
+        'localhost'
     ]
   }
 };
