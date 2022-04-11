@@ -73,14 +73,14 @@ const Newest: React.FC = () => {
                       <div className="flex justify-between">
                         <p className="flex w-1/2 items-center">
                           {' '}
-                          <span className="mr-2 h-4 w-4 rounded-full bg-orange-300"></span>{' '}
+                          <span className="mr-2 h-4 w-4 rounded-full bg-orange-300"/>{' '}
                           seller
                         </p>
                         <p className="w-1/2 text-right">collection</p>
                       </div>
                       <div className="relative h-48 w-full rounded-lg bg-gray-300 bg-cover bg-center shadow-md">
                         <Image
-                          src={`http://localhost:4000/upload/product/${product.productImage[0]}`}
+                          src={product.productImage}
                           alt=""
                           width="100%"
                           height="100%"

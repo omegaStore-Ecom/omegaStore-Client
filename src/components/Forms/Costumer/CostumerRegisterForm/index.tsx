@@ -79,7 +79,7 @@ const CostumerRegisterForm: React.FC = () => {
               type="submit"
               className="block w-full rounded-full bg-indigo-600 p-4 text-lg uppercase hover:bg-indigo-700 focus:outline-none"
             >
-              sign in
+              sign Up
             </button>
           </div>
         </Form>

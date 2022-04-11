@@ -40,8 +40,7 @@ const SellerRegisterForm = () => {
         data.append("password", values.password);
         data.append("file", files[0].file);
 
-        await sellerRegister(data)
-
+        await sellerRegister(data);
       }}
     >
       {({}) => (
@@ -110,7 +109,7 @@ const SellerRegisterForm = () => {
               type="submit"
               className="block w-full rounded-full bg-indigo-600 p-4 text-lg uppercase hover:bg-indigo-700 focus:outline-none"
             >
-              sign in
+              sign Up
             </button>
 
           </div>
