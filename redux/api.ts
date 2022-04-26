@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@rtk-incubator/rtk-query/react";
 import { AppState } from "./store";
 
 export const baseQuery = fetchBaseQuery({
-  baseUrl: "https://cryptomr.herokuapp.com/",
+  baseUrl: "https://cryptom-server.herokuapp.com/",
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as AppState).currentUser.token;
     if (token) {
