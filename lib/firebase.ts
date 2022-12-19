@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import {getStorage} from "@firebase/storage";
 const firebaseConfig = {
-    apiKey: "AIzaSyDRqOIOsDWrMMYgN1vBzdiZqPRqeD-Gdxw",
-    authDomain: "omegastore-427b9.firebaseapp.com",
-    projectId: "omegastore-427b9",
-    storageBucket: "omegastore-427b9.appspot.com",
-    messagingSenderId: "240694915616",
-    appId: "1:240694915616:web:447fcad75739f2cd07c245",
-    measurementId: "G-8WY59PN8NW"
+  apiKey: 'AIzaSyBac1aGm0L3z2u1vPDp6tzk9ccD6LYrsx8',
+  authDomain: 'cryptom-d017a.firebaseapp.com',
+  projectId: 'cryptom-d017a',
+  storageBucket: 'cryptom-d017a.appspot.com',
+  messagingSenderId: '2150346661',
+  appId: '1:2150346661:web:515b06cbe76776091f824c',
+  measurementId: 'G-NGG7SMLBJQ',
 };
 
 export const app = initializeApp(firebaseConfig);
